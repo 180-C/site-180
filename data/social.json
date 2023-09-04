@@ -1,0 +1,13 @@
+{
+  "main": [
+    {
+      "name": "linkedin",
+      "icon": "fab fa-linkedin",
+      "link": "https://www.linkedin.com/company/epfl180c/"
+    }, {
+      "name": "instagram",
+      "icon": "fab fa-instagram",
+      "link": "https://www.instagram.com/epfl_180c/"
+    }
+  ]
+}

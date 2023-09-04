@@ -1,0 +1,60 @@
+############# English navigation ##############
+
+# main menu
+[[main]]
+name = "Accueil"
+url = "/"
+weight = 1
+
+[[main]]
+name = "Le Crieur"
+url = "crieur/"
+weight = 2
+
+[[main]]
+name = "Articles"
+url = "blog/"
+isParent = true
+weight = 3
+
+[[main]]
+name = "Evenements"
+url = "categories/evenements/"
+parent = "Articles"
+
+[[main]]
+name = "Recettes"
+url = "categories/recettes/"
+parent = "Articles"
+
+[[main]]
+name = "Actualités"
+url = "categories/actualites/"
+parent = "Articles"
+
+[[main]]
+name = "Sponsors"
+url = "sponsors/"
+weight = 6
+
+[[main]]
+name = "L'association"
+url = "association/"
+weight = 5
+
+
+# footer menu
+[[footer]]
+name = "A propos"
+url = "association/"
+weight = 1
+
+[[footer]]
+weight = 2
+name = "Contact"
+url = "contact/"
+
+[[footer]]
+name = "Privacy Policy"
+url = "privacy-policy/"
+weight = 3
