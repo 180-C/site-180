@@ -53,7 +53,7 @@ show_categories = true
 
 # seo meta data for OpenGraph / Twitter Card
 [metadata]
-keywords = ["Boilerplate", "Hugo", "180°C", "EPFL", "Cuisine", "Recettes", "Blog"]
+keywords = ["180°C", "180", "180c", "EPFL", "UNIL", "lausanne", "cuisine", "recettes", "blog", "association", "crieur", "fringale", "etudiants", "etudiant", "etudiante", "etudiantes"]
 description = "180°C Association EPFL Cuisine - Recettes et Blog"
 author = "180°C"
 image = "images/logo.png"
