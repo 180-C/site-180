@@ -12,7 +12,7 @@ banner:
 # Sections
 sections:
   - title: "Le Crieur"
-    image: "/images/crieur.svg"
+    image: "/images/crieur2.png"
     content: "Notre nouveau projet : un carnet d'adresses dans la région lausannoise accessible aux étudiant·e·s. Que vous soyez à la recherche d'un coin sympa pour se détendre autour d'une boisson fraîche entre potes ou de quoi bien manger sans se ruiner, c'est par ici !"
     bulletpoints:
       - "Un carnet d'adresses"

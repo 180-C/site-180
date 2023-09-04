@@ -24,7 +24,7 @@
         "bordeaux": "#EE323E",
         "border": "#3E3E3E",
         "theme_light": "#222222",
-        "theme_dark": ""
+        "theme_dark": "#333333"
       },
       "text_color": {
         "default": "#B4AFB6",
