@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ with site.GetPage "sponsors" }}
+<!-- Banner -->
+<section class="section-sm pt-14 pb-0">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-7 mb-8 text-center">
+        <h1 class="mb-4">
+          {{ .Title | markdownify }}
+        </h1>
+        <p class="mb-2">
+          {{ .Content | markdownify }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+<!-- /Banner -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row justify-center">
+      {{ range .RegularPages }}
+        <div class="md:col-6 lg:col-4 mb-14">
+          {{ partial "components/sponsor-card" . }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -2,37 +2,28 @@
   {{ with site.GetPage "homepage" }}
     <!-- Banner -->
     {{ with .Params.banner }}
-      <section class="section pt-14">
-        <div class="container">
-          <div class="row justify-center">
-            <div class="lg:col-7 mb-8 text-center">
-              <h1 class="mb-4">
+      <section class="section p-0 m-0">
+          <div class="row justify-center banner flex flex-col m-0 p-0" style="background-image: url({{.image | relURL  }})">
+            <div class="grow flex flex-col items-center text-center justify-center m-0 p-0 px-4" >
+              <h1 class="font-tertiary font-extrabold lg:text-8xl sm:text-6xl text-light mb-3  sm:mt-14 lg:mt-28">
                 {{ .title | markdownify }}
               </h1>
-              <p class="mb-8">
+              <p class="font-tertiary font-normal text-theme-light lg:text-3xl sm:text-xl m-0">
                 {{ .content | markdownify }}
               </p>
-              {{ with .button }}
-                {{ if .enable }}
-                  <a class="btn btn-primary" href="{{ .link | absURL }}">
-                    {{ .label }}
-                    <i class="fa fa-arrow-right pl-2"></i>
-                  </a>
-                {{ end }}
-              {{ end }}
             </div>
-            <div class="col-12">
-              {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto" "Size" "800x") }}
-            </div>
+            <svg class="grow-0 m-0 p-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1440 120">
+              <path class="fill-light dark:fill-darkmode-theme-light" fill-opacity="1" d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+              </path>
+            </svg>
           </div>
-        </div>
       </section>
     {{ end }}
     <!-- /Banner -->
 
-    <!-- Features -->
-    {{ range $i, $e:= .Params.features }}
-      <section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }}">
+    <!-- Sections -->
+    {{ range $i, $e:= .Params.sections }}
+      <section class="section-sm {{ if not (modBool $i 2) }}bg-gradient-reverse{{ end }}">
         <div class="container">
           <div class="row items-center justify-between">
             <div
@@ -42,16 +33,16 @@
               {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
             </div>
             <div
-              class="{{ if not (modBool $i 2) }}
+              class="content {{ if not (modBool $i 2) }}
                 md:order-1
               {{ end }} md:col-7 lg:col-6">
-              <h2 class="mb-4">
+              <h2 class="mb-4 font-tertiary font-extrabold">
                 {{ .title | markdownify }}
               </h2>
               <p class="mb-8 text-lg">
                 {{ .content | markdownify }}
               </p>
-              <ul>
+              <ul class="list-none">
                 {{ range .bulletpoints }}
                   <li class="relative mb-4 pl-6">
                     <i class="fa fa-check absolute left-0 top-1.5"></i>
@@ -72,19 +63,19 @@
         </div>
       </section>
     {{ end }}
-    <!-- /Features -->
+    <!-- /Sections -->
 
     {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 10 }}
 
     <!-- Posts -->
     {{ with site.GetPage "sections/actualites" }}
       {{ if .Params.enable }}
-        <section class="section">
+        <section class="section bg-gradient">
           <div class="container">
             <div class="row">
               <div
                 class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
-                <h2 class="mb-4">
+                <h2 class="mb-4 font-tertiary font-extrabold">
                   {{ .Title | markdownify }}
                 </h2>
                 <p>

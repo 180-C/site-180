@@ -12,18 +12,25 @@ let h4 = h5 * font_scale;
 let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
-let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType;
+let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType, fontTeriary, fontTeriaryType;
 if (theme.fonts.font_family.primary) {
-  fontPrimary = theme.fonts.font_family.primary
+  fontPrimary = theme.fonts.font_family.primary.base
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-  fontPrimaryType = theme.fonts.font_family.primary_type;
+  fontPrimaryType = theme.fonts.font_family.primary.type;
 }
 if (theme.fonts.font_family.secondary) {
-  fontSecondary = theme.fonts.font_family.secondary
+  fontSecondary = theme.fonts.font_family.secondary.base
     .replace(/\+/g, " ")
     .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-  fontSecondaryType = theme.fonts.font_family.secondary_type;
+  fontSecondaryType = theme.fonts.font_family.secondary.type;
+}
+
+if (theme.fonts.font_family.tertiary) {
+  fontTeriary = theme.fonts.font_family.tertiary.base
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
+  fontTeriaryType = theme.fonts.font_family.tertiary.type;
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -44,6 +51,14 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      borderColor: {
+        primary: theme.colors.default.theme_color.primary,
+        secondary: theme.colors.default.theme_color.secondary,
+        darkMode: {
+          primary: theme.colors.darkmode.theme_color.primary,
+          secondary: theme.colors.darkmode.theme_color.secondary,
+        }
+      },
       colors: {
         text: theme.colors.default.text_color.default,
         light: theme.colors.default.text_color.light,
@@ -52,6 +67,7 @@ module.exports = {
         secondary: theme.colors.default.theme_color.secondary,
         body: theme.colors.default.theme_color.body,
         border: theme.colors.default.theme_color.border,
+        bordeaux: theme.colors.default.theme_color.bordeaux,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
         darkmode: {
@@ -62,6 +78,7 @@ module.exports = {
           secondary: theme.colors.darkmode.theme_color.secondary,
           body: theme.colors.darkmode.theme_color.body,
           border: theme.colors.darkmode.theme_color.border,
+          bordeaux: theme.colors.default.theme_color.bordeaux,
           "theme-light": theme.colors.darkmode.theme_color.theme_light,
           "theme-dark": theme.colors.darkmode.theme_color.theme_dark,
         },
@@ -81,6 +98,7 @@ module.exports = {
       fontFamily: {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
+        tertiary: [fontTeriary, fontTeriaryType],
       },
     },
   },

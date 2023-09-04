@@ -1,0 +1,24 @@
+<div class="bg-secondary dark:bg-darkmode-dark rounded-xl text-center">
+  {{ $image:= .Params.image }}
+  {{ if $image }}
+  {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mx-auto rounded-t-xl" "size" "120x120") }}
+  {{ end }}
+  <div class="p-8">
+    <h4 class="mb-3 text-light dark:text-dark">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h4>
+    <p class="mb-4">
+      {{ .Summary }}
+    </p>
+    <ul class="social-icons">
+      {{ range .Params.social }}
+      <li>
+        <a href="{{ .link | safeURL }}" target="_blank" rel="noopener nofollow">
+          <span class="sr-only">{{ .title }}</span>
+          <i class="{{ .icon }}"></i>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

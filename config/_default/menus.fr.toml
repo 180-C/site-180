@@ -52,9 +52,4 @@ weight = 1
 [[footer]]
 weight = 2
 name = "Contact"
-url = "contact/"
-
-[[footer]]
-name = "Privacy Policy"
-url = "privacy-policy/"
-weight = 3
+url = "mailto:epfl180c@gmail.com"

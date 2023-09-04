@@ -1,13 +1,92 @@
 {{ define "main" }}
-  <section class="section-sm">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="md:col-10 lg:col-7 text-center">
-          {{ partial "image" (dict "Src" .Params.image "Alt" .Title "Class" "mx-auto mb-6" "Size" "200x200") }}
-          <h2 class="h3 mb-6">{{ .Title }}</h2>
-          <div class="content">{{ .Content }}</div>
+  {{ with site.GetPage "association" }}
+    <!-- Banner -->
+    {{ with .Params.banner }}
+      <section class="section pt-14">
+        <div class="container">
+          <div class="row items-center justify-between content">
+            <div
+              class="mb:md-0 md:col-5 mb-6">
+              {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
+            </div>
+            <div
+              class="md:col-7 lg:col-6">
+              <h2 class="mb-4">
+                {{ .title | markdownify }}
+              </h2>
+              <p class="mb-8 text-lg">
+                {{ .content | markdownify }}
+              </p>
+              <ul>
+                {{ range .bulletpoints }}
+                  <li class="relative mb-4 pl-6">
+                    <i class="fa fa-check absolute left-0 top-1.5"></i>
+                    {{ . | markdownify }}
+                  </li>
+                {{ end }}
+              </ul>
+              {{ with .button }}
+                {{ if .enable }}
+                  <a class="btn btn-primary mt-6" href="{{ .link | absURL }}">
+                    {{ .label }}
+                    <i class="fa fa-arrow-right pl-2"></i>
+                  </a>
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </section>
+    {{ end }}
+    <!-- /Banner -->
+
+    <!-- Poles -->
+    {{ range $i, $e:= .Params.poles }}
+
+    <div class="section-sm {{ if (modBool $i 2) }}bg-primary text-light{{ end }} pt-0">
+      {{ if (modBool $i 2) }}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 150">
+        <path class="{{ if (modBool $i 2) }}fill-light dark:fill-secondary{{ else }}fill-primary{{end}}" fill-opacity="1"
+          d="M0,192L80,181.3C160,171,320,149,480,154.7C640,160,800,192,960,197.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+        </path>
+      </svg>
+      {{ else }}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 1440 180">
+        <path class="{{ if (modBool $i 2) }}fill-light dark:fill-secondary{{ else }}fill-primary{{end}}" fill-opacity="1"
+          d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+        </path>
+      </svg>
+      {{ end }}
+
+      <div class="container col-12 px-6 text-center">
+        <h1 class="font-extrabold font-tertiary {{ if (modBool $i 2) }}text-light{{end}} ">{{ .name }}</h1>
+        <p>{{ .description }}</p>
+        <div class="row justify-center m-0 p-0 pt-4">
+
+          {{ range .members }}
+          <div class="col-12 md:col-6 lg:col-3 my-2">
+            <div class="member-card {{ if (modBool $i 2) }}bg-body{{else}}bg-secondary dark:bg-body{{end}}">
+              <a href="{{ .link }}" target="_blank">
+                {{ $image:= .image }}
+                {{ if $image }}
+                  {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                {{ end }}
+              </a>
+              <div class="card-body text-center p-4">
+                <h4 class="font-secondary {{ if (modBool $i 2) }}text-dark dark:text-dark{{else}}text-light dark:text-dark{{end}}">
+                  <a href="{{ .link }}" target="_blank">
+                    {{ .name }}
+                  </a>
+                </h4>
+                <h5 class="font-tertiary {{ if (modBool $i 2) }}text-dark dark:text-dark{{else}}text-light dark:text-dark{{end}}">{{ .role }}</h5>
+              </div>
+            </div>
+          </div>
+          {{ end }}
         </div>
       </div>
     </div>
-  </section>
+    {{ end }}
+    <!-- /Poles -->
+    {{ end }}
 {{ end }}
