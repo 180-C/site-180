@@ -19,6 +19,14 @@
   {{ $scripts = $scripts | minify | fingerprint }}
 {{ end }}
 
+<!-- crieur map -->
+{{ if eq .Type "crieur"}}
+  {{ $crieur := resources.Get "js/map.js" }}
+<script
+  crossorigin="anonymous"
+  integrity="{{ $crieur.Data.Integrity }}"
+  src="{{ $crieur.RelPermalink }}"></script>
+{{ end }}
 
 <script
   crossorigin="anonymous"

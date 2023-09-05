@@ -166,8 +166,6 @@ link = "https://code.jquery.com/jquery-3.6.0.min.js"
 [[params.plugins.js]]
 link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
 [[params.plugins.js]]
-link = "js/map.js"
-[[params.plugins.js]]
 link = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js"
 [[params.plugins.js]]
 link = "https://epsg.io/21781.js"
