@@ -1,5 +1,6 @@
 # 180°C Website
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![pages-build-deployment](https://github.com/180-C/site-180/actions/workflows/hugo.yaml/badge.svg)](https://github.com/180-C/site-180/actions/workflows/hugo.yaml)
 
 This repository contains the source code of the 180°C website.
