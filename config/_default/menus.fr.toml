@@ -12,25 +12,24 @@ url = "crieur/"
 weight = 2
 
 [[main]]
-name = "Articles"
-url = "blog/"
+name = "Rubriques"
 isParent = true
 weight = 3
 
 [[main]]
-name = "Evenements"
-url = "categories/evenements/"
-parent = "Articles"
+name = "Événements"
+url = "events/"
+parent = "Rubriques"
 
 [[main]]
 name = "Recettes"
-url = "categories/recettes/"
-parent = "Articles"
+url = "recettes/"
+parent = "Rubriques"
 
 [[main]]
-name = "Actualités"
-url = "categories/actualites/"
-parent = "Articles"
+name = "Articles"
+url = "blog/"
+parent = "Rubriques"
 
 [[main]]
 name = "Sponsors"

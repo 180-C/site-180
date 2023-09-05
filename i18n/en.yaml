@@ -30,3 +30,9 @@
 
 - id: empty_search_results_placeholder
   translation: Type something to search..
+
+- id: "related_events"
+  translation: "Related Events"
+
+- id: "related_recipes"
+  translation: "Related Recipes"

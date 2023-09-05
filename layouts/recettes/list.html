@@ -8,7 +8,7 @@
         <!-- blog posts -->
         <div class="lg:col-8">
           <div class="row">
-            {{ $paginator:= .Paginate .RegularPages }}
+            {{ $paginator:= .Paginate .RegularPages 2 }}
             {{ range $paginator.Pages }}
               <div class="md:col-6 mb-14">
                 {{ partial "components/blog-card" . }}
@@ -19,9 +19,9 @@
         </div>
         <!-- sidebar -->
         <div class="lg:col-4">
-          <!-- widget -->
-          {{ $widget:= site.Params.widgets.sidebar }}
-          {{ partialCached "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) }}
+          <!-- widgets -->
+          {{ partial ( print "components/widget" ) ( dict "widget" "categories" "scope" . ) }}
+          {{ partial ( print "components/widget" ) ( dict "widget" "tags" "scope" . ) }}
         </div>
       </div>
     </div>

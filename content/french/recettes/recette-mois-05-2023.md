@@ -2,10 +2,9 @@
 title: "Recette du mois - Mai 2023"
 subtitle: ""
 date: 2023-05-12T05:00:00Z
-image: "/images/recette-mois-05-2023.jpg"
-categories: ["Recettes"]
-author: "Antonin Faure"
-tags: ["vegetarien", "vegan", "recette du mois"]
+image: "/images/recettes/recette-mois-05-2023.jpg"
+"recettes/categories": ["Recette du mois"]
+"recettes/tags": ["vegetarien", "vegan"]
 draft: false
 summary: "Paëlla aux légumes de printemps (pour 2-3 personnes)"
 description: "Paëlla aux légumes de printemps (pour 2-3 personnes)"

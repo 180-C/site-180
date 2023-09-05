@@ -30,3 +30,18 @@
 
 - id: empty_search_results_placeholder
   translation: Tapez quelque chose pour rechercher ...
+
+- id: related_events
+  translation: "Événements similaires"
+
+- id: related_recipes
+  translation: "Recettes similaires"
+
+- id: events
+  translation: "Événements"
+
+- id: recettes
+  translation: "Recettes"
+
+- id: posts
+  translation: "Articles"

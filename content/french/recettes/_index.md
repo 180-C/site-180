@@ -1,5 +1,5 @@
 ---
-title: "Articles"
+title: "Recettes"
 meta_title: ""
 description: "this is meta description"
 ---
