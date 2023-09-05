@@ -1,29 +1,60 @@
 {{ define "main" }}
 {{ with site.GetPage "crieur" }}
-<div class="row items-center justify-between">
-  <section class="section-sm p-0 md:order-2">
+<div class="row items-center justify-between m-0">
+  <section class="section-sm p-0">
     <div class="row p-0 m-0">
       <div class="col-12 p-0">
         <!-- Map -->
         <div class="col-12 p-0 m-0">
-          <div id="map" style="position: relative; top: 0;"></div>
+          <div id="map" style="position: relative; top: 0;">
+            <!-- Add a button to open the filter modal -->
+            <button id="open-filter-button" class="btn btn-primary">Open Filters</button>
+          </div>
         </div>
-        {{ partial "components/crieur-filters.html" . }}
       </div>
     </div>
   </section>
-  <section class="md:order-1">
+  <div id="filter-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      {{ partial "components/crieur-filters.html" . }}
+    </div>
+  </div>
+  <section class="section p-0 bg-gradient-reverse">
     <div id="crieurTop" class="col-12 p-5">
-      <h1 class="mx-4 mt-5 text-center">{{ .Title }}</h1>
+      <h1 class="mx-4 mt-5 text-center font-tertiary font-extrabold">{{ .Title }}</h1>
     </div>
   </section>
 </div>
+
+{{ $paginator := $.Paginate (where .Site.RegularPages "Type" "crieur") 20 }}
+
+<!-- Slider -->
+<section class="section p-0 bg-gradient">
+  <div class="container px-10">
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper testimonial-slider">
+          <div class="swiper-wrapper">
+            {{ range $paginator.Pages }}
+            <div class="swiper-slide">
+              {{ partial "components/crieur-card" . }}
+            </div>
+            {{ end }}
+          </div>
+          <div class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Slider -->
 
 {{ with .Params.sections }}
 {{ range $i, $section := . }}
 <section
   class="section-sm py-2{{ if not (modBool $i 2) }}bg-gradient{{ else if (ne $i (sub (len $.Params.sections) 1) ) }}bg-gradient-reverse{{ end }}">
-  <div class="container px-6">
+  <div class="container px-10">
     <div class="row items-center justify-between">
       <div class="mb:md-0 {{ if not (modBool $i 2) }}
           md:order-2

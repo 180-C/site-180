@@ -1,8 +1,11 @@
 ---
 draft: false
 title: "Brasserie du château"
-banner: "brasserie-banner.webp"
-front: "brasserie-front.webp"
+banner: "/images/crieur/brasserie-du-chateau/brasserie-banner.png"
+thumbnail: "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
+images:
+  - "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
+  - "/images/crieur/brasserie-du-chateau/brasserie-banner.png"
 style: "Bières & Pizzas"
 types: ["restaurant","bar"]
 tags: ["takeaway","vege"]
@@ -15,7 +18,7 @@ locations:
     latitude: 46.52484139487125
     longitude: 6.634625044830118
     map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10980.636510543509!2d6.6346036!3d46.5247529!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x79332bfa4cd655cb!2sBrasserie%20du%20Ch%C3%A2teau!5e0!3m2!1sfr!2sch!4v1669225335208!5m2!1sfr!2sch"
-    horaires:
+    schedules:
         - name: "Lundi"
           creneaux:
             - start: "11:00"

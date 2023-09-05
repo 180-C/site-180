@@ -1,6 +1,34 @@
 (function () {
   "use strict";
 
+// Get the filter modal, close button, and open filter button elements
+const filterModal = document.getElementById("filter-modal");
+const closeButton = document.querySelector(".close-button");
+const openFilterButton = document.getElementById("open-filter-button");
+
+// Function to open the modal
+function openModal() {
+    filterModal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    filterModal.style.display = "none";
+}
+
+// Event listener to open the modal when the open filter button is clicked
+openFilterButton.addEventListener("click", openModal);
+
+// Event listener to close the modal when the close button is clicked
+closeButton.addEventListener("click", closeModal);
+
+// Close the modal if the user clicks outside of it
+window.addEventListener("click", (event) => {
+    if (event.target === filterModal) {
+        closeModal();
+    }
+});
+
   const Map = ol.Map;
   const OSM = ol.source.OSM
   const TileLayer = ol.layer.Tile
@@ -56,11 +84,12 @@
   });
 
   config = CRIEUR_CONFIG;
-
   $(document).ready(function () {
 
     const chLayer = new TileLayer({
-      source: new OSM(),
+      source: new ol.source.XYZ({
+        url: "http://{1-4}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+      })
     })
 
     overlay = new ol.Overlay({

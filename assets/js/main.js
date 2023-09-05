@@ -24,12 +24,17 @@
       type: "bullets",
       clickable: true,
     },
+    slidesPerGroup: 1,
+    slidesPerView: 1,
+    centeredSlides: false,
     breakpoints: {
       768: {
         slidesPerView: 2,
+        slidesPerGroup: 2,
       },
       992: {
         slidesPerView: 3,
+        slidesPerGroup: 3,
       },
     },
   });

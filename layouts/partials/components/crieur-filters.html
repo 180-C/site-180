@@ -1,30 +1,38 @@
 {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
 
-<div id="filter-controls" class="col-12 px-3 py-2 m-0 text-center content">
-    <span class="label m-0">Types</span>
-    <div class="types flex flex-wrap justify-center">
-        {{ range $i, $type := $config.types }}
-        <div class="m-1 p-0">
-            <input class="btn-check" type="checkbox" id="check-type-{{ $i }}" value="{{ $type.code }}" checked>
-            <label for="check-type-{{ $i }}" class="btn btn-primary ">{{ $type.icon | safeHTML }} {{ $type.name }}</label>
-        </div>
-        {{ end }}
-    </div>
-    <span class="label mt-2 m-0">Prix</span>
-    <div class="prices flex flex-wrap justify-center">
-        {{ range $i, $price := $config.priceTags }}
-        <td class="m-1 p-0">
-            <input class="btn-check" type="checkbox" id="check-price-{{ $price }}" value="{{ $price }}" checked>
-            <label for="check-price-{{ $price }}" class="btn btn-primary">
-                {{ if eq $price 0}}
-                    <i class="fas fa-dollar-sign"></i>
-                {{ else}}
-                    {{ range seq $price}}
-                    <i class="fas fa-dollar-sign"></i>
-                    {{ end }}
-                {{ end }}
+<div id="filter-controls" class="col-12 px-3 py-2 m-0 flex flex-col gap-5 text-center">
+    <div class="flex flex-col gap-2">
+        <span class="label text-dark font-extrabold">Types</span>
+        <div class="types flex flex-col gap-2">
+            {{ range $i, $type := $config.types }}
+            <div class="p-0">
+                <input class="hidden peer" type="checkbox" id="check-type-{{ $i }}" value="{{ $type.code }}" checked>
+                <label for="check-type-{{ $i }}"
+                    class="btn btn-outline-primary hover:btn-dark cursor-pointer peer-checked:btn-primary flex flex-row gap-2 justify-center">
+                    <span>{{ $type.icon | safeHTML }}</span>
+                    <span>{{ $type.name}}</span>
                 </label>
-        </td>
-        {{ end }}
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+    <div class="flex flex-col gap-2">
+        <span class="label text-dark font-extrabold">Prix</span>
+        <div class="prices flex flex-col gap-2">
+            {{ range $i, $price := $config.priceTags }}
+            <div class="p-0">
+                <input class="hidden peer" type="checkbox" id="check-price-{{ $price }}" value="{{ $price }}" checked>
+                <label for="check-price-{{ $price }}"
+                    class="btn btn-outline-primary cursor-pointer peer-checked:btn-primary flex gap-2 justify-center">
+                    <span>
+                        {{ range seq $price}}
+                        <i class="fas fa-dollar-sign"></i>
+                        {{ end }}
+                    </span>
+                </label>
+            </div>
+            {{ end }}
+        </div>
     </div>
 </div>
