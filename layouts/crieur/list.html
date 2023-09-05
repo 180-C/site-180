@@ -1,15 +1,80 @@
 {{ define "main" }}
 {{ with site.GetPage "crieur" }}
-<section class="section-sm">
-  <div class="container">
-    <div class="row justify-center">
-      <div class="md:col-10 lg:col-7 text-center">
-        {{ partial "image" (dict "Src" "/images/loading.svg" "Alt" .Title "Class" "mx-auto mb-6" "Size" "300x300") }}
-        <h1 class="text-3xl font-bold mb-2">Work in progress</h1>
-        <p class="text-gray-600">This page is not ready yet. Please come back later.</p>
+<div class="row items-center justify-between">
+  <section class="section-sm p-0 md:order-2">
+    <div class="row p-0 m-0">
+      <div class="col-12 p-0">
+        <!-- Map -->
+        <div class="col-12 p-0 m-0">
+          <div id="map" style="position: relative; top: 0;"></div>
+        </div>
+        {{ partial "components/crieur-filters.html" . }}
+      </div>
+    </div>
+  </section>
+  <section class="md:order-1">
+    <div id="crieurTop" class="col-12 p-5">
+      <h1 class="mx-4 mt-5 text-center">{{ .Title }}</h1>
+    </div>
+  </section>
+</div>
+
+{{ with .Params.sections }}
+{{ range $i, $section := . }}
+<section
+  class="section-sm py-2{{ if not (modBool $i 2) }}bg-gradient{{ else if (ne $i (sub (len $.Params.sections) 1) ) }}bg-gradient-reverse{{ end }}">
+  <div class="container px-6">
+    <div class="row items-center justify-between">
+      <div class="mb:md-0 {{ if not (modBool $i 2) }}
+          md:order-2
+        {{ end }} md:col-5 mb-6">
+        {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
+      </div>
+      <div class="content {{ if not (modBool $i 2) }}
+          md:order-1
+        {{ end }} md:col-7 lg:col-6">
+        <h2 class="mb-4 font-tertiary font-extrabold">
+          {{ .title | markdownify }}
+        </h2>
+        <p class="mb-8 text-lg">
+          {{ .content | markdownify }}
+        </p>
+        <ul class="list-none">
+          {{ range .bulletpoints }}
+          <li class="relative mb-4 pl-6">
+            <i class="fa fa-check absolute left-0 top-1.5"></i>
+            {{ .name | markdownify }}
+            {{ if .list }}
+            <ul class="list-none">
+              {{ range .list }}
+              <li class="relative mb-4">
+                {{ . | markdownify }}
+              </li>
+              {{ end }}
+            </ul>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        <p class="mb-8 text-lg">
+          {{ .alert | markdownify }}
+        </p>
+        {{ with .button }}
+        {{ if .enable }}
+        <a class="btn btn-primary mt-6" href="{{ .link | absURL }}">
+          {{ .label }}
+          <i class="fa fa-arrow-right pl-2"></i>
+        </a>
+        {{ end }}
+        {{ end }}
       </div>
     </div>
   </div>
 </section>
+{{ end }}
+{{ end }}
+
+{{ partial "crieur.html" . }}
+
 {{ end }}
 {{ end }}

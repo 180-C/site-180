@@ -1,0 +1,30 @@
+{{ $config := index $.Site.Data "config-crieur" | default (dict) }}
+
+<div id="filter-controls" class="col-12 px-3 py-2 m-0 text-center content">
+    <span class="label m-0">Types</span>
+    <div class="types flex flex-wrap justify-center">
+        {{ range $i, $type := $config.types }}
+        <div class="m-1 p-0">
+            <input class="btn-check" type="checkbox" id="check-type-{{ $i }}" value="{{ $type.code }}" checked>
+            <label for="check-type-{{ $i }}" class="btn btn-primary ">{{ $type.icon | safeHTML }} {{ $type.name }}</label>
+        </div>
+        {{ end }}
+    </div>
+    <span class="label mt-2 m-0">Prix</span>
+    <div class="prices flex flex-wrap justify-center">
+        {{ range $i, $price := $config.priceTags }}
+        <td class="m-1 p-0">
+            <input class="btn-check" type="checkbox" id="check-price-{{ $price }}" value="{{ $price }}" checked>
+            <label for="check-price-{{ $price }}" class="btn btn-primary">
+                {{ if eq $price 0}}
+                    <i class="fas fa-dollar-sign"></i>
+                {{ else}}
+                    {{ range seq $price}}
+                    <i class="fas fa-dollar-sign"></i>
+                    {{ end }}
+                {{ end }}
+                </label>
+        </td>
+        {{ end }}
+    </div>
+</div>

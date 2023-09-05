@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
+
+  const CRIEUR_CONFIG = {{ $config }};
+
+  // list all pages of type "crieur"
+  const CRIEUR_PLACES = [
+    {{ with $.Site.GetPage "crieur" }}
+  {{ $places := .Pages }}
+    {{ range $i, $place := $places }}
+      {{ $place := $place.Params }}
+      {{ $place }},
+    {{ end }}
+  {{ end }}
+  ];
+  
+</script>
