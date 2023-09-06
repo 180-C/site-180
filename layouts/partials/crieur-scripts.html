@@ -8,6 +8,10 @@
   integrity="{{ $crieur.Data.Integrity }}"
   src="{{ $crieur.RelPermalink }}" defer></script>
 
+<link 
+  href="http//cdn.jsdelivr.net/npm/ol@v7.1.0/ol.min.css"
+  rel="stylesheet" />
+
 <script type="text/javascript">
   {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
 

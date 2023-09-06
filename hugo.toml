@@ -139,8 +139,6 @@ link = "plugins/font-awesome/v6/brands.css"
 link = "plugins/font-awesome/v6/solid.css"
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/icons.css"
-[[params.plugins.css]]
-link = "http://cdn.jsdelivr.net/npm/ol@v7.1.0/ol.css"
 
 # JS Plugins
 [[params.plugins.js]]
