@@ -9,7 +9,7 @@
   src="{{ $crieur.RelPermalink }}" defer></script>
 
 <link 
-  href="http//cdn.jsdelivr.net/npm/ol@v7.3.0/ol.min.css"
+  href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.min.css"
   rel="stylesheet" />
 
 <script type="text/javascript">
@@ -22,10 +22,14 @@
     {{ with $.Site.GetPage "crieur" }}
   {{ $places := .Pages }}
     {{ range $i, $place := $places }}
-      {{ $place := $place.Params }}
+      {{ $originalPlace := $place.Params }}
+      {{ $placeWithUrl := dict "url" ($place.RelPermalink | relURL ) }}
+      {{ $place = merge $originalPlace $placeWithUrl }}
       {{ $place }},
     {{ end }}
   {{ end }}
   ];
+
+  const MAP_MARKER = '{{ "/images/map_marker.png" | relURL }}';
   
 </script>

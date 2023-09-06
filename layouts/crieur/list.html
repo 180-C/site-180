@@ -10,9 +10,13 @@
             <!-- Add a button to open the filter modal -->
             <button id="open-filter-button" class="btn btn-primary">Open Filters</button>
           </div>
+          <div id="map-popup" class="ol-popup">
+            <a href="#" id="map-popup-closer" class="ol-popup-closer"></a>
+            <div id="map-popup-content"></div>
+
+          </div>
         </div>
       </div>
-    </div>
   </section>
   <div id="filter-modal" class="modal">
     <div class="modal-content">
@@ -104,6 +108,8 @@
 </section>
 {{ end }}
 {{ end }}
+
+{{ .Content }}
 
 {{ partial "crieur-scripts.html" . }}
 

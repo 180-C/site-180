@@ -88,3 +88,22 @@
     right: 20px;
     z-index: 10;
 }
+
+.crieur-place-card {
+    border: 0px;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    padding: 1.5rem;
+
+    h4 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+
+    h5 {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+}

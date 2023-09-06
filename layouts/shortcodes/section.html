@@ -1,0 +1,30 @@
+{{ $class := .Get "class" }}
+{{ $image := .Get "image" }}
+{{ $side := .Get "side" | default "right" }}
+{{ $title := .Get "title" }}
+
+
+<section
+  class="section-sm py-2 {{ $class }}">
+  <div class="container px-10">
+    <div class="row items-center justify-between">
+      <div class='mb:md-0 {{ if eq $side "right" }}
+          md:order-2
+        {{ end }} md:col-5 mb-6'>
+        {{ partial "image" (dict "Src" $image "Alt" "feature image") }}
+      </div>
+      <div class='content {{ if eq $side "right" }}
+          md:order-1
+        {{ end }} md:col-7 lg:col-6'>
+        {{ if $title }}
+        <h2 class="mb-4 font-tertiary font-extrabold">
+          {{ $title | markdownify }}
+        </h2>
+        {{ end }}
+        <div class="mb-8 text-lg">
+          {{ .Inner | markdownify }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
