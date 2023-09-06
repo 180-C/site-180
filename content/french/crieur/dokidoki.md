@@ -12,7 +12,7 @@ tags: ["vege","takeaway","delivery"]
 tips: "10% sur toutes les commandes à emporter"
 description: "Petit restaurant dans une avenue marchande offrant de la cuisine asiatique traditionnelle"
 price: "3-18 CHF"
-priceTag: 2,
+priceTag: 2
 locations:
   - address: "Av. du Tribunal-Fédéral 4, 1005 Lausanne"
     latitude: 46.52004283516274
@@ -61,11 +61,11 @@ locations:
             end: "14:00"
 links:
     - social: "site"
-    - url: "https://dokidoki-fc.ch/"
+      url: "https://dokidoki-fc.ch/"
     - social: "instagram"
-    - url: "https://www.instagram.com/dokidoki.ramen/"
+      url: "https://www.instagram.com/dokidoki.ramen/"
     - social: "facebook"
-    - url: "https://www.facebook.com/people/Doki-Doki/100051324954397/"
+      url: "https://www.facebook.com/people/Doki-Doki/100051324954397/"
     - social: "tripadvisor"
-    - url: "https://fr.tripadvisor.ch/Restaurant_Review-g188107-d21313222-Reviews-Doki_Doki-Lausanne_Canton_of_Vaud.html"
+      url: "https://fr.tripadvisor.ch/Restaurant_Review-g188107-d21313222-Reviews-Doki_Doki-Lausanne_Canton_of_Vaud.html"
 ---

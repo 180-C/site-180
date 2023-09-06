@@ -1,21 +1,184 @@
 {{ define "main" }}
 <section>
-    <div class="container text-center">
-      <div
-        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
-        {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
-      </div>
+  <div class="container text-center">
+    <div
+      class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+      {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
     </div>
-  </section>
-<section class="section-sm">
-  <div class="container">
-    <div class="row justify-center">
-      <div class="md:col-10 lg:col-7 text-center">
-        {{ partial "image" (dict "Src" "/images/loading.svg" "Alt" .Title "Class" "mx-auto mb-6" "Size" "300x300") }}
-        <h1 class="text-3xl font-bold mb-2">Work in progress</h1>
-        <p class="text-gray-600">This page is not ready yet. Please come back later.</p>
+  </div>
+</section>
+
+<!-- Banner -->
+{{ if .Params.banner }}
+<section class="section p-0 m-0">
+  <div class="row justify-center banner flex flex-col m-0 p-0">
+    <div class="grow flex flex-col items-center text-center justify-center m-0 p-0 px-4">
+
+    </div>
+    <svg class="grow-0 m-0 p-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1440 120">
+      <path class="fill-light dark:fill-darkmode-body" fill-opacity="1"
+        d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+      </path>
+    </svg>
+  </div>
+</section>
+{{ end }}
+<!-- /Banner -->
+
+
+<!-- == CONTAINER 1 == -->
+<section class="col-12 p-0 m-0">
+  <div class="container col-12">
+    <div class="row m-0 p-0">
+      <div class="col-12 {{ if .Params.thumbnail }}col-lg-7{{end}} p-3 text-left">
+        <h1 class="d-inline title">
+          {{ $site := "none" }}
+          {{ range $link := .Params.links }}
+            {{ if eq $link.social "site" }}
+              {{ $site = $link.url }}
+            {{ end }}
+          {{ end }}
+          {{ if ne $site "none" }}
+          <a href="{{ $site }}" target="_blank">{{ .Params.title }}</a>
+          {{ end }}
+        </h1>
+        <h3 class="mb-1">{{ .Params.style }}</h3>
+        <!-- Types -->
+        {{ if .Params.types }}
+        <div class="mb-0">
+          {{ range $type := .Params.types }}
+          <span data-code="{{ $type }}" class="type"></span>
+          {{ end }}
+        </div>
+        {{ end }}
+        <div class="tags">
+          <!-- Price -->
+          <span class="price badge rounded-pill bg-danger my-2" style="font-size: .8em;">
+            {{ if gt .Params.priceTag 0 }}
+              {{ range seq .Params.priceTag }}<i class="fas fa-dollar-sign"></i>{{ end }} ({{ .Params.price }})
+            {{ end }}
+          </span>
+          <!-- Tags -->
+          {{ if .Params.tags }}
+            {{ range $tag := .Params.tags }}
+            <span data-code="{{ $tag }}" class="tag badge rounded-pill bg-dark mt-0 mb-2"></span>
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="text-justify">
+          <p>{{ .Params.description }}</p>
+        </div>
+        {{ if .Params.tips }}
+        <div class="mt-3 alert alert-dark">
+          <h5><i class="fas fa-lightbulb" style="font-size: .9em"></i> Tips</h5>
+          <p>
+            {{ .Params.tips }}
+          </p>
+        </div>
+        {{ end }}
+      </div>
+
+
+      {{ if .Params.thumbnail }}
+      <div class="col-12 col-lg-5 px-3 m-0 mb-3">
+        {{ partial "image" (dict "Src" .Params.thumbnail "Alt" "thumbnail image") }}
+      </div>
+      {{ end }}
+
+      {{ if and .Params.tops (gt (len .Params.tops) 0) }}
+      <hr>
+      <div class="col-12 py-4 text-center">
+        <h2>Recommandations</h2>
+        <div class="row m-0 p-0 justify-content-center">
+          {{ range $top := .Params.tops }}
+          <div class="col-12 col-md-6 col-lg-4 m-0 p-4">
+            <div class="card shadow m-0 p-0 top">
+              {{ if $top.photo }}
+                {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "card-img-top img-fluid") }}
+              {{ end }}
+              <div class="card-body pt-4">
+                <h4>{{ $top.name }}</h4>
+                <h6><i>{{ $top.price }}</i></h6>
+                <p>{{ $top.description }}</p>
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      <hr>
+      <div class="col-12 py-2">
+        {{ range $location := .Params.locations }}
+        <div class="row mt-0 mb-4 mx-0 py-3 px-0">
+          <div class="col-12 col-lg-6 col-xl-8 mb-3">
+            <h4 class="text-center mb-3">{{ $location.address }}</h4>
+            <iframe src="{{ $location.map | safeHTML }}" width="100%" height="450" style="border:0;" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-4">
+            <div class="row m-0 p-0 justify-content-center">
+              <div class="card shadow p-3 m-3 mt-0">
+                <h5 class="text-center text-decoration-underline">Horaires</h5>
+                <table>
+                  <tbody>
+                    {{ range $schedule := $location.schedules }}
+                      {{ if eq (len $schedule.creneaux) 0 }}
+                        <tr>
+                          <th>
+                            {{ $schedule.name }}
+                          </th>
+                          <td>
+                            Fermé
+                          </td>
+                        </tr>
+                      {{ else }}
+                        {{ range $i, $creneau := $schedule.creneaux }}
+                          {{ if eq $i 0 }}
+                          <tr>
+                            <th class="align-top" rowspan="{{ len $schedule.creneaux}}">
+                              {{ $schedule.name }}
+                            </th>
+                            <td>
+                              {{$creneau.start}} - {{$creneau.end}}
+                            </td>
+                          </tr>
+                          {{ else }}
+                          <tr>
+                            <td>
+                              {{$creneau.start}} - {{$creneau.end}}
+                            </td>
+                          </tr>
+                          {{ end }}
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 text-center">
+                <ul class="social-icons">
+                  {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
+
+                  {{ range $link := $.Params.links }}
+                  <li>
+                    <a href="{{ $link.url }}" data-code="{{ $link.social }}" class="" target="_blank">
+                      {{ if $link.social }}
+                        {{ index $config.socials $link.social | safeHTML }}
+                      {{ end }}
+                    </a>
+                  </li>
+                  {{ end }}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{ end }}
       </div>
     </div>
   </div>
 </section>
+<!-- == /CONTAINER 1 == -->
 {{ end }}

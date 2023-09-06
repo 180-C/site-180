@@ -1,10 +1,10 @@
 {
     "draft": false,
     "title": "Legram",
-    "banner": "/images/crieur/legram/legram.webp",
-    "thumbnail": "/images/crieur/legram/legram.webp",
+    "banner": "/images/crieur/legram/legram.png",
+    "thumbnail": "/images/crieur/legram/legram.png",
     "images": [
-        "/images/crieur/legram/legram.webp"
+        "/images/crieur/legram/legram.png"
     ],
     "style": "Bistro",
     "types": [

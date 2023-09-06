@@ -1,10 +1,10 @@
 {
     "draft": false,
     "title": "Tom Café",
-    "banner": "/images/crieur/tom-cafe/tom-cafe-banner.web",
-    "thumbnail": "/images/crieur/tom-cafe/tom-cafe-banner.webp",
+    "banner": "/images/crieur/tom-cafe/tom-cafe-banner.png",
+    "thumbnail": "/images/crieur/tom-cafe/tom-cafe-banner.png",
     "images": [
-        "/images/crieur/tom-cafe/tom-cafe-banner.webp"
+        "/images/crieur/tom-cafe/tom-cafe-banner.png"
     ],
     "style": "Caféteria",
     "types": [

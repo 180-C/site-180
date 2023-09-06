@@ -1,11 +1,11 @@
 ---
 draft: false
 title: "Brasserie du château"
-banner: "/images/crieur/brasserie-du-chateau/brasserie-banner.png"
+banner: "/images/crieur/brasserie-du-chateau/brasserie-banner.jpg"
 thumbnail: "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
 images:
   - "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
-  - "/images/crieur/brasserie-du-chateau/brasserie-banner.png"
+  - "/images/crieur/brasserie-du-chateau/brasserie-banner.jpeg"
 style: "Bières & Pizzas"
 types: ["restaurant","bar"]
 tags: ["takeaway","vege"]

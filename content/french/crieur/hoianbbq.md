@@ -1,11 +1,11 @@
 {
     "draft": false,
     "title": "Hoi An BBQ",
-    "banner": "/images/crieur/hoianbbq/hoianbbq-banner.avif",
+    "banner": "/images/crieur/hoianbbq/hoianbbq-banner.jpg",
     "thumbnail": "/images/crieur/hoianbbq/hoianbbq-front.jpg",
     "images": [
         "/images/crieur/hoianbbq/hoianbbq-front.jpg",
-        "/images/crieur/hoianbbq/hoianbbq-banner.avif"
+        "/images/crieur/hoianbbq/hoianbbq-banner.jpg"
     ],
     "style": "Vietnamien",
     "types": [

@@ -1,10 +1,10 @@
 {
         "draft": false,
         "title": "Fleur d'Asie",
-        "banner": "/images/crieur/fleur-asie/fleur-asie-banner.webp",
-        "thumbnail": "/images/crieur/fleur-asie/fleur-asie-banner.webp",
+        "banner": "/images/crieur/fleur-asie/fleur-asie-banner.jpg",
+        "thumbnail": "/images/crieur/fleur-asie/fleur-asie-banner.jpg",
         "images": [
-            "/images/crieur/fleur-asie/fleur-asie-banner.webp"
+            "/images/crieur/fleur-asie/fleur-asie-banner.jpg"
         ],
         "style": "Traiteur vietnamien et supermarché asiatique",
         "types": [
