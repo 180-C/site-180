@@ -1,3 +1,13 @@
+<!-- crieur map -->
+{{ $crieur := resources.Get "js/map.js" }}
+{{ if hugo.IsProduction }}
+  {{ $crieur = $crieur | minify | fingerprint }}
+{{ end }}
+<script
+  crossorigin="anonymous"
+  integrity="{{ $crieur.Data.Integrity }}"
+  src="{{ $crieur.RelPermalink }}" defer></script>
+
 <script type="text/javascript">
   {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
 

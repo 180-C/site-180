@@ -140,7 +140,7 @@ link = "plugins/font-awesome/v6/solid.css"
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/icons.css"
 [[params.plugins.css]]
-link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/ol.css"
+link = "http://cdn.jsdelivr.net/npm/ol@v7.1.0/ol.css"
 
 # JS Plugins
 [[params.plugins.js]]
@@ -162,12 +162,12 @@ link = "plugins/cookie.js"
 [[params.plugins.js]]
 link = "plugins/youtube-lite.js"
 [[params.plugins.js]]
-link = "https://code.jquery.com/jquery-3.6.0.min.js"
+link = "http://code.jquery.com/jquery-3.6.0.min.js"
 [[params.plugins.js]]
-link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
+link = "http://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
 [[params.plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js"
+link = "http://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js"
 [[params.plugins.js]]
-link = "https://epsg.io/21781.js"
+link = "http://epsg.io/21781.js"
 [[params.plugins.js]]
-link = "https://epsg.io/2056.js"
+link = "http://epsg.io/2056.js"
