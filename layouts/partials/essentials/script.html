@@ -25,10 +25,10 @@
   {{ if hugo.IsProduction }}
     {{ $crieur = $crieur | minify | fingerprint }}
   {{ end }}
-<script
-  crossorigin="anonymous"
-  integrity="{{ $crieur.Data.Integrity }}"
-  src="{{ $crieur.RelPermalink }}"></script>
+  <script
+    crossorigin="anonymous"
+    integrity="{{ $crieur.Data.Integrity }}"
+    src="{{ $crieur.RelPermalink }}"></script>
 {{ end }}
 
 <script
