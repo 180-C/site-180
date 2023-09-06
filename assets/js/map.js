@@ -111,7 +111,7 @@
       });
       if (feature) {
         /* Popup */
-        popup_content.innerHTML = `<div class="crieur-place-card flex flex-col gap-2">
+        popup_content.innerHTML = `<div class="crieur-place-card flex flex-col gap-2" style="background-color: white;">
           <div class="flex flex-col">
             <h4>${feature.values_.title}</h4>
             <h6>${feature.values_.style}</h6>
