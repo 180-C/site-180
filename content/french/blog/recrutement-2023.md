@@ -17,7 +17,7 @@ Notre association est encore jeune et beaucoup d'opportunités s'offrent à nous
 
 Rejoins nous en cliquant sur [ce lien](https://docs.google.com/forms/d/e/1FAIpQLSfN7iDo8ikW6qiBqrYv2oXVJCVR1s8w6pFwmUKwE5Cp_zBN7w/viewform) ! A très vite 😇
 
-{{< imgsection image="images/blog/recrutement-2023/recrutement1.jpg" title="Pôle Evenementiel" imgclass="rounded-xl" >}}
+{{< imgsection image="images/blog/recrutement-2023/recrutement1.jpg" title="Pôle Événementiel" imgclass="rounded-xl" >}}
     
 Organiser et imaginer des événements en équipe que 180°C mettra en place.
 
