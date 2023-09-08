@@ -3,9 +3,7 @@ draft: false
 title: "Brasserie du château"
 banner: "/images/crieur/brasserie-du-chateau/brasserie-banner.jpg"
 thumbnail: "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
-images:
-  - "/images/crieur/brasserie-du-chateau/brasserie-front.jpg"
-  - "/images/crieur/brasserie-du-chateau/brasserie-banner.jpeg"
+gallery: "/images/crieur/brasserie-du-chateau"
 style: "Bières & Pizzas"
 types: ["restaurant","bar"]
 tags: ["takeaway","vege"]
@@ -56,7 +54,7 @@ links:
       url: "https://www.facebook.com/brasserieduchateaulausanne"
 tops:
     - name: "Ginger Golden Ale"
-      photo: "ginger-golden-ale.webp"
+      photo: "/images/crieur/brasserie-du-chateau/tops/ginger-golden-ale.png"
       description: "Bière blonde au gingembre brassée par la Brasserie du Château (33cl 4,5%)"
       price: "CHF 3.5"
 ---

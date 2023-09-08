@@ -36,7 +36,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    h1, p {
+    h1,
+    p {
         text-shadow: 0 0 8px #000;
     }
 }
@@ -75,7 +76,8 @@
     right: 1rem;
     font-size: 2.5rem;
     cursor: pointer;
-    color: #333; /* Change the color to match your design */
+    color: #333;
+    /* Change the color to match your design */
 
     &:hover {
         color: #f00;
@@ -87,23 +89,4 @@
     bottom: 20px;
     right: 20px;
     z-index: 10;
-}
-
-.crieur-place-card {
-    border: 0px;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    padding: 1.5rem;
-
-    h4 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 0.2rem;
-    }
-
-    h5 {
-        font-size: 1.25rem;
-        font-weight: 500;
-    }
 }

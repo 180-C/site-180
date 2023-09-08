@@ -3,10 +3,7 @@
     "title": "Zoo Burger",
     "banner": "/images/crieur/zoo-burger/zoo-burger-banner.jpg",
     "thumbnail": "/images/crieur/zoo-burger/zoo-burger-front.jpeg",
-    "images": [
-        "/images/crieur/zoo-burger/zoo-burger-front.jpeg",
-        "/images/crieur/zoo-burger/zoo-burger-banner.jpg"
-    ],
+    "gallery": "/images/crieur/zoo-burger",
     "style": "Burger",
     "types": [
         "restaurant",

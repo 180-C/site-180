@@ -3,10 +3,7 @@
     "title": "Wawa's",
     "banner": "/images/crieur/wawas/wawas-banner.jpeg",
     "thumbnail": "/images/crieur/wawas/wawas-front.jpg",
-    "images": [
-        "/images/crieur/wawas/wawas-front.jpg",
-        "/images/crieur/wawas/wawas-banner.jpeg"
-    ],
+    "gallery": "/images/crieur/wawas",
     "style": "Asiatique",
     "types": [
         "restaurant"

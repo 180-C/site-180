@@ -110,10 +110,24 @@
         return feature;
       });
       if (feature) {
+        const CRIEUR_CARD_STYLE = `
+          border: 0px;
+          border-radius: 20px;
+          background-color: white;
+          color: black;
+          padding: 1.5rem;
+          `;
+
+        const CRIEUR_CARD_H4_STYLE = `
+          font-size: 1.8rem;
+          font-weight: 600;
+          margin-bottom: 0.2rem;
+        `
+
         /* Popup */
-        popup_content.innerHTML = `<div class="crieur-place-card flex flex-col gap-2" style="background-color:white;">
+        popup_content.innerHTML = `<div class="crieur-place-card flex flex-col gap-2" style="${CRIEUR_CARD_STYLE}">
           <div class="flex flex-col">
-            <h4>${feature.values_.title}</h4>
+            <h4 style="${CRIEUR_CARD_H4_STYLE}">${feature.values_.title}</h4>
             <h6>${feature.values_.style}</h6>
           </div>
           <hr>
@@ -124,7 +138,7 @@
             </div>
             <div>
                 <th>Type : </th>
-                <td>${feature.values_.types.map(x => config['types'].filter(type => x == type.code)[0].name).join(', ')}</td>
+                <td>${feature.values_.types.map(x => Object.entries(config['types']).filter(type => x == type[0])[0][1].name).join(', ')}</td>
             </div>
           </div>
           <hr>

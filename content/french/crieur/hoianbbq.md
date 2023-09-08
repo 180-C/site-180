@@ -3,10 +3,7 @@
     "title": "Hoi An BBQ",
     "banner": "/images/crieur/hoianbbq/hoianbbq-banner.jpg",
     "thumbnail": "/images/crieur/hoianbbq/hoianbbq-front.jpg",
-    "images": [
-        "/images/crieur/hoianbbq/hoianbbq-front.jpg",
-        "/images/crieur/hoianbbq/hoianbbq-banner.jpg"
-    ],
+    "gallery": "/images/crieur/hoianbbq",
     "style": "Vietnamien",
     "types": [
         "restaurant"

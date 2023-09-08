@@ -3,10 +3,7 @@
     "title": "Slice Pizza",
     "banner": "/images/crieur/slice-pizza/slice-banner.png",
     "thumbnail": "/images/crieur/slice-pizza/slice-front.jpg",
-    "images": [
-        "/images/crieur/slice-pizza/slice-front.jpg",
-        "/images/crieur/slice-pizza/slice-banner.png"
-    ],
+    "gallery": "/images/crieur/slice-pizza",
     "style": "Pizzeria",
     "types": [
         "restaurant"

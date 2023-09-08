@@ -27,6 +27,7 @@
             <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
           </li>
           {{ end }}
+          {{ if .Param (printf "%s/%s" .Section "categories") }}
           <li class="inline-block bg-primary rounded px-3 py-1 text-light">
             <i class="fa-regular fa-folder mr-2"></i>
             {{ $categories:= .Param (printf "%s/%s" .Section "categories") }}
@@ -38,6 +39,7 @@
             </a>
             {{ end }}
           </li>
+          {{ end }}
           <li class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
             <i class="fa-regular fa-clock mr-2"></i>
             {{ time.Format ":date_long" .PublishDate }}

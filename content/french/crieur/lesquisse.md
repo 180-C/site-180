@@ -3,10 +3,7 @@
     "title": "L'Esquisse",
     "banner": "/images/crieur/lesquisse/lesquisse-banner.jpg",
     "thumbnail": "/images/crieur/lesquisse/lesquisse-front.jpg",
-    "images": [
-        "/images/crieur/lesquisse/lesquisse-front.jpg",
-        "/images/crieur/lesquisse/lesquisse-banner.jpg"
-    ],
+    "gallery": "/images/crieur/lesquisse",
     "style": "Cuisine traditionelle",
     "types": [
         "restaurant"

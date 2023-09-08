@@ -3,9 +3,7 @@
         "title": "Fleur d'Asie",
         "banner": "/images/crieur/fleur-asie/fleur-asie-banner.jpg",
         "thumbnail": "/images/crieur/fleur-asie/fleur-asie-banner.jpg",
-        "images": [
-            "/images/crieur/fleur-asie/fleur-asie-banner.jpg"
-        ],
+        "gallery": "/images/crieur/fleur-asie",
         "style": "Traiteur vietnamien et supermarché asiatique",
         "types": [
             "traiteur",

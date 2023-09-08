@@ -3,10 +3,7 @@
     "title": "Nandanam",
     "banner": "/images/crieur/nandanam/nandanam-banner.jpg",
     "thumbnail": "/images/crieur/nandanam/nandanam-front.jpg",
-    "images": [
-        "/images/crieur/nandanam/nandanam-front.jpg",
-        "/images/crieur/nandanam/nandanam-banner.jpg"
-    ],
+    "gallery": "/images/crieur/nandanam",
     "style": "Indien",
     "types": [
         "restaurant"

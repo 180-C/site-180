@@ -3,10 +3,7 @@
     "title": "Lucha Libre",
     "banner": "/images/crieur/luchalibre/luchalibre-banner.jpg",
     "thumbnail": "/images/crieur/luchalibre/luchalibre-front.jpg",
-    "images": [
-        "/images/crieur/luchalibre/luchalibre-front.jpg",
-        "/images/crieur/luchalibre/luchalibre-banner.jpg"
-    ],
+    "gallery": "/images/crieur/luchalibre",
     "style": "Tapas",
     "types": [
         "restaurant",

@@ -3,9 +3,7 @@
     "title": "Legram",
     "banner": "/images/crieur/legram/legram.png",
     "thumbnail": "/images/crieur/legram/legram.png",
-    "images": [
-        "/images/crieur/legram/legram.png"
-    ],
+    "gallery": "/images/crieur/legram",
     "style": "Bistro",
     "types": [
         "restaurant",

@@ -3,9 +3,7 @@ draft: false
 title: "Doki Doki"
 banner: "/images/crieur/dokidoki/dokidoki-banner.jpeg"
 thumbnail: "/images/crieur/dokidoki/dokidoki-front.jpeg"
-images:
-  - "/images/crieur/dokidoki/dokidoki-front.jpeg"
-  - "/images/crieur/dokidoki/dokidoki-banner.jpeg"
+gallery: "/images/crieur/dokidoki"
 style: "Cuisine japonaise / Ramen"
 types: ["restaurant"]
 tags: ["vege","takeaway","delivery"]

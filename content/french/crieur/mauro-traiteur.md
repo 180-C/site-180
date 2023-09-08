@@ -3,9 +3,7 @@
     "title": "Mauro Traiteur",
     "banner": "/images/crieur/mauro-traiteur/mauro-banner.jpg",
     "thumbnail": "/images/crieur/mauro-traiteur/mauro-banner.jpg",
-    "images": [
-        "/images/crieur/mauro-traiteur/mauro-banner.jpg"
-    ],
+    "gallery": "/images/crieur/mauro-traiteur",
     "style": "Traiteur italien",
     "types": [
         "traiteur"

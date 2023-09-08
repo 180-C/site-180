@@ -3,9 +3,7 @@
     "title": "Tom Café",
     "banner": "/images/crieur/tom-cafe/tom-cafe-banner.png",
     "thumbnail": "/images/crieur/tom-cafe/tom-cafe-banner.png",
-    "images": [
-        "/images/crieur/tom-cafe/tom-cafe-banner.png"
-    ],
+    "gallery": "/images/crieur/tom-cafe",
     "style": "Caféteria",
     "types": [
         "restaurant",

@@ -8,14 +8,14 @@
   </div>
 </section>
 
+{{ $config := index .Site.Data "config-crieur" | default (dict) }}
+
 <!-- Banner -->
 {{ if .Params.banner }}
 <section class="section p-0 m-0">
-  <div class="row justify-center banner flex flex-col m-0 p-0">
-    <div class="grow flex flex-col items-center text-center justify-center m-0 p-0 px-4">
-
-    </div>
-    <svg class="grow-0 m-0 p-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1440 120">
+  <div class="row banner flex flex-col m-0 p-0 items-center justify-end" {{ partial `bg-image.html` (dict `Src`
+    `/images/crieur/dokidoki/dokidoki-banner.jpeg` ) | safeHTMLAttr}}>
+    <svg class="m-0 p-0 flex" xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1440 120">
       <path class="fill-light dark:fill-darkmode-body" fill-opacity="1"
         d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
       </path>
@@ -27,74 +27,80 @@
 
 
 <!-- == CONTAINER 1 == -->
-<section class="col-12 p-0 m-0">
+<section class="col-12 p-0 m-0 mt-5">
   <div class="container col-12">
     <div class="row m-0 p-0">
-      <div class="col-12 {{ if .Params.thumbnail }}col-lg-7{{end}} p-3 text-left">
+      <div class="sm:col-12 {{ if .Params.gallery }}lg:col-6{{end}} p-3 text-left my-2">
         <h1 class="d-inline title">
           {{ $site := "none" }}
           {{ range $link := .Params.links }}
-            {{ if eq $link.social "site" }}
-              {{ $site = $link.url }}
-            {{ end }}
+          {{ if eq $link.social "site" }}
+          {{ $site = $link.url }}
+          {{ end }}
           {{ end }}
           {{ if ne $site "none" }}
           <a href="{{ $site }}" target="_blank">{{ .Params.title }}</a>
           {{ end }}
         </h1>
-        <h3 class="mb-1">{{ .Params.style }}</h3>
+        <h3 class="mb-2 font-light italic">{{ .Params.style }}</h3>
         <!-- Types -->
         {{ if .Params.types }}
-        <div class="mb-0">
-          {{ range $type := .Params.types }}
-          <span data-code="{{ $type }}" class="type"></span>
+        <div class="flex flex-row gap-2 align-center mb-2">
+          {{ range $type_code := .Params.types }}
+          {{ $type := index $config.types $type_code }}
+          <span class="type flex flex-row gap-2">
+            {{ $type.icon | safeHTML }}
+            <span>{{ $type.name }}</span>
+          </span>
           {{ end }}
         </div>
         {{ end }}
-        <div class="tags">
+        <div class="tags flex flex-row gap-2 items-center">
           <!-- Price -->
-          <span class="price badge rounded-pill bg-danger my-2" style="font-size: .8em;">
+          <span class="price rounded-xl bg-primary text-light px-3 py-1">
             {{ if gt .Params.priceTag 0 }}
-              {{ range seq .Params.priceTag }}<i class="fas fa-dollar-sign"></i>{{ end }} ({{ .Params.price }})
+            {{ range seq .Params.priceTag }}<i class="fas fa-dollar-sign"></i>{{ end }} ({{ .Params.price }})
             {{ end }}
           </span>
           <!-- Tags -->
           {{ if .Params.tags }}
-            {{ range $tag := .Params.tags }}
-            <span data-code="{{ $tag }}" class="tag badge rounded-pill bg-dark mt-0 mb-2"></span>
-            {{ end }}
+          {{ range $tag_code := .Params.tags }}
+          {{ $tag := index $config.tags $tag_code }}
+          <div
+            class="tag rounded-xl text-light bg-dark dark:bg-light dark:text-dark flex flex-row gap-2 items-center px-3 py-1">
+            <span>{{ $tag.icon | safeHTML }}</span>
+            <span>{{ $tag.name }}</span>
+          </div>
+          {{ end }}
           {{ end }}
         </div>
-        <div class="text-justify">
+        <div class="text-justify my-8">
           <p>{{ .Params.description }}</p>
         </div>
         {{ if .Params.tips }}
-        <div class="mt-3 alert alert-dark">
-          <h5><i class="fas fa-lightbulb" style="font-size: .9em"></i> Tips</h5>
-          <p>
-            {{ .Params.tips }}
-          </p>
+        <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4" role="alert">
+          <p class="font-bold"><i class='fas fa-lightbulb'></i> Tips</p>
+          <p>{{ .Params.tips }}</p>
         </div>
         {{ end }}
       </div>
 
-
-      {{ if .Params.thumbnail }}
-      <div class="col-12 col-lg-5 px-3 m-0 mb-3">
-        {{ partial "image" (dict "Src" .Params.thumbnail "Alt" "thumbnail image") }}
+      {{ if .Params.gallery }}
+      <div class="sm:col-12 lg:col-6 my-2">
+        {{ partial "slider.html" (dict "Dir" .Params.gallery "Command" "Fill" "Height" "500" "Width" "500" ) }}
       </div>
       {{ end }}
 
       {{ if and .Params.tops (gt (len .Params.tops) 0) }}
-      <hr>
-      <div class="col-12 py-4 text-center">
+      <hr class="my-3">
+      <div class="col-12 py-4 my-2 text-center order-3">
         <h2>Recommandations</h2>
         <div class="row m-0 p-0 justify-content-center">
           {{ range $top := .Params.tops }}
-          <div class="col-12 col-md-6 col-lg-4 m-0 p-4">
+          <div class="sm:col-12 md:col-6 lg:col-4 m-0 p-4">
             <div class="card shadow m-0 p-0 top">
               {{ if $top.photo }}
-                {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "card-img-top img-fluid") }}
+              {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "card-img-top img-fluid") }}
               {{ end }}
               <div class="card-body pt-4">
                 <h4>{{ $top.name }}</h4>
@@ -108,64 +114,71 @@
       </div>
       {{ end }}
 
-      <hr>
-      <div class="col-12 py-2">
+
+
+      <hr class="my-3">
+      <div class="col-12 py-4 my-2 order-4">
         {{ range $location := .Params.locations }}
         <div class="row mt-0 mb-4 mx-0 py-3 px-0">
-          <div class="col-12 col-lg-6 col-xl-8 mb-3">
+          <div class="sm:col-12 lg:col-6 xl:col-8 mb-3">
             <h4 class="text-center mb-3">{{ $location.address }}</h4>
             <iframe src="{{ $location.map | safeHTML }}" width="100%" height="450" style="border:0;" allowfullscreen=""
               loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <div class="col-12 col-lg-6 col-xl-4">
-            <div class="row m-0 p-0 justify-content-center">
-              <div class="card shadow p-3 m-3 mt-0">
-                <h5 class="text-center text-decoration-underline">Horaires</h5>
+          <div class="sm:col-12 lg:col-6 xl:col-4 flex items-center justify-center">
+            <div class="flex sm:flex-row md:flex-col gap-6">
+              <div
+                class="rounded-xl bg-light dark:bg-light dark:text-dark p-5 mt-0 flex flex-col justify-center items-center gap-3">
+                <h5 class="text-center underline dark:text-dark">Horaires</h5>
                 <table>
                   <tbody>
                     {{ range $schedule := $location.schedules }}
-                      {{ if eq (len $schedule.creneaux) 0 }}
-                        <tr>
-                          <th>
-                            {{ $schedule.name }}
-                          </th>
-                          <td>
-                            Fermé
-                          </td>
-                        </tr>
-                      {{ else }}
-                        {{ range $i, $creneau := $schedule.creneaux }}
-                          {{ if eq $i 0 }}
-                          <tr>
-                            <th class="align-top" rowspan="{{ len $schedule.creneaux}}">
-                              {{ $schedule.name }}
-                            </th>
-                            <td>
-                              {{$creneau.start}} - {{$creneau.end}}
-                            </td>
-                          </tr>
-                          {{ else }}
-                          <tr>
-                            <td>
-                              {{$creneau.start}} - {{$creneau.end}}
-                            </td>
-                          </tr>
-                          {{ end }}
-                        {{ end }}
-                      {{ end }}
+                    {{ if eq (len $schedule.creneaux) 0 }}
+                    <tr>
+                      <th class="align-top text-right">
+                        <span class="align-top text-right mr-3">
+                          {{ $schedule.name }}
+                        </span>
+                      </th>
+                      <td>
+                        Fermé
+                      </td>
+                    </tr>
+                    {{ else }}
+                    {{ range $i, $creneau := $schedule.creneaux }}
+                    {{ if eq $i 0 }}
+                    <tr>
+                      <th class="align-top text-right" rowspan="{{ len $schedule.creneaux}}">
+                        <span class="align-top text-right mr-3">
+                          {{ $schedule.name }}
+                        </span>
+                      </th>
+                      <td>
+                        {{$creneau.start}} - {{$creneau.end}}
+                      </td>
+                    </tr>
+                    {{ else }}
+                    <tr>
+                      <td>
+                        {{$creneau.start}} - {{$creneau.end}}
+                      </td>
+                    </tr>
+                    {{ end }}
+                    {{ end }}
+                    {{ end }}
                     {{ end }}
                   </tbody>
                 </table>
               </div>
-              <div class="card shadow p-3 text-center">
-                <ul class="social-icons">
-                  {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
-
+              <div>
+                <ul
+                  class="social-icons flex sm:flex-col md:flex-row gap-4 justify-center align-center rounded-xl shadow bg-light dark:bg-light px-4 py-3
+                  space-x-0">
                   {{ range $link := $.Params.links }}
                   <li>
-                    <a href="{{ $link.url }}" data-code="{{ $link.social }}" class="" target="_blank">
+                    <a href="{{ $link.url }}" data-code="{{ $link.social }}" target="_blank">
                       {{ if $link.social }}
-                        {{ index $config.socials $link.social | safeHTML }}
+                      {{ index $config.socials $link.social | safeHTML }}
                       {{ end }}
                     </a>
                   </li>
