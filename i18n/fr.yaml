@@ -43,5 +43,5 @@
 - id: recettes
   translation: "Recettes"
 
-- id: posts
+- id: blog
   translation: "Articles"

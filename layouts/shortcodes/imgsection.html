@@ -2,6 +2,7 @@
 {{ $image := .Get "image" }}
 {{ $side := .Get "side" | default "right" }}
 {{ $title := .Get "title" }}
+{{ $imgclass := .Get "imgclass" | default "" }}
 
 
 <section
@@ -10,10 +11,10 @@
     <div class="row items-center justify-between">
       <div class='mb:md-0 {{ if eq $side "right" }}
           md:order-2
-        {{ end }} md:col-5 mb-6'>
-        {{ partial "image" (dict "Src" $image "Alt" "feature image") }}
+        {{ end }} md:col-5'>
+        {{ partial "image" (dict "Src" $image "Alt" "feature image" "Class" $imgclass) }}
       </div>
-      <div class='content {{ if eq $side "right" }}
+      <div class='{{ if eq $side "right" }}
           md:order-1
         {{ end }} md:col-7 lg:col-6'>
         {{ if $title }}
@@ -22,7 +23,7 @@
         </h2>
         {{ end }}
         <div class="mb-8 text-lg">
-          {{ .Inner | markdownify }}
+          <p>{{ .Inner | markdownify }}</p>
         </div>
       </div>
     </div>

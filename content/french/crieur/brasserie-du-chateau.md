@@ -10,7 +10,7 @@ tags: ["takeaway","vege"]
 tips: "Les bières brassées sur place sont excellentes."
 description: "Super brasserie au coeur de Lausanne. Le bar est ouvert toute la semaine et il y a beaucoup de choix de bières. Les pizzas maison sont aussi très sympa ! Bon endroit pour se retrouver entre potes pour décompresser après une longue semaine"
 price: "~25 CHF"
-priceTag: 3,
+priceTag: 3
 locations:
   - address: "Pl. du Tunnel 1, 1005 Lausanne"
     latitude: 46.52484139487125

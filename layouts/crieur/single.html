@@ -14,7 +14,7 @@
 {{ if .Params.banner }}
 <section class="section p-0 m-0">
   <div class="row banner flex flex-col m-0 p-0 items-center justify-end" {{ partial `bg-image.html` (dict `Src`
-    `/images/crieur/dokidoki/dokidoki-banner.jpeg` ) | safeHTMLAttr}}>
+    .Params.banner ) | safeHTMLAttr}}>
     <svg class="m-0 p-0 flex" xmlns="http://www.w3.org/2000/svg" viewBox="0 180 1440 120">
       <path class="fill-light dark:fill-darkmode-body" fill-opacity="1"
         d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
@@ -55,7 +55,7 @@
           {{ end }}
         </div>
         {{ end }}
-        <div class="tags flex flex-row gap-2 items-center">
+        <div class="tags flex flex-row gap-2 items-center flex-wrap">
           <!-- Price -->
           <span class="price rounded-xl bg-primary text-light px-3 py-1">
             {{ if gt .Params.priceTag 0 }}
@@ -78,7 +78,7 @@
           <p>{{ .Params.description }}</p>
         </div>
         {{ if .Params.tips }}
-        <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4" role="alert">
+        <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4 rounded-r-lg" role="alert">
           <p class="font-bold"><i class='fas fa-lightbulb'></i> Tips</p>
           <p>{{ .Params.tips }}</p>
         </div>
@@ -87,24 +87,25 @@
 
       {{ if .Params.gallery }}
       <div class="sm:col-12 lg:col-6 my-2">
-        {{ partial "slider.html" (dict "Dir" .Params.gallery "Command" "Fill" "Height" "500" "Width" "500" ) }}
+        {{ partial "slider.html" (dict "Dir" .Params.gallery "Command" "Fill" "Height" "500" "Width" "500" "Class" "rounded-lg" ) }}
       </div>
       {{ end }}
 
       {{ if and .Params.tops (gt (len .Params.tops) 0) }}
       <hr class="my-3">
-      <div class="col-12 py-4 my-2 text-center order-3">
+      <div class="col-12 py-4 my-2 text-center">
         <h2>Recommandations</h2>
-        <div class="row m-0 p-0 justify-content-center">
+        <div class="row m-0 p-0 justify-center">
           {{ range $top := .Params.tops }}
           <div class="sm:col-12 md:col-6 lg:col-4 m-0 p-4">
-            <div class="card shadow m-0 p-0 top">
+            <div class="bg-dark text-light dark:bg-light dark:text-dark rounded-xl m-0 p-0">
               {{ if $top.photo }}
-              {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "card-img-top img-fluid") }}
+              {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "rounded-t-xl") }}
               {{ end }}
-              <div class="card-body pt-4">
-                <h4>{{ $top.name }}</h4>
-                <h6><i>{{ $top.price }}</i></h6>
+              <div class="p-5">
+                <h4 class="text-light dark:text-dark">{{ $top.name }}</h4>
+                <h6 class="text-light dark:text-dark"><i>{{ $top.price }}</i></h6>
+                <hr class="my-3 dark:divide-black">
                 <p>{{ $top.description }}</p>
               </div>
             </div>
@@ -125,11 +126,11 @@
             <iframe src="{{ $location.map | safeHTML }}" width="100%" height="450" style="border:0;" allowfullscreen=""
               loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <div class="sm:col-12 lg:col-6 xl:col-4 flex items-center justify-center">
-            <div class="flex sm:flex-row md:flex-col gap-6">
+          <div class="sm:col-12 lg:col-6 xl:col-4 p-0 flex items-center justify-center">
+            <div class="flex flex-col sm:flex-row gap-6 p-3">
               <div
-                class="rounded-xl bg-light dark:bg-light dark:text-dark p-5 mt-0 flex flex-col justify-center items-center gap-3">
-                <h5 class="text-center underline dark:text-dark">Horaires</h5>
+                class="rounded-xl bg-dark text-light dark:bg-light dark:text-dark shadow p-5 mt-0 flex flex-col justify-center items-center gap-3">
+                <h5 class="text-center text-light underline dark:text-dark">Horaires</h5>
                 <table>
                   <tbody>
                     {{ range $schedule := $location.schedules }}
@@ -172,7 +173,7 @@
               </div>
               <div>
                 <ul
-                  class="social-icons flex sm:flex-col md:flex-row gap-4 justify-center align-center rounded-xl shadow bg-light dark:bg-light px-4 py-3
+                  class="social-icons flex flex-row sm:flex-col gap-4 justify-center align-center rounded-xl shadow bg-dark dark:bg-light px-4 py-4
                   space-x-0">
                   {{ range $link := $.Params.links }}
                   <li>
