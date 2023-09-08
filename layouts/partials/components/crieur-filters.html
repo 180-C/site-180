@@ -8,7 +8,7 @@
             <div class="p-0">
                 <input class="hidden peer" type="checkbox" id="check-type-{{ $i }}" value="{{ $type.code }}" checked>
                 <label for="check-type-{{ $i }}"
-                    class="btn btn-outline-primary hover:btn-dark cursor-pointer peer-checked:btn-primary flex flex-row gap-2 justify-center">
+                    class="btn btn-outline-primary hover:bg-light hover:border-secondary hover:text-secondary dark:hover:bg-light dark:hover:border-secondary dark:hover:text-secondary cursor-pointer peer-checked:btn-primary peer-checked:hover:bg-primary peer-checked:hover:text-secondary peer-checked:dark:hover:bg-primary peer-checked:dark:hover:text-secondary flex flex-row gap-2 justify-center">
                     <span>{{ $type.icon | safeHTML }}</span>
                     <span>{{ $type.name}}</span>
                 </label>
