@@ -45,10 +45,10 @@
         <h3 class="mb-2 font-light italic">{{ .Params.style }}</h3>
         <!-- Types -->
         {{ if .Params.types }}
-        <div class="flex flex-row gap-2 align-center mb-2">
+        <div class="flex flex-row gap-2 align-center mb-2 items-center flex-wrap">
           {{ range $type_code := .Params.types }}
           {{ $type := index $config.types $type_code }}
-          <span class="type flex flex-row gap-2">
+          <span class="type flex flex-row gap-2 items-center">
             {{ $type.icon | safeHTML }}
             <span>{{ $type.name }}</span>
           </span>
