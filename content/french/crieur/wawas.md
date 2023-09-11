@@ -1,7 +1,7 @@
 {
     "draft": false,
     "title": "Wawa's",
-    "banner": "/images/crieur/wawas/wawas-banner.jpeg",
+    "banner": "/images/crieur/wawas/wawas-front.jpg",
     "thumbnail": "/images/crieur/wawas/wawas-front.jpg",
     "gallery": "/images/crieur/wawas",
     "style": "Asiatique",

@@ -1,7 +1,7 @@
 {
     "draft": false,
     "title": "Slice Pizza",
-    "banner": "/images/crieur/slice-pizza/slice-banner.png",
+    "banner": "/images/crieur/slice-pizza/slice-banner.jpg",
     "thumbnail": "/images/crieur/slice-pizza/slice-front.jpg",
     "gallery": "/images/crieur/slice-pizza",
     "style": "Pizzeria",
