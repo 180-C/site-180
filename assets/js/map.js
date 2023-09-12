@@ -125,28 +125,16 @@
         `
 
         /* Popup */
-        popup_content.innerHTML = `<div class="crieur-place-card flex flex-col gap-2" style="${CRIEUR_CARD_STYLE}">
-          <div class="flex flex-col">
-            <h4 style="${CRIEUR_CARD_H4_STYLE}">${feature.values_.title}</h4>
-            <h6>${feature.values_.style}</h6>
-          </div>
-          <hr>
-          <div class="flex flex-col gap-2">
-            <div>
-                <th>Prix : </th>
-                <td class="text-start">${'<i class="fas fa-dollar-sign"></i>'.repeat(feature.values_.price)}</td>
-            </div>
-            <div>
-                <th>Type : </th>
-                <td>${feature.values_.types.map(x => Object.entries(config['types']).filter(type => x == type[0])[0][1].name).join(', ')}</td>
-            </div>
-          </div>
-          <hr>
-          <a href="${feature.values_.url}" class="btn btn-primary flex justify-center">Voir</a>
-        </div>`;
+        $('#popup-card-title').text(feature.values_.title)
+        $('#popup-card-style').text(feature.values_.style)
+        $('#popup-card-price').html('<i class="fas fa-dollar-sign"></i>'.repeat(feature.values_.price))
+        $('#popup-card-types').html(feature.values_.types.map(x => Object.entries(config['types']).filter(type => x == type[0])[0][1].name).join(', '))
+        $('#popup-card-link').attr('href', feature.values_.url)
+
+        $(popup_content).css('display', 'block');
         overlay.setPosition(evt.coordinate);
       } else {
-        popup_content.innerHTML = "";
+        $(popup_content).css('display', 'none');
         overlay.setPosition(undefined);
         popup_closer.blur();
       }
@@ -203,8 +191,7 @@
         price: parseInt(place.pricetag),
         style: place.style,
         title: place.title,
-        url: place.url,
-        types: place.types
+        url: place.url
       });
     }
   }
@@ -219,6 +206,7 @@
   function filterFeatures(types, prices) {
     let features = placesLayer.getSource().getFeatures();
 
+    console.log(types, prices)
     features.forEach(function (feature) {
       let values = feature.getProperties()
       let validType = false
@@ -228,7 +216,7 @@
         if (values.types.includes(type)) validType = true
       }
       for (let price of prices) {
-        if (price == values.price) validPrice = true
+        if (parseInt(price) == parseInt(values.price)) validPrice = true
       }
       if (validPrice && validType) {
         feature.set('display', true)

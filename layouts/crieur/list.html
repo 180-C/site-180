@@ -12,7 +12,28 @@
           </div>
           <div id="map-popup" class="ol-popup">
             <a href="#" id="map-popup-closer" class="ol-popup-closer"></a>
-            <div id="map-popup-content"></div>
+            <div id="map-popup-content">
+              <div class="crieur-place-card flex flex-col gap-2 bg-light dark:bg-light text-dark dark:text-dark rounded-xl p-5 shadow">
+                <div class="flex flex-col">
+                  <h4 class="font-extrabold dark:text-dark" id="popup-card-title">${feature.values_.title}</h4>
+                  <h6 id="popup-card-style" class="dark:text-dark">${feature.values_.style}</h6>
+                </div>
+                <hr>
+                <div class="flex flex-col gap-2">
+                  <div>
+                      <th>Prix : </th>
+                      <td class="text-start"><span id="popup-card-price"></span></td>
+                  </div>
+                  <div>
+                      <th>Type : </th>
+                      <td><span id="popup-card-types"></span></td>
+                  </div>
+                </div>
+                <hr>
+                <a id="popup-card-link" class="btn btn-primary flex justify-center">Voir</a>
+              </div>
+
+            </div>
 
           </div>
         </div>
