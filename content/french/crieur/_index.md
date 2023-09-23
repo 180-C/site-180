@@ -21,7 +21,7 @@ sections:
             - "**$$$$** = plus de 30 CHF"
 
     
-    alert: "**NB :** Les icônes visibles sont toutes les adresses qui remplissent les critères sélectionnés. Les icônes rouges signifient qu'elles sont en plus visibles sur le menu déroulant en dessous. Si l'adresse est hors des critères elle n'apparaît pas sur la carte"
+    alert: "**NB :** Les icônes visibles sont toutes les adresses qui remplissent les critères sélectionnés. Si l'adresse est hors des critères elle n'apparaît donc pas sur la carte."
 
   - title: "Comment suggérer une adresse ?"
     content: "Si tu souhaites ajouter une adresse, il te suffit de remplir ce <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScGHtHfjQ7F1O0ZQxnow55NWiNM-r-cCGhcCGIGlziFJTSX3A/viewform\">formulaire</a> et nous l'ajouterons sur la carte en moins de temps qu'il n'en faut pour crier l'heure !"

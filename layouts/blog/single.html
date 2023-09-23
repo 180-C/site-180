@@ -46,7 +46,7 @@
           </li>
         </ul>
         <div class="content mb-10">
-          {{ .Content }}
+          {{ .Content | safeHTML }}
         </div>
         <div class="row items-start justify-between">
           <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
