@@ -6,7 +6,7 @@ description: "Deuxième édition du livre de recettes 180°C"
 "blog/tags": ["fringale"]
 summary: "La deuxième édition du livre de recettes 180°C est maintenant disponible !"
 draft: true
-date: 2023-10-04T00:00:00Z
+date: 2023-10-03T00:00:00Z
 ---
 
 
