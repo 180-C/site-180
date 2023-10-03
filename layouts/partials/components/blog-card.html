@@ -1,5 +1,5 @@
 <div class="bg-body dark:bg-darkmode-body">
-  {{ $image:= .Params.image }}
+  {{ $image:= .Params.thumbnail }}
   {{ if $image }}
     <a href="{{ .RelPermalink }}">
     {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mb-6 w-full rounded-xl") }}

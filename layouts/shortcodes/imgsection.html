@@ -9,12 +9,12 @@
   class="section-sm py-2 {{ $class }}">
   <div class="container px-10">
     <div class="row items-center justify-between">
-      <div class='mb:md-0 {{ if eq $side "right" }}
+      <div class='m-0 {{ if eq $side "right" }}
           md:order-2
         {{ end }} md:col-5'>
         {{ partial "image" (dict "Src" $image "Alt" "feature image" "Class" $imgclass) }}
       </div>
-      <div class='{{ if eq $side "right" }}
+      <div class='m-0 {{ if eq $side "right" }}
           md:order-1
         {{ end }} md:col-7 lg:col-6'>
         {{ if $title }}
