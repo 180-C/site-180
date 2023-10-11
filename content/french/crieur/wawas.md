@@ -15,7 +15,7 @@
     ],
     "tips": "10% sur toutes les commandes à emporter",
     "description": "Petit restaurant dans une avenue marchande offrant de la cuisine asiatique traditionnelle",
-    "price": "3-18 CHF",@
+    "price": "3-18 CHF",
     "priceTag": 2,
     "locations": [
         {
