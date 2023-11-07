@@ -4,9 +4,11 @@ date: 2023-11-06T12:00:00+01:00
 draft: false
 image: "images/fringale/volume3/novembre23/quichepatate.jpg"
 thumbnail: "images/fringale/volume3/novembre23/quichepatate.jpg"
+weight: 3
+hidden: true
 ---
 
-## Ingrédients : 
+#### Ingrédients
 
 - 1 pâte brisée
 - 100g de fromage frais
@@ -16,7 +18,7 @@ thumbnail: "images/fringale/volume3/novembre23/quichepatate.jpg"
 - 3 oeufs
 - 80g de gruyère rapé
 
-## Préparation : 
+#### Préparation
 
 1. Préchauffer le four à 180°C
 2. Déposer la pâte dans un moule à tarte préalablement beurré. Mettre la pâte à cuire dans le four chaud pour 10 min jusqu’à ce que la pâte soit dorée.

@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ partial "page-header" . }}
+
+
+<section>
+  <div class="text-center p-5">
+    
+    <div class="flex flex-wrap flex-col justify-start gap-5">
+
+      <div class="grid grid-cols-5">
+        <div class="flex items-center justify-start col-start-2 col-span-3 text-start">
+          {{ partial "image" (dict "Src" .Params.thumbnail "Alt" .Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          <div class="p-4">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Summary }}</p>
+          </div>
+        </div>
+      </div>
+
+      {{ range  $index, $page := .Pages.ByWeight }}
+      <div class="grid grid-cols-5" >
+      <a {{if ne $page.Params.hidden true}}href="{{ $page.RelPermalink }}"{{end}} class="flex items-center {{ if eq (mod $index 2) 0 }}justify-end{{else}}justify-start{{end}} rounded-xl col-start-2 col-span-3">
+          {{if ne $page.Params.hidden true}}
+          {{ $image:= $page.Params.thumbnail }}
+          {{ if $image }}
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2{{end}}">
+            {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          </div>
+          {{ end }}
+          <div class="flex p-4 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              {{ $page.Title }}
+            </h2>
+          </div>
+          {{ else }}
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2{{end}}">
+            {{ partial "image" (dict "Src" "images/fringale/volume3/unknown_recipe.png" "Alt" $page.Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          </div>
+          <div class="flex p-4 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              Coming soon
+            </h2>
+            </div>
+            {{ end }}
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+
+{{ end }}

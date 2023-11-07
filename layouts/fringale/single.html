@@ -1,0 +1,45 @@
+{{ define "main" }}
+<section>
+  <div class="container text-center">
+    <div
+      class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+      {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
+    </div>
+  </div>
+</section>
+
+<section class="section pt-7">
+  <div class="container">
+    <div class="row justify-center">
+      <article class="lg:col-10">
+        {{ $image:= .Params.image }}
+        {{ if $image }}
+        <div class="mb-10">
+          {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded aspect-square object-cover object-center") }}
+        </div>
+        {{ end }}
+        <h1 class="h2 mb-4">
+          {{ .Title }}
+        </h1>
+
+        <div class="content mb-10">
+          {{ .Content }}
+        </div>
+        <div class="row items-start justify-end">
+          <div class="lg:col-4 flex items-center">
+            {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false)
+            }}
+          </div>
+        </div>
+        <!-- comments -->
+        {{ if site.DisqusShortname }}
+        <div class="mt-20">
+          {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ end }}
+      </article>
+    </div>
+
+  </div>
+</section>
+{{ end }}

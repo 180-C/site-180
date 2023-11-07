@@ -1,0 +1,97 @@
+{{ define "main" }}
+{{ partial "page-header" . }}
+
+<!-- Hero Section -->
+{{ $lastMonth := index .Sections 0 }}
+{{ with $lastMonth }}
+<section class="hero-section">
+  <div class="text-center p-5">
+    
+    <div class="flex flex-wrap flex-col justify-start gap-5">
+
+      <div class="grid grid-cols-5">
+        <div class="flex items-center justify-start col-start-2 col-span-3 text-start">
+          {{ partial "image" (dict "Src" .Params.thumbnail "Alt" .Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          <div class="p-4">
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Summary }}</p>
+          </div>
+        </div>
+      </div>
+
+      {{ range  $index, $page := .Pages.ByWeight }}
+      <div class="grid grid-cols-5" >
+      <a {{if ne $page.Params.hidden true}}href="{{ $page.RelPermalink }}"{{end}} class="flex items-center {{ if eq (mod $index 2) 0 }}justify-end{{else}}justify-start{{end}} rounded-xl col-start-2 col-span-3">
+          {{if ne $page.Params.hidden true}}
+          {{ $image:= $page.Params.thumbnail }}
+          {{ if $image }}
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2{{end}}">
+            {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          </div>
+          {{ end }}
+          <div class="flex p-4 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              {{ $page.Title }}
+            </h2>
+          </div>
+          {{ else }}
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2{{end}}">
+            {{ partial "image" (dict "Src" "images/fringale/volume3/unknown_recipe.png" "Alt" $page.Title "Class" "w-64 rounded-xl aspect-square object-cover object-center") }}
+          </div>
+          <div class="flex p-4 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              Coming soon
+            </h2>
+            </div>
+            {{ end }}
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<hr>
+
+
+{{ $filteredSections := slice }}
+{{ range $index, $section := .Sections }}
+  {{ if gt $index 0 }}
+    {{ $filteredSections = $filteredSections | append $section }}
+  {{ end }}
+{{ end }}
+
+<!-- Previous Months Section -->
+{{ if gt (len $filteredSections) 0 }}
+<section class="section">
+  <div class="container">
+    <h2>Mois précédents</h2>
+    <div class="row gx-5 py-3">
+      <div class="lg:col-12">
+        <div class="row">
+          {{ range $filteredSections }}
+          <div class="lg:col-3 mb-14">
+            <div class="bg-dark text-white dark:bg-body dark:text-dark rounded-xl">
+              {{ $image:= .Params.thumbnail }}
+              {{ if $image }}
+              <a href="{{ .RelPermalink }}">
+                {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded-t-xl aspect-square object-cover object-center") }}
+                <div class="p-6">
+                  <h4 class="mb-1 text-white dark:text-dark text-center">
+                    {{ .Title }}
+                  </h4>
+                </div>
+              </a>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}
