@@ -21,8 +21,8 @@ weight: 1
 #### Préparation :
 
 1. Préchauffer le four à 180°C.
-2. Mettre la pâte à cuire à blanc pendant une dizaine de minutes. (ne pas oublier de la percer avec une fourchette )
-3. Couper en dés le potimarron (on peut aussi le trouver en purée en grandes surfaces). Mettre les dés à bouillir, jusqu’à tendre puis les écraser pour en obtenir de la purée.
+2. Mettre la pâte à cuire à blanc pendant une dizaine de minutes. Ne pas oublier de la percer avec une fourchette.
+3. Couper en dés le potimarron. Mettre les dés à bouillir, jusqu’à tendre puis les écraser pour en obtenir de la purée.
 4. Mélanger avec les oeufs et le lait condensé sucré.
 5. Ajouter les épices et ajuster au goût.
 6. Verser le mélange dans la pâte puis enfourner pendant 20 à 30 minutes.

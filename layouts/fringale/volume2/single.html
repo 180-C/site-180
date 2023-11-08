@@ -11,28 +11,20 @@
 <section class="section pt-7">
   <div class="container">
     <div class="row justify-center">
-      {{ $image:= .Params.image }}
-
-      {{ if $image }}
-      <div class="lg:col-6 mb-10 lg:mb-0">
-        {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded ") }}
+      <div class="lg:col-6 p-5">
+        {{ $image:= .Params.image }}
+        {{ if $image }}
+          {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
+        {{ end }}
       </div>
-
-      <div class="lg:col-6">
-      {{ else }}
-      <div class="lg:col-12">
-      {{ end }}
-
-        <h1 class="h2 mb-4">
+      <div class="lg:col-6 p-5">
+        <h1 class="h1 mt-10">
           {{ .Title }}
         </h1>
         <div class="content mb-10">
-          {{ .Content }}
+          {{ .Content | safeHTML }}
         </div>
-
       </div>
-
-
       <div class="row items-start justify-end">
         <div class="lg:col-4 flex items-center">
           {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false)
@@ -47,6 +39,5 @@
       {{ end }}
     </div>
 
-  </div>
 </section>
 {{ end }}
