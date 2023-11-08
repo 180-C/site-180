@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{ partial "page-header" . }}
+
+
+{{ $bgimage := resources.Get .Params.background }}
+<section class="hero-section bg-[url('{{ $bgimage.RelPermalink | safeHTMLAttr  }}')] bg-left bg-cover" >
+  <div class="text-center p-5">
+    
+    <div class="flex flex-wrap flex-col justify-start gap-5 py-10">
+
+      <div class="flex md:grid md:grid-cols-5 mb-6 justify-center">
+        <div class="flex items-center justify-center md:col-start-2 md:col-span-3 text-center p-5">
+          <div class="p-6 bg-white dark:bg-darkmode-body rounded-xl text-dark dark:text-white shadow-xl">
+            <h2 class="text-dark drop-shadow-lg">{{ .Title }}</h2>
+            <p>{{ .Summary }}</p>
+          </div>
+        </div>
+      </div>
+
+      {{ range  $index, $page := .Pages.ByWeight }}
+      <div class="flex md:grid md:grid-cols-5 justify-center" >
+      <div class="flex items-center {{ if eq (mod $index 2) 0 }}justify-end{{else}}justify-start{{end}} md:col-start-2 md:col-span-3">
+          {{if ne $page.Params.hidden true}}
+
+          <a class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl" href="{{ $page.RelPermalink}}">
+          {{ $image:= $page.Params.thumbnail }}
+          {{ if $image }}
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden">
+            {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 aspect-square object-cover object-center") }}
+          </div>
+          {{ end }}
+          <div class="flex p-6 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              {{ $page.Title }}
+            </h2>
+          </div>
+        </a>
+
+          {{ else }}
+          <div class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl">
+          <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden">
+            {{ partial "image" (dict "Src" "images/fringale/volume3/unknown_recipe.png" "Alt" $page.Title "Class" "w-64 aspect-square object-cover object-center") }}
+          </div>
+          <div class="flex p-6 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
+            <h2 class="mb-1 ">
+              Coming soon
+            </h2>
+            </div>
+          </div> 
+            {{ end }}
+          </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
