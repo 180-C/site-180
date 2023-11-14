@@ -13,7 +13,7 @@
     <div class="flex flex-wrap flex-col justify-start gap-5 py-10">
 
       <div class="flex mb-6 justify-center">
-        <div class="flex items-center justify-center lg:col-start-2 lg:col-span-3 text-center p-5">
+        <div class="flex items-center justify-center md:col-start-2 md:col-span-3 text-center p-5">
           <div class="p-6 bg-white dark:bg-darkmode-body rounded-xl text-dark dark:text-white shadow-xl">
             <h2 class="text-dark drop-shadow-lg">{{ .Title }}</h2>
             <p>{{ .Summary }}</p>
@@ -21,17 +21,17 @@
         </div>
       </div>
 
-      <div class="flex flex-col col-12 lg:col-6 justify-center mx-auto gap-5">
+      <div class="flex flex-col col-12 md:col-6 justify-center mx-auto gap-5">
       {{ range  $index, $page := .Pages.ByWeight }}
-      <div class="flex {{ if eq (mod $index 2) 0 }}lg:justify-end{{else}}lg:justify-start{{end}} justify-center w-full" >
+      <div class="flex {{ if eq (mod $index 2) 0 }}md:justify-end{{else}}md:justify-start{{end}} justify-center w-full" >
         <div class="flex items-center">
           {{if ne $page.Params.hidden true}}
 
-          <a class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl" href="{{ $page.RelPermalink}}">
+          <a class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl h-full" href="{{ $page.RelPermalink}}">
             {{ $image:= $page.Params.thumbnail }}
             {{ if $image }}
-            <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden">
-              {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 aspect-square object-cover object-center") }}
+            <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden h-full">
+              {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 object-cover object-center min-h-full") }}
             </div>
             {{ end }}
             <div class="flex flex-col p-6 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
@@ -39,7 +39,7 @@
                 {{ $page.Title }}
               </h2>
               {{ if or $page.Params.quantity $page.Params.duration }}
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2 {{ if eq (mod $index 2) 0 }}flex-row-reverse{{end}}">
                 {{ if $page.Params.duration }}
                 <span class="btn-sm btn-primary hover:bg-primary hover:text-white  font-bold">
                   <i class="fa fa-clock mr-2"></i> {{ $page.Params.duration }}
