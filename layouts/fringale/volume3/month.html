@@ -34,6 +34,20 @@
               {{ $page.Title }}
             </h2>
           </div>
+          {{ if or $page.Params.quantity $page.Params.duration }}
+            <div class="flex flex-wrap">
+              {{ if $page.Params.duration }}
+              <span class="btn-sm btn-primary font-bold">
+                <i class="fa fa-clock mr-2"></i> {{ $page.Params.duration }}
+              </span>
+              {{ end }}
+              {{ if $page.Params.quantity }}
+              <span class="btn-sm btn-dark font-bold">
+                <i class="fa fa-user mr-2"></i> {{ $page.Params.quantity }}
+              </span>
+              {{ end }}
+            </div>
+            {{ end }}
         </a>
 
           {{ else }}
