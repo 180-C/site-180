@@ -5,6 +5,8 @@ draft: false
 image: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
 thumbnail: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
 weight: 1
+hidden: false
+duration: "1h"
 ---
 
 #### Ingrédients
