@@ -44,11 +44,6 @@ poles:
       image: "/images/members/2023/gaspard.jpeg"
       link: "https://people.epfl.ch/gaspard.oudinot"
 
-    - name: "Antonin Faure"
-      role: "Responsable création"
-      image: "/images/members/2023/antonin.jpeg"
-      link: "https://people.epfl.ch/antonin.faure"
-
   - name: "Pôle événementiel"
     description: "C'est lui qui gère l'organisation des différents événements de 180°C ainsi que la partie catering de l'Association."
     members:
@@ -80,10 +75,6 @@ poles:
   - name: "Pôle Création"
     description: "C'est lui qui gère la création du livre de recette Fringale ainsi que du guide étudiant Le Crieur."
     members:
-    - name: "Antonin Faure"
-      role: "Responsable création"
-      image: "/images/members/2023/antonin.jpeg"
-      link: "https://people.epfl.ch/antonin.faure"
 
     - name: "Benoît Vignon"
       role: "Création"
