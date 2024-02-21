@@ -19,7 +19,7 @@ hugo server
 
 ## Deployment
 
-The website is automatically deployed on [https://test.180c.ch](https://test.180c.ch) when a commit is pushed to the `master` branch.
+The website is automatically deployed on [https://180c.ch](https://180c.ch) when a commit is pushed to the `master` branch.
 
 ## License
 
