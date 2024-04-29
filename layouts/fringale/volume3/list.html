@@ -1,121 +1,38 @@
 {{ define "main" }}
-{{ partial "page-header" . }}
-
-<!-- Hero Section -->
-{{ $lastMonth := index .Sections 0 }}
-{{ with $lastMonth }}
-
-{{ $bgimage := resources.Get .Params.background }}
-
-<section class="hero-section bg-[url('{{ $bgimage.RelPermalink | safeHTMLAttr  }}')] bg-left bg-cover" >
-  <div class="text-center p-5">
-    
-    <div class="flex flex-wrap flex-col justify-start gap-5 py-10">
-
-      <div class="flex mb-6 justify-center">
-        <div class="flex items-center justify-center md:col-start-2 md:col-span-3 text-center p-5">
-          <div class="p-6 bg-white dark:bg-darkmode-body rounded-xl text-dark dark:text-white shadow-xl">
-            <h2 class="text-dark drop-shadow-lg">{{ .Title }}</h2>
-            <p>{{ .Summary }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col col-12 md:col-6 justify-center mx-auto gap-5">
-      {{ range  $index, $page := .Pages.ByWeight }}
-      <div class="flex {{ if eq (mod $index 2) 0 }}md:justify-end{{else}}md:justify-start{{end}} justify-center w-full" >
-        <div class="flex items-center">
-          {{if ne $page.Params.hidden true}}
-
-          <a class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl h-full" href="{{ $page.RelPermalink}}">
-            {{ $image:= $page.Params.thumbnail }}
-            {{ if $image }}
-            <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden h-full">
-              {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 object-cover object-center min-h-full") }}
-            </div>
-            {{ end }}
-            <div class="flex flex-col p-6 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
-              <h2 class="mb-1 ">
-                {{ $page.Title }}
-              </h2>
-              {{ if or $page.Params.quantity $page.Params.duration }}
-              <div class="flex flex-wrap gap-2 {{ if eq (mod $index 2) 0 }}flex-row-reverse{{end}}">
-                {{ if $page.Params.duration }}
-                <span class="btn-sm btn-primary hover:bg-primary hover:text-white  font-bold">
-                  <i class="fa fa-clock mr-2"></i> {{ $page.Params.duration }}
-                </span>
-                {{ end }}
-                {{ if $page.Params.quantity }}
-                <span class="btn-sm btn-secondary hover:bg-secondary hover:text-white font-bold">
-                  <i class="fa fa-user mr-2"></i> {{ $page.Params.quantity }}
-                </span>
-                {{ end }}
-              </div>
-              {{ end }}
-            </div>
-          </a>
-
-          {{ else }}
-          <div class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl">
-            <div class="flex {{ if eq (mod $index 2) 0 }}order-2 rounded-r-xl{{else}}rounded-l-xl{{end}} overflow-hidden">
-              {{ partial "image" (dict "Src" "images/fringale/volume3/unknown_recipe.png" "Alt" $page.Title "Class" "w-64 aspect-square object-cover object-center") }}
-            </div>
-            <div class="flex p-6 {{ if eq (mod $index 2) 0 }}order-1 text-end{{else}}text-start{{end}}">
-              <h2 class="mb-1 ">
-                Coming soon
-              </h2>
-            </div>
-          </div> 
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-    </div>
-  </div>
-</section>
-{{ end }}
-
-<hr>
+  {{ partial "page-header" . }}
 
 
-{{ $filteredSections := slice }}
-{{ range $index, $section := .Sections }}
-  {{ if gt $index 1 }}
-    {{ $filteredSections = $filteredSections | append $section }}
-  {{ end }}
-{{ end }}
 
-<!-- Previous Months Section -->
-{{ if gt (len $filteredSections) 0 }}
-<section class="section">
-  <div class="container">
-    <h2>Mois précédents</h2>
-    <div class="row gx-5 py-3">
-      <div class="lg:col-12">
-        <div class="row">
-          {{ range $filteredSections }}
-          <div class="lg:col-3 mb-14">
-            <div class="bg-dark text-white dark:bg-body dark:text-dark rounded-xl">
-              {{ $image:= .Params.thumbnail }}
-              {{ if $image }}
-              <a href="{{ .RelPermalink }}">
-                {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded-t-xl aspect-square object-cover object-center") }}
-                <div class="p-6">
-                  <h4 class="mb-1 text-white dark:text-dark text-center">
-                    {{ .Title }}
-                  </h4>
+  <section class="section">
+    <div class="container">
+      {{ .Content }}
+      <div class="row gx-5 py-3">
+        <!-- blog posts -->
+        <div class="lg:col-12">
+          <div class="row">
+            {{ $paginator:= .Paginate .Pages 10 }}
+            {{ range $paginator.Pages }}
+              <div class="md:col-4 mb-14">
+                <div class="bg-white rounded-xl shadow-xl">
+                  {{ $image:= .Params.thumbnail }}
+                  {{ if $image }}
+                  <a href="{{ .RelPermalink }}">
+                    {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded-t-xl aspect-square object-cover object-center") }}
+                    <div class="p-6 bg-dark text-white dark:bg-body dark:text-dark rounded-b-xl">
+                      <h4 class="mb-1 text-white dark:text-dark text-center">
+                        {{ .Title }}
+                      </h4>
+                    </div>
+                  </a>
+                  {{ end }}
                 </div>
-              </a>
-              {{ end }}
-            </div>
+                
+              </div>
+            {{ end }}
           </div>
-          {{ end }}
+          {{ partial "components/pagination.html" . }}
         </div>
       </div>
     </div>
-  </div>
-</section>
-{{ end }}
-
+  </section>
 {{ end }}
