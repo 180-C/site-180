@@ -2,8 +2,8 @@
 title: "Salade de Quinoa"
 date: 2024-04-17T10:00:00+01:00
 draft: false
-image: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
-thumbnail: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
+image: "images/fringale/volume3/mars24/saladequinoa.jpg"
+thumbnail: "images/fringale/volume3/mars24/saladequinoa.jpg"
 weight: 3
 hidden: false
 duration: "20min"
