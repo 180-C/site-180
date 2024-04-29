@@ -4,7 +4,7 @@ date: 2023-11-5T10:00:00+01:00
 draft: false
 image: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
 thumbnail: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
-weight: 1
+weight: 2
 hidden: false
 duration: "1h"
 ---
