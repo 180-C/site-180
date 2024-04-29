@@ -98,7 +98,7 @@ poles:
 
     - name: "Thomas Charpenay"
       role: "Création"
-      image: "/images/members/2023/thomas.png"
+      image: "/images/members/2023/thomas.jpg"
       link: "https://people.epfl.ch/thomas.charpenay"
       
     - name: "Jens Nordgren"
