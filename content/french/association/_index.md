@@ -44,6 +44,11 @@ poles:
       image: "/images/members/2023/gaspard.jpeg"
       link: "https://people.epfl.ch/gaspard.oudinot"
 
+    - name: "Benoït Vignon"
+      role: "Responsable création"
+      image: "/images/members/2023/benoit.png"
+      link: "https://people.epfl.ch/benoit.vignon"
+
   - name: "Pôle événementiel"
     description: "C'est lui qui gère l'organisation des différents événements de 180°C ainsi que la partie catering de l'Association."
     members:
@@ -72,12 +77,17 @@ poles:
       image: "/images/members/2023/hsan.webp"
       link: "https://people.epfl.ch/hsan.ennouri"
 
+    - name: "Alice Trigon-Pacalet"
+      role: "Evénementiel"
+      image: "/images/members/2023/alice.jpg"
+      link: "https://people.epfl.ch/alice.trigon-pacalet"
+
   - name: "Pôle Création"
     description: "C'est lui qui gère la création du livre de recette Fringale ainsi que du guide étudiant Le Crieur."
     members:
 
     - name: "Benoît Vignon"
-      role: "Création"
+      role: "Responsable Création"
       image: "/images/members/2023/benoit.png"
       link: "https://people.epfl.ch/benoit.vignon"
 
@@ -90,12 +100,22 @@ poles:
       role: "Création"
       image: "/images/members/2023/thomas.png"
       link: "https://people.epfl.ch/thomas.charpenay"
-
-    - name: "Michaël Di Dio"
+      
+    - name: "Jens Nordgren"
       role: "Création"
-      image: "/images/members/2023/michael.png"
-      link: "https://people.epfl.ch/michael.didio"
+      image: "/images/members/2023/jens.jpg"
+      link: "https://people.epfl.ch/jens.nordgren"
+    
+    - name: "Joëlly Brutsch"
+      role: "Création"
+      image: "/images/members/2023/joelly.png"
+      link: ""
 
+    - name: "Marine de Rocquigny du Fayel"
+      role: "Création"
+      image: "/images/members/2023/marine.png"
+      link : "https://people.epfl.ch/marine.derocquignydufayel"
+      
   - name: "Pôle Sponsoring"
     description: "C'est le pôle en charge du dossier de sponsoring ainsi que des relations avec les différents sponsors et partenaires."
     members:
@@ -121,12 +141,7 @@ poles:
       role: "Responsable communication"
       image: "/images/members/2023/gaspard.jpeg"
       link: "https://people.epfl.ch/gaspard.oudinot"
-    
-    - name: "Kevin Sautron"
-      role: "Communication"
-      image: "/images/members/2023/thomas.png"
-      link: ""
-
+ 
     - name: "Margaux Ropero"
       role: "Communication"
       image: "/images/members/2023/margaux.png"
@@ -136,4 +151,9 @@ poles:
       role: "Communication"
       image: "/images/members/2023/salma.png"
       link: "https://people.epfl.ch/salma.mamdouhe"
+      
+    - name: "Claudiu Ernst"
+      role: "Communication"
+      image: "/images/members/2023/claudiu.jpg"
+      link: "https://people.epfl.ch/claudiu.ernst"
 ---
