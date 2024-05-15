@@ -4,7 +4,7 @@ date: 2024-04-17T12:00:00+01:00
 draft: false
 image: "images/fringale/volume3/avril24/ragoutgochujang.png"
 thumbnail: "images/fringale/volume3/avril24/ragoutgochujang.png"
-weight: 2
+weight: 1
 hidden: false
 quantity: "2-3 personnes"
 duration: "35min"
