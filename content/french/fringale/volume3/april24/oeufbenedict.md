@@ -2,9 +2,9 @@
 title: "Oeuf Benedict aux asperges"
 date: 2024-04-17T10:00:00+01:00
 draft: false
-image: "images/fringale/volume3/avril24/oeufbenedict.heic"
-thumbnail: "images/fringale/volume3/avril24/oeufbenedict.heic"
-weight: 3
+image: "images/fringale/volume3/avril24/oeufbenedict.png"
+thumbnail: "images/fringale/volume3/avril24/oeufbenedict.png"
+weight: 2
 hidden: false
 quantity: "1 personne"
 ---
