@@ -26,7 +26,7 @@ poles:
 
     - name: "Alice Trigon"
       role: "Responsable événementiel"
-      image: "/images/members/2024/alice.jpeg"
+      image: "/images/members/2024/alice.jpg"
       link: "https://people.epfl.ch/alice.trigon-pacalet"
     
     - name: "Veronika Pak"
@@ -54,7 +54,7 @@ poles:
     members:
     - name: "Alice Trigon"
       role: "Responsable événementiel"
-      image: "/images/members/2024/alice.jpeg"
+      image: "/images/members/2024/alice.jpg"
       link: "https://people.epfl.ch/alice.trigon-pacalet"
 
     - name: "Veronika Pak"
