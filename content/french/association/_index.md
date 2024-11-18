@@ -36,7 +36,7 @@ poles:
 
     - name: "Benoît Vignon"
       role: "Responsable sponsoring"
-      image: "/images/members/2024/benoit.jpg"
+      image: "/images/members/2024/benoît.jpg"
       link: "https://people.epfl.ch/benoit.vignon"
 
     - name: "Adèle Linette"
@@ -101,12 +101,12 @@ poles:
     members:
     - name: "Benoît Vignon"
       role: "Responsable sponsoring"
-      image: "/images/members/2024/benoit.jpg"
+      image: "/images/members/2024/benoît.jpg"
       link: "https://people.epfl.ch/benoit.vignon"
 
     - name: "Luca Deandrea"
       role: "Sponsoring"
-      image: "/images/members/2024/luca.jpg"
+      image: "/images/members/2024/luca.png"
       link: "https://people.epfl.ch/luca.deandrea"
 
   - name: "Pôle Communication"
