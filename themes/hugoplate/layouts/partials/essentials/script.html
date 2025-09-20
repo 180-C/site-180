@@ -19,6 +19,7 @@
   {{ $scripts = $scripts | minify | fingerprint }}
 {{ end }}
 
+
 <script
   crossorigin="anonymous"
   integrity="{{ $scripts.Data.Integrity }}"

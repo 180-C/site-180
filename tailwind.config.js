@@ -12,7 +12,12 @@ let h4 = h5 * font_scale;
 let h3 = h4 * font_scale;
 let h2 = h3 * font_scale;
 let h1 = h2 * font_scale;
-let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType, fontTeriary, fontTeriaryType;
+let fontPrimary,
+  fontPrimaryType,
+  fontSecondary,
+  fontSecondaryType,
+  fontTeriary,
+  fontTeriaryType;
 if (theme.fonts.font_family.primary) {
   fontPrimary = theme.fonts.font_family.primary.base
     .replace(/\+/g, " ")
@@ -57,7 +62,7 @@ module.exports = {
         darkMode: {
           primary: theme.colors.darkmode.theme_color.primary,
           secondary: theme.colors.darkmode.theme_color.secondary,
-        }
+        },
       },
       colors: {
         text: theme.colors.default.text_color.default,

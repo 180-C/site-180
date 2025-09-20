@@ -22,8 +22,8 @@ quantity: "1 personne"
 - Poivre
 
 La sauce :
+
 - 1 c.a.s d'huile d'olive
 - 1/2 c.a.s de jus de citron
 - Sel et poivre fraichement moulu
 - Faculatif : ail et moutarde
-

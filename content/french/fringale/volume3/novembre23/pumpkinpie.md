@@ -1,6 +1,6 @@
 ---
 title: "Pumpkin Pie"
-date: 2023-11-5T10:00:00+01:00
+date: 2023-11-05T10:00:00+01:00
 draft: false
 image: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
 thumbnail: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
@@ -20,7 +20,7 @@ duration: "1h"
 - ½ c. à c. de sel
 - 1 pâte à tarte
 
-#### Préparation :
+#### Préparation
 
 1. Préchauffer le four à 180°C.
 2. Mettre la pâte à cuire à blanc pendant une dizaine de minutes. Ne pas oublier de la percer avec une fourchette.

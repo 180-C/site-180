@@ -29,7 +29,7 @@
     const googleFont = document.createElement("link");
     googleFont.type = "text/css";
     googleFont.rel = "stylesheet";
-    
+
     let url = `https://fonts.googleapis.com/css2?display=swap`
     for (const family in fontFamilies) {
       if (fontFamilies.hasOwnProperty(family)) {
@@ -57,7 +57,7 @@
 {{ end }}
 {{ $styles := $styles | append (resources.Get "scss/main.scss" | toCSS) }}
 {{ $styles := $styles | resources.Concat "css/style.css" }}
-{{ $styles = $styles | resources.PostCSS }}
+{{ $styles = $styles | css.PostCSS }}
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint | resources.PostProcess }}
 {{ else }}

@@ -22,7 +22,7 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-  
+
 # Environment variables available to all jobs and steps in this workflow
 env:
   HUGO_ENV: production
@@ -74,7 +74,7 @@ jobs:
             --templateMetrics \
             --templateMetricsHints \
             --forceSyncStatic \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"     
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

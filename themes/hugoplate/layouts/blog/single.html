@@ -58,15 +58,12 @@
               </ul>
             </div>
             <div class="lg:col-4 flex items-center">
-              {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Whatsapp" false "Telegram" false) }}
+              <!-- TODO : Remplement -->
+              <!-- <div class="lg:col-4 flex items-center">
+                {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false) }}
+              </div> -->
             </div>
           </div>
-          <!-- comments -->
-          {{ if site.DisqusShortname }}
-            <div class="mt-20">
-              {{ template "_internal/disqus.html" . }}
-            </div>
-          {{ end }}
         </article>
       </div>
 

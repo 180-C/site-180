@@ -1,9 +1,9 @@
 <div class="bg-body dark:bg-darkmode-body">
   {{ $image:= .Params.image | default .Params.thumbnail }}
   {{ if $image }}
-  <a href="{{ .RelPermalink }}">
-    {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mb-6 w-full rounded-xl" "Command" "Fill" "Size" "400x400") }}
-  </a>
+    <a href="{{ .RelPermalink }}">
+      {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "mb-6 w-full rounded-xl" "Command" "Fill" "Size" "400x400") }}
+    </a>
   {{ end }}
   <h4 class="mb-1">
     <a href="{{ .RelPermalink }}">
@@ -12,31 +12,34 @@
   </h4>
   <ul class="mb-4 flex items-center flex-wrap gap-2">
     <li class="inline-block flex gap-2">
-      <a class=" bg-primary rounded px-3 py-1 text-light" href="{{ (printf "%s/" $.Section ) | relLangURL }}">
+      <a
+        class=" bg-primary rounded px-3 py-1 text-light"
+        href="{{ (printf "%s/" $.Section ) | relLangURL }}">
         {{ if eq .Section "blog" }}
-        <i class="fa-solid fa-pen-clip mr-2"></i>
+          <i class="fa-solid fa-pen-clip mr-2"></i>
         {{ else if eq .Section "events" }}
-        <i class="fa-solid fa-champagne-glasses mr-2"></i>
+          <i class="fa-solid fa-champagne-glasses mr-2"></i>
         {{ else if eq .Section "recettes" }}
-        <i class="fa-solid fa-utensils mr-2"></i>
+          <i class="fa-solid fa-utensils mr-2"></i>
         {{ end }}
         {{ (i18n .Section) | humanize }}
       </a>
     </li>
     {{ if or .Params.date .Params.end_date }}
-    <li class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
-      {{ if and .Params.date .Params.end_date  }}
-      <i class="fa-regular fa-calendar mr-1"></i>
-      {{ time.Format ":date_long" .Params.date }}
-      -
-      {{ time.Format ":date_long" .Params.end_date }}
-      {{ else }}
-      {{ if .Params.date }}
-      <i class="fa-regular fa-clock mr-1"></i>
-      {{ time.Format ":date_long" .PublishDate }}
-      {{ end }}
-      {{ end }}
-    </li>
+      <li
+        class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
+        {{ if and .Params.date .Params.end_date }}
+          <i class="fa-regular fa-calendar mr-1"></i>
+          {{ time.Format ":date_long" .Params.date }}
+          -
+          {{ time.Format ":date_long" .Params.end_date }}
+        {{ else }}
+          {{ if .Params.date }}
+            <i class="fa-regular fa-clock mr-1"></i>
+            {{ time.Format ":date_long" .PublishDate }}
+          {{ end }}
+        {{ end }}
+      </li>
     {{ end }}
   </ul>
   <p class="mb-6">{{ .Summary }}</p>

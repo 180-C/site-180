@@ -1,98 +1,98 @@
 {{ define "main" }}
-<section>
-  <div class="container text-center">
-    <div
-      class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
-      {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
-    </div>
-  </div>
-</section>
-
-<section class="section pt-7">
-  <div class="container">
-    <div class="row justify-center">
-      <article class="lg:col-10">
-        {{ $image:= .Params.image }}
-        {{ if $image }}
-        <div class="mb-10">
-          {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
-        </div>
-        {{ end }}
-        <h1 class="h2 mb-4">
-          {{ .Title }}
-        </h1>
-        <ul class="flex gap-3 items-center">
-          {{ if .Params.author }}
-          <li class="mr-4 inline-block">
-            <i class="fa-regular fa-circle-user mr-2"></i>{{ .Params.author }}
-          </li>
-          {{ end }}
-          {{ if .Param (printf "%s/%s" .Section "categories") }}
-          <li class="inline-block bg-primary rounded px-3 py-1 text-light">
-            <i class="fa-regular fa-folder mr-2"></i>
-            {{ $categories:= .Param (printf "%s/%s" .Section "categories") }}
-            {{ range $i,$p:= $categories }}
-            <a href="{{ (printf " %s/%s/" $.Section "categories" ) | relLangURL }}{{ . | urlize | lower }}/"
-              class="ms-1">{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
-              {{ ", " }}
-              {{ end }}
-            </a>
-            {{ end }}
-          </li>
-          {{ end }}
-          <li class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
-            <i class="fa-regular fa-clock mr-2"></i>
-            {{ time.Format ":date_long" .PublishDate }}
-          </li>
-        </ul>
-        <div class="content mb-10">
-          {{ .Content | safeHTML }}
-        </div>
-        <div class="row items-start justify-between">
-          <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
-            <h5 class="mr-3">{{ i18n "tags" }} :</h5>
-            <ul>
-              {{ $tags:= .Param (printf "%s/%s" .Section "tags")}}
-              {{ range $i,$p:= $tags }}
-              <li class="inline-block">
-                <a class="bg-theme-light hover:bg-primary dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                  href="{{ (printf  "%s/%s/" $.Section "tags" ) | relLangURL }}{{ . | urlize | lower }}/">
-                  {{ . | humanize }}
-                </a>
-              </li>
-              {{ end }}
-            </ul>
-          </div>
-          <div class="lg:col-4 flex items-center">
-            {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false)
-            }}
-          </div>
-        </div>
-        <!-- comments -->
-        {{ if site.DisqusShortname }}
-        <div class="mt-20">
-          {{ template "_internal/disqus.html" . }}
-        </div>
-        {{ end }}
-      </article>
-    </div>
-
-    <!-- Related posts -->
-    {{ $related := (where site.RegularPages "Section" .Section) | intersect (where site.RegularPages ".Title" "!="
-    .Title) }}
-    {{ $related = $related | shuffle | first 3 }}
-    {{ with $related }}
-    <div class="section pb-0">
-      <h2 class="h3 mb-12">{{ i18n "related_posts" }}</h2>
-      <div class="row">
-        {{ range . }}
-        <div class="lg:col-4">
-          {{ partial "components/blog-card" . }}
-        </div>
-        {{ end }}
+  <section>
+    <div class="container text-center">
+      <div
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+        {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
-    {{ end }}
-  </div>
-</section>
+  </section>
+
+  <section class="section pt-7">
+    <div class="container">
+      <div class="row justify-center">
+        <article class="lg:col-10">
+          {{ $image:= .Params.image }}
+          {{ if $image }}
+            <div class="mb-10">
+              {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
+            </div>
+          {{ end }}
+          <h1 class="h2 mb-4">
+            {{ .Title }}
+          </h1>
+          <ul class="flex gap-3 items-center">
+            {{ if .Params.author }}
+              <li class="mr-4 inline-block">
+                <i class="fa-regular fa-circle-user mr-2"></i
+                >{{ .Params.author }}
+              </li>
+            {{ end }}
+            {{ if .Param (printf "%s/%s" .Section "categories") }}
+              <li class="inline-block bg-primary rounded px-3 py-1 text-light">
+                <i class="fa-regular fa-folder mr-2"></i>
+                {{ $categories:= .Param (printf "%s/%s" .Section "categories") }}
+                {{ range $i,$p:= $categories }}
+                  <a
+                    href="{{ (printf " %s/%s/" $.Section "categories" ) | relLangURL }}{{ . | urlize | lower }}/"
+                    class="ms-1"
+                    >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
+                      {{ ", " }}
+                    {{ end }}
+                  </a>
+                {{ end }}
+              </li>
+            {{ end }}
+            <li
+              class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
+              <i class="fa-regular fa-clock mr-2"></i>
+              {{ time.Format ":date_long" .PublishDate }}
+            </li>
+          </ul>
+          <div class="content mb-10">
+            {{ .Content | safeHTML }}
+          </div>
+          <div class="row items-start justify-between">
+            <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
+              <h5 class="mr-3">{{ i18n "tags" }} :</h5>
+              <ul>
+                {{ $tags:= .Param (printf "%s/%s" .Section "tags") }}
+                {{ range $i,$p:= $tags }}
+                  <li class="inline-block">
+                    <a
+                      class="bg-theme-light hover:bg-primary dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                      href="{{ (printf  "%s/%s/" $.Section "tags" ) | relLangURL }}{{ . | urlize | lower }}/">
+                      {{ . | humanize }}
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
+            <!-- TODO : Remplement -->
+            <!-- <div class="lg:col-4 flex items-center">
+              {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false) }}
+            </div> -->
+          </div>
+        </article>
+      </div>
+
+      <!-- Related posts -->
+      {{ $related := (where site.RegularPages "Section" .Section) | intersect (where site.RegularPages ".Title" "!="
+        .Title)
+      }}
+      {{ $related = $related | shuffle | first 3 }}
+      {{ with $related }}
+        <div class="section pb-0">
+          <h2 class="h3 mb-12">{{ i18n "related_posts" }}</h2>
+          <div class="row">
+            {{ range . }}
+              <div class="lg:col-4">
+                {{ partial "components/blog-card" . }}
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
 {{ end }}

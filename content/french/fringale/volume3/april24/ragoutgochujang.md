@@ -30,8 +30,8 @@ duration: "35min"
 1. Faire chauffer de l'huile dans une grande casserolle à feu moyen-vif.
 2. Faire revenir le gingembre et l'ail pendant 1 min.
 3. Ajouter le bouillon ainsi que la sauce soja, miel, gochujang et mélanger.
-4. Ajouter les carottes en premier, puis les pommes de terre, laisser cuire pendant 3-5 minutes puis ajouter le poivron. 
+4. Ajouter les carottes en premier, puis les pommes de terre, laisser cuire pendant 3-5 minutes puis ajouter le poivron.
 5. Ajouter la coriandre à volonté.
 6. Ajouter le lait de coco et un peu de maïzena pour épaissir.
 7. Laisser cuire jusqu'à ce que les pommes de terre soient tendres.
-8. Saler et poivrer à volonté, peut être servi avec du riz comme un accompagnement et un trait de citron. 
+8. Saler et poivrer à volonté, peut être servi avec du riz comme un accompagnement et un trait de citron.

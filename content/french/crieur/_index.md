@@ -11,20 +11,19 @@ sections:
     image: "/images/crieur-howto.png"
     imagealt: "How to image"
     bulletpoints:
-        - name: "**Type :** Restaurant, café, fast-food, bar, traiteur ou magasin."
-            
-        - name: "**Prix moyen :**"
-          list:
-            - "**$** = moins de 10 CHF"
-            - "**$$** = entre 10 et 20 CHF"
-            - "**$$$** = entre 20 et 30 CHF"
-            - "**$$$$** = plus de 30 CHF"
+      - name: "**Type :** Restaurant, café, fast-food, bar, traiteur ou magasin."
 
-    
+      - name: "**Prix moyen :**"
+        list:
+          - "**$** = moins de 10 CHF"
+          - "**$$** = entre 10 et 20 CHF"
+          - "**$$$** = entre 20 et 30 CHF"
+          - "**$$$$** = plus de 30 CHF"
+
     alert: "**NB :** Les icônes visibles sont toutes les adresses qui remplissent les critères sélectionnés. Si l'adresse est hors des critères elle n'apparaît donc pas sur la carte."
 
   - title: "Comment suggérer une adresse ?"
-    content: "Si tu souhaites ajouter une adresse, il te suffit de remplir ce <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScGHtHfjQ7F1O0ZQxnow55NWiNM-r-cCGhcCGIGlziFJTSX3A/viewform\">formulaire</a> et nous l'ajouterons sur la carte en moins de temps qu'il n'en faut pour crier l'heure !"
+    content: 'Si tu souhaites ajouter une adresse, il te suffit de remplir ce <a href="https://docs.google.com/forms/d/e/1FAIpQLScGHtHfjQ7F1O0ZQxnow55NWiNM-r-cCGhcCGIGlziFJTSX3A/viewform">formulaire</a> et nous l''ajouterons sur la carte en moins de temps qu''il n''en faut pour crier l''heure !'
     image: "/images/crieur-suggest.png"
     imagealt: "Suggest place image"
 

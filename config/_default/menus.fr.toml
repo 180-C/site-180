@@ -37,11 +37,6 @@ url = "blog/"
 parent = "Rubriques"
 
 [[main]]
-name = "Sponsors"
-url = "sponsors/"
-weight = 6
-
-[[main]]
 name = "L'association"
 url = "association/"
 weight = 5

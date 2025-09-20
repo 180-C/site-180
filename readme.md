@@ -9,12 +9,34 @@ This repository contains the source code of the 180°C website.
 
 ### Prerequisites
 
+First, make sure you have the following installed:
+
 - [Hugo](https://gohugo.io/getting-started/installing/)
+- A node js package manager (Either bun or npm)
+
+If you use VSCode, those extensions are recommended :
+
+- [Markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+
+Then, install all of the dependencies and update the modules :
+
+```bash
+npm i
+npm run update-modules
+```
 
 ### Run the website locally
 
+To run the development server (the one that includes drafts)
+
 ```bash
-hugo server
+npm run dev
+```
+
+To run a production ready server
+
+```bash
+npm run build
 ```
 
 ## Deployment

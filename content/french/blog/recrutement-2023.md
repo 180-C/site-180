@@ -11,17 +11,18 @@ date: 2023-09-08T00:00:00Z
 
 Ca y est, 180°C 🧑‍🍳 recrute !!
 
-Notre association touche à la cuisine sous toutes ses formes, comme tu as peut-être pu le constater grâce à notre livre de recettes **Fringale** ou à notre concours de cuisine **Spice League**. 
+Notre association touche à la cuisine sous toutes ses formes, comme tu as peut-être pu le constater grâce à notre livre de recettes **Fringale** ou à notre concours de cuisine **Spice League**.
 
 Notre association est encore jeune et beaucoup d'opportunités s'offrent à nous. Alors si tu aimes être créatif•ve en cuisine ou bien que tu souhaites découvrir cet univers rejoins-nous dès à présent !
 
 Rejoins nous en cliquant sur [ce lien](https://docs.google.com/forms/d/e/1FAIpQLSfN7iDo8ikW6qiBqrYv2oXVJCVR1s8w6pFwmUKwE5Cp_zBN7w/viewform) ! A très vite 😇
 
 {{< imgsection image="images/blog/recrutement-2023/recrutement1.jpg" title="Pôle Événementiel" imgclass="rounded-xl" >}}
-    
+
 Organiser et imaginer des événements en équipe que 180°C mettra en place.
 
 Projets :
+
 - Spice League : le top chef étudiant
 - Toc Toque : aller cuisiner chez les étudiants
 - Chalets de l'avent
@@ -33,6 +34,7 @@ Projets :
 Développer le site web de 180°C avec des articles, des recettes, des vidéos et autres. Compétences en rédaction et/ou graphisme requises.
 
 Projets :
+
 - Livre de recette numérique
 - Le Crieur : guide des bonnes adresses à Lausanne
 - Création de vidéos courtes et longues autour de la cuisine

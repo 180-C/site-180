@@ -2,6 +2,7 @@
 {{ $scope := .scope }}
 {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
 
+
 <!-- categories -->
 {{ if $taxonomy }}
   {{ if not (eq (len $taxonomy) 0) }}

@@ -6,7 +6,7 @@ thumbnail: "/images/crieur/dokidoki/dokidoki-front.jpeg"
 gallery: "/images/crieur/dokidoki"
 style: "Cuisine japonaise / Ramen"
 types: ["restaurant"]
-tags: ["vege","takeaway","delivery"]
+tags: ["vege", "takeaway", "delivery"]
 tips: "10% sur toutes les commandes à emporter"
 description: "Petit restaurant dans une avenue marchande offrant de la cuisine asiatique traditionnelle"
 price: "3-18 CHF"
@@ -25,10 +25,10 @@ locations:
             end: "22:00"
       - name: "Mardi"
         creneaux:
-            - start: "11:30"
-              end: "14:00"
-            - start: "18:30"
-              end: "22:00"
+          - start: "11:30"
+            end: "14:00"
+          - start: "18:30"
+            end: "22:00"
       - name: "Mercredi"
         creneaux:
           - start: "11:30"
@@ -58,12 +58,12 @@ locations:
           - start: "12:00"
             end: "14:00"
 links:
-    - social: "site"
-      url: "https://dokidoki-fc.ch/"
-    - social: "instagram"
-      url: "https://www.instagram.com/dokidoki.ramen/"
-    - social: "facebook"
-      url: "https://www.facebook.com/people/Doki-Doki/100051324954397/"
-    - social: "tripadvisor"
-      url: "https://fr.tripadvisor.ch/Restaurant_Review-g188107-d21313222-Reviews-Doki_Doki-Lausanne_Canton_of_Vaud.html"
+  - social: "site"
+    url: "https://dokidoki-fc.ch/"
+  - social: "instagram"
+    url: "https://www.instagram.com/dokidoki.ramen/"
+  - social: "facebook"
+    url: "https://www.facebook.com/people/Doki-Doki/100051324954397/"
+  - social: "tripadvisor"
+    url: "https://fr.tripadvisor.ch/Restaurant_Review-g188107-d21313222-Reviews-Doki_Doki-Lausanne_Canton_of_Vaud.html"
 ---

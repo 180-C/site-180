@@ -1,38 +1,52 @@
 {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
 
-<div id="filter-controls" class="col-12 px-3 py-2 m-0 flex flex-col gap-5 text-center">
-    <div class="flex flex-col gap-2">
-        <span class="label text-dark font-extrabold">Types</span>
-        <div class="types flex flex-col gap-2">
-            {{ range $code, $type := $config.types }}
-            <div class="p-0">
-                <input class="hidden peer" type="checkbox" id="check-type-{{ $code }}" value="{{ $code }}" checked>
-                <label for="check-type-{{ $code }}"
-                    class="btn btn-outline-primary hover:bg-light hover:border-secondary hover:text-secondary dark:hover:bg-light dark:hover:border-secondary dark:hover:text-secondary cursor-pointer peer-checked:btn-primary peer-checked:hover:bg-primary peer-checked:hover:text-secondary peer-checked:dark:hover:bg-primary peer-checked:dark:hover:text-secondary flex flex-row gap-2 justify-center">
-                    <span>{{ $type.icon | safeHTML }}</span>
-                    <span>{{ $type.name}}</span>
-                </label>
-            </div>
-            {{ end }}
-        </div>
 
-    </div>
-    <div class="flex flex-col gap-2">
-        <span class="label text-dark font-extrabold">Prix</span>
-        <div class="prices flex flex-col gap-2">
-            {{ range $i, $price := $config.priceTags }}
-            <div class="p-0">
-                <input class="hidden peer" type="checkbox" id="check-price-{{ $price }}" value="{{ $price }}" checked>
-                <label for="check-price-{{ $price }}"
-                    class="btn btn-outline-primary hover:bg-light hover:border-secondary hover:text-secondary dark:hover:bg-light dark:hover:border-secondary dark:hover:text-secondary cursor-pointer peer-checked:btn-primary peer-checked:hover:bg-primary peer-checked:hover:text-secondary peer-checked:dark:hover:bg-primary peer-checked:dark:hover:text-secondary flex flex-row gap-2 justify-center">
-                    <span>
-                        {{ range seq $price}}
-                        <i class="fas fa-dollar-sign"></i>
-                        {{ end }}
-                    </span>
-                </label>
-            </div>
-            {{ end }}
+<div
+  id="filter-controls"
+  class="col-12 px-3 py-2 m-0 flex flex-col gap-5 text-center">
+  <div class="flex flex-col gap-2">
+    <span class="label text-dark font-extrabold">Types</span>
+    <div class="types flex flex-col gap-2">
+      {{ range $code, $type := $config.types }}
+        <div class="p-0">
+          <input
+            class="hidden peer"
+            type="checkbox"
+            id="check-type-{{ $code }}"
+            value="{{ $code }}"
+            checked />
+          <label
+            for="check-type-{{ $code }}"
+            class="btn btn-outline-primary hover:bg-light hover:border-secondary hover:text-secondary dark:hover:bg-light dark:hover:border-secondary dark:hover:text-secondary cursor-pointer peer-checked:btn-primary peer-checked:hover:bg-primary peer-checked:hover:text-secondary peer-checked:dark:hover:bg-primary peer-checked:dark:hover:text-secondary flex flex-row gap-2 justify-center">
+            <span>{{ $type.icon | safeHTML }}</span>
+            <span>{{ $type.name }}</span>
+          </label>
         </div>
+      {{ end }}
     </div>
+  </div>
+  <div class="flex flex-col gap-2">
+    <span class="label text-dark font-extrabold">Prix</span>
+    <div class="prices flex flex-col gap-2">
+      {{ range $i, $price := $config.priceTags }}
+        <div class="p-0">
+          <input
+            class="hidden peer"
+            type="checkbox"
+            id="check-price-{{ $price }}"
+            value="{{ $price }}"
+            checked />
+          <label
+            for="check-price-{{ $price }}"
+            class="btn btn-outline-primary hover:bg-light hover:border-secondary hover:text-secondary dark:hover:bg-light dark:hover:border-secondary dark:hover:text-secondary cursor-pointer peer-checked:btn-primary peer-checked:hover:bg-primary peer-checked:hover:text-secondary peer-checked:dark:hover:bg-primary peer-checked:dark:hover:text-secondary flex flex-row gap-2 justify-center">
+            <span>
+              {{ range seq $price }}
+                <i class="fas fa-dollar-sign"></i>
+              {{ end }}
+            </span>
+          </label>
+        </div>
+      {{ end }}
+    </div>
+  </div>
 </div>
