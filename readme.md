@@ -11,14 +11,16 @@ This repository contains the source code of the 180°C website.
 
 First, make sure you have the following installed:
 
-- [Hugo](https://gohugo.io/getting-started/installing/)
+- [Hugo v0.142.0](https://gohugo.io/getting-started/installing/)
 - A node js package manager (Either bun or npm)
 
 If you use VSCode, those extensions are recommended :
 
 - [Markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+- [Tailwind CSS Intelissense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
-Then, install all of the dependencies and update the modules :
+Then, install all of the dependencies and update the modules (the commands are the same for Bun):
 
 ```bash
 npm i
