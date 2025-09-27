@@ -27,8 +27,8 @@ concurrency:
 env:
   HUGO_ENV: production
   HUGO_ENVIRONMENT: production
-  HUGO_VERSION: "0.118.2"
-  GO_VERSION: "1.20.5"
+  HUGO_VERSION: "0.142.0"
+  GO_VERSION: "1.24.7"
   NODE_VERSION: "18.15.0"
   TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
   TINA_TOKEN: ${{ vars.TINA_TOKEN }}
