@@ -16,25 +16,25 @@ name = "Fringale"
 url = "fringale/"
 weight = 3
 
-[[main]]
-name = "Rubriques"
-isParent = true
-weight = 4
+# [[main]]
+# name = "Rubriques"
+# isParent = true
+# weight = 4
 
-[[main]]
-name = "Événements"
-url = "events/"
-parent = "Rubriques"
+# [[main]]
+# name = "Événements"
+# url = "events/"
+# parent = "Rubriques"
 
 [[main]]
 name = "Recettes"
 url = "recettes/"
-parent = "Rubriques"
+weight = 4
 
 [[main]]
-name = "Articles"
+name = "Blog"
 url = "blog/"
-parent = "Rubriques"
+weight = 4
 
 [[main]]
 name = "L'association"

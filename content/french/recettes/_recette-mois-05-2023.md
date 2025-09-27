@@ -5,7 +5,7 @@ date: 2023-05-12T05:00:00Z
 image: "/images/recettes/recette-mois-05-2023.jpg"
 "recettes/categories": ["Recette du mois"]
 "recettes/tags": ["vegetarien", "vegan"]
-draft: false
+draft: true
 summary: "Paëlla aux légumes de printemps (pour 2-3 personnes)"
 description: "Paëlla aux légumes de printemps (pour 2-3 personnes)"
 ---
