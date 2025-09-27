@@ -45,4 +45,4 @@ Cette paëlla végétale pleine de couleurs et de saveurs requiert un ingrédien
 
 Considérée comme une épice du Moyen-Orient, le safran pousse également en Suisse en Valais et est utilisé dans la préparation de mets typiquement suisse comme la cuchaule fribourgeoise !
 
-_Merci à Camille Aymon de nous avoir partagé sa recette ainsi que la photo_
+## Merci à Camille Aymon de nous avoir partagé sa recette ainsi que la photo

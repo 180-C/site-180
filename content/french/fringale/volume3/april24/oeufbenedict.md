@@ -19,11 +19,11 @@ quantity: "1 personne"
 
 #### Préparation
 
-###### Asperges:
+##### Asperges
 
 Faire sauter 6 asperges quelques minutes dans du beurre jusqu'à ce qu'elles aient une belle couleur. Assaisonner avec du sel, poivre et un trait de jus de citron.
 
-###### Hollandaise:
+##### Hollandaise
 
 1. Battez les jaunes d'oeufs avec 2 cuillères à soupe d'eau froide.
 2. Placez dans un bain-marie chaud et fouettez jusqu'à l'obtention d'une crème mousseuse et légère.
@@ -31,7 +31,7 @@ Faire sauter 6 asperges quelques minutes dans du beurre jusqu'à ce qu'elles aie
 4. Saler, poivrer et incorporer le jus de citron avant de servir.
 5. Possibilité d'ajouter des tomates séchées coupées finement et de la sauce piquante.
 
-###### Oeufs Pochés:
+##### Oeufs Pochés
 
 1. Faire frémir de l'eau dans une casserolle avec une cuillère à café de vinaigre. Important: ne pas avoir une ébullition torp forte !
 2. Déposer délicatement l'oeuf avec un ustensile afin qu'il ne touche pas le fond.
