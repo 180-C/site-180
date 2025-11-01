@@ -19,7 +19,8 @@
 
       <!-- blog posts -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5">
-        {{ $paginator:= .Paginate (where .Site.Pages "Type" "recette") 6 }}
+        <!-- FIXME : the tags and category filtering doesn't work anymore -->        
+        {{ $paginator:= .Paginate (where .Site.RegularPages "Type" "recette") 6 }}
         {{ range $paginator.Pages }}
           {{ partial "components/blog-card" . }}
         {{ end }}
