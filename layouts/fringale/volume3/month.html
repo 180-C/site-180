@@ -1,94 +1,58 @@
 {{ define "main" }}
+<div class="flex flex-col flex-grow">
   {{ partial "page-header" . }}
-
   {{ $bgimage := resources.Get .Params.background }}
   <section
-    class="hero-section bg-[url('{{ $bgimage.RelPermalink | safeHTMLAttr }}')] bg-left bg-cover">
-    <div class="text-center p-5">
-      <div class="flex flex-wrap flex-col justify-start gap-5 py-10">
-        <div class="flex flex-col col-12 md:col-6 justify-center mx-auto gap-5">
+    class="flex flex-col flex-grow hero-section bg-[url('{{ $bgimage.RelPermalink | safeHTMLAttr }}')] bg-left bg-cover">
+    <div class="flex justify-center container p-5 min-h-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {{ range  $index, $page := .Pages.ByWeight }}
-            <div
-              class="flex {{ if eq (mod $index 2) 0 }}
-                md:justify-end
-              {{ else }}
-                md:justify-start
-              {{ end }} justify-center w-full">
-              <div class="flex items-center">
-                {{ if ne $page.Params.hidden true }}
+            {{ if ne $page.Params.hidden true }}
+              <a
+                class="flex bg-white dark:bg-darkmode-body rounded-xl shadow-xl w-full max-h-48 overflow-hidden"
+                href="{{ $page.RelPermalink }}">
+                {{ $image:= $page.Params.thumbnail }}
+                <div class="flex">
+                  <div
+                    class="h-full aspect-square block">
+                    {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "object-cover object-center min-h-full") }}
+                  </div>
+                </div>
+                
+                <!-- FIXME: The title do overflows -->
+                <div
+                  class="flex flex-col p-6 min-w-48">
+                  <h2 class="mb-1 flex-grow">
+                    <div class="h-full w-full overflow-auto text-3xl">
+                      {{ $page.Title }}
+                    </div>
+                  </h2>
 
-                  <a
-                    class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl h-full"
-                    href="{{ $page.RelPermalink }}">
-                    {{ $image:= $page.Params.thumbnail }}
-                    {{ if $image }}
-                      <div
-                        class="flex {{ if eq (mod $index 2) 0 }}
-                          order-2 rounded-r-xl
-                        {{ else }}
-                          rounded-l-xl
-                        {{ end }} overflow-hidden h-full">
-                        {{ partial "image" (dict "Src" $image "Alt" $page.Title "Class" "w-64 object-cover object-center min-h-full") }}
-                      </div>
-                    {{ end }}
-                    <div
-                      class="flex flex-col p-6 {{ if eq (mod $index 2) 0 }}
-                        order-1 text-end
-                      {{ else }}
-                        text-start
-                      {{ end }}">
-                      <h2 class="mb-1 ">
-                        {{ $page.Title }}
-                      </h2>
-                      {{ if or $page.Params.quantity $page.Params.duration }}
-                        <div
-                          class="flex flex-wrap gap-2 {{ if eq (mod $index 2) 0 }}
-                            flex-row-reverse
-                          {{ end }}">
-                          {{ if $page.Params.duration }}
-                            <span
-                              class="btn-sm btn-primary hover:bg-primary hover:text-white  font-bold">
-                              <i class="fa fa-clock mr-2"></i>
-                              {{ $page.Params.duration }}
-                            </span>
-                          {{ end }}
-                          {{ if $page.Params.quantity }}
-                            <span
-                              class="btn-sm btn-secondary hover:bg-secondary hover:text-white font-bold">
-                              <i class="fa fa-user mr-2"></i>
-                              {{ $page.Params.quantity }}
-                            </span>
-                          {{ end }}
-                        </div>
+                  <!-- Infos -->
+                  {{ if or $page.Params.quantity $page.Params.duration }}
+                    <div class="flex flex-row flex-nowrap gap-2 @container">
+                      {{ if $page.Params.duration }}
+                        <span
+                          class="btn-sm btn-primary hover:bg-primary hover:text-white font-bold">
+                          <i class="fa fa-clock mr-2"></i>
+                          {{ $page.Params.duration }}
+                        </span>
+                      {{ end }}
+                      {{ if $page.Params.quantity }}
+                        <span
+                          class="btn-sm btn-secondary hover:bg-secondary hover:text-white font-bold">
+                          <i class="fa fa-users mr-2"></i>
+                          {{ $page.Params.quantity }}
+                        </span>
                       {{ end }}
                     </div>
-                  </a>
-                {{ else }}
-                  <div
-                    class="flex bg-white dark:bg-darkmode-body rounded-xl justify-center items-center shadow-xl h-full">
-                    <div
-                      class="flex {{ if eq (mod $index 2) 0 }}
-                        order-2 rounded-r-xl
-                      {{ else }}
-                        rounded-l-xl
-                      {{ end }} overflow-hidden h-full">
-                      {{ partial "image" (dict "Src" "images/fringale/volume3/unknown_recipe.png" "Alt" $page.Title "Class" "w-64 object-cover object-center min-h-full") }}
-                    </div>
-                    <div
-                      class="flex flex-col p-6 {{ if eq (mod $index 2) 0 }}
-                        order-1 text-end
-                      {{ else }}
-                        text-start
-                      {{ end }}">
-                      <h2 class="mb-1">Coming soon</h2>
-                    </div>
-                  </div>
-                {{ end }}
-              </div>
-            </div>
+                  {{ end }}
+                </div>
+              </a>
+            {{ end }}
           {{ end }}
-        </div>
       </div>
     </div>
   </section>
+</div>
 {{ end }}
