@@ -6,7 +6,7 @@ image: "images/fringale/volume3/may24/cheesecake.png"
 thumbnail: "images/fringale/volume3/may24/cheesecake.png"
 weight: 1
 hidden: false
-quantity: "8 personnes"
+quantity: "8"
 ---
 
 #### Ingrédients

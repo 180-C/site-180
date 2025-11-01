@@ -6,7 +6,7 @@ image: "images/fringale/volume3/novembre23/pureecourge.jpg"
 thumbnail: "images/fringale/volume3/novembre23/pureecourge.jpg"
 weight: 1
 hidden: false
-quantity: "4 personnes"
+quantity: "4"
 duration: "45min"
 ---
 

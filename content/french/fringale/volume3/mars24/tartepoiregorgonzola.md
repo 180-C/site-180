@@ -6,7 +6,7 @@ image: "images/fringale/volume3/mars24/tartepoiregorgonzola.jpg"
 thumbnail: "images/fringale/volume3/mars24/tartepoiregorgonzola.jpg"
 hidden: false
 weight: 1
-quantity: "4 personnes"
+quantity: "4"
 duration: "35min"
 ---
 

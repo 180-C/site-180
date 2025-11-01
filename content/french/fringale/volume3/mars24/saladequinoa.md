@@ -7,7 +7,7 @@ thumbnail: "images/fringale/volume3/mars24/saladequinoa.jpg"
 weight: 3
 hidden: false
 duration: "20min"
-quantity: "1 personne"
+quantity: "1"
 ---
 
 #### Ingrédients

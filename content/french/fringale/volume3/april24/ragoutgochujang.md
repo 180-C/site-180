@@ -6,7 +6,7 @@ image: "images/fringale/volume3/avril24/ragoutgochujang.png"
 thumbnail: "images/fringale/volume3/avril24/ragoutgochujang.png"
 weight: 1
 hidden: false
-quantity: "2-3 personnes"
+quantity: "2-3"
 duration: "35min"
 ---
 

@@ -6,7 +6,7 @@ image: "images/fringale/volume3/avril24/oeufbenedict.png"
 thumbnail: "images/fringale/volume3/avril24/oeufbenedict.png"
 weight: 2
 hidden: false
-quantity: "1 personne"
+quantity: "1"
 ---
 
 #### Ingrédients

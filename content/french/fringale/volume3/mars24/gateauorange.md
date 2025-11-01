@@ -6,7 +6,7 @@ image: "images/fringale/volume3/mars24/gateauorange.jpg"
 thumbnail: "images/fringale/volume3/mars24/gateauorange.jpg"
 weight: 2
 hidden: false
-quantity: "6 personnes"
+quantity: "6"
 duration: "45min"
 ---
 
