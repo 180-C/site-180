@@ -2,8 +2,8 @@
   <div class="container text-center">
     <div class="px-8 py-14">
       <h1>{{ .Title | title }}</h1>
-      {{ if .Summary }}
-        {{ .Summary }}
+      {{ if .Params.Summary }}
+        {{ .Params.Summary }}
       {{ end }}
     </div>
   </div>
