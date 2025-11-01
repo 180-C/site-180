@@ -4,33 +4,7 @@
   <section class="section">
     <div class="container">
       {{ .Content }}
-      <div class="row gx-5 py-3">
-        <!-- blog posts -->
-        <div class="lg:col-12">
-          <div class="row">
-            {{ $paginator:= .Paginate .Pages 10 }}
-            {{ range $paginator.Pages }}
-              <div class="md:col-4 mb-14">
-                <div class="bg-white rounded-xl shadow-xl">
-                  {{ $image:= .Params.thumbnail }}
-                  {{ if $image }}
-                    <a href="{{ .RelPermalink }}">
-                      {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded-t-xl aspect-square object-cover object-center") }}
-                      <div
-                        class="p-6 bg-dark text-white dark:bg-body dark:text-dark rounded-b-xl">
-                        <h4 class="mb-1 text-white dark:text-dark text-center">
-                          {{ .Title }}
-                        </h4>
-                      </div>
-                    </a>
-                  {{ end }}
-                </div>
-              </div>
-            {{ end }}
-          </div>
-          {{ partial "components/pagination.html" . }}
-        </div>
-      </div>
+      {{ partial "components/fringal_list.html" . }}
     </div>
   </section>
 {{ end }}
