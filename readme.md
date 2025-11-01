@@ -43,7 +43,7 @@ npm run build
 
 ## Deployment
 
-The website is automatically deployed on [https://180c.ch](https://180c.ch) when a commit is pushed to the `master` branch.
+The website is automatically deployed on [https://180c.ch](https://180c.ch) when a commit is pushed to the `release` branch.
 
 ## License
 
