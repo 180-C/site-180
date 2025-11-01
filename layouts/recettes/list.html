@@ -18,12 +18,10 @@
       </div>
 
       <!-- blog posts -->
-      <div class="row">
-        {{ $paginator:= .Paginate .RegularPages 3 }}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5">
+        {{ $paginator:= .Paginate (where .Site.Pages "Type" "recette") 6 }}
         {{ range $paginator.Pages }}
-          <div class="md:col-6 lg:col-4 mb-14">
-            {{ partial "components/blog-card" . }}
-          </div>
+          {{ partial "components/blog-card" . }}
         {{ end }}
       </div>
       {{ partial "components/pagination.html" . }}

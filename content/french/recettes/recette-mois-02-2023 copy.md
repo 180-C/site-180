@@ -8,6 +8,7 @@ image: "/images/recettes/recette-mois-02-2023.jpeg"
 draft: false
 summary: "Conchiglionis ricotta et épinard"
 description: "Conchiglionis ricotta et épinard"
+type: "recette"
 ---
 
 <h3>Conchiglionis ricotta et épinard</h3>

@@ -1,5 +1,5 @@
 ---
-title: "May 2024"
+title: "Mai 2024"
 thumbnail: "images/fringale/volume3/may24/may24.png"
 date: 2024-04-17T00:00:00Z
 draft: false
