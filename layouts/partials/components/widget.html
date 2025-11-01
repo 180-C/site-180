@@ -5,9 +5,9 @@
 
 <!-- categories -->
 {{ if $taxonomy }}
-{{ if not (eq (len $taxonomy) 0) }}
-  <div class="mb-8">
-    <h5 class="mb-6">{{ i18n $widget }}</h5>
+  {{ if not (eq (len $taxonomy) 0) }}
+    <div class="mb-8">
+      <h5 class="mb-6">{{ i18n $widget }}</h5>
       <div class="bg-theme-light dark:bg-darkmode-theme-light rounded p-8">
         <ul class="space-y-4">
           {{ range $name, $items := $taxonomy }}

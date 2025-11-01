@@ -1,14 +1,14 @@
 export default {
   extends: [
     "stylelint-config-recommended",
-    "stylelint-config-recommended-scss"
+    "stylelint-config-recommended-scss",
   ],
   rules: {
     "scss/at-rule-no-unknown": [
       true,
       {
         // include tailwind @-rules
-        "ignoreAtRules": [
+        ignoreAtRules: [
           "tailwind",
           "apply",
           "variants",
@@ -17,15 +17,15 @@ export default {
           "layer",
           "reference",
           "theme",
-          "utility"
-        ]
-      }
+          "utility",
+        ],
+      },
     ],
     "no-invalid-position-at-import-rule": [
       true,
       {
         // include tailwind @-rules
-        "ignoreAtRules": [
+        ignoreAtRules: [
           "tailwind",
           "apply",
           "variants",
@@ -34,13 +34,13 @@ export default {
           "layer",
           "reference",
           "theme",
-          "utility"
-        ]
-      }
+          "utility",
+        ],
+      },
     ],
     "selector-class-pattern": null,
     "selector-id-pattern": null,
     "no-descending-specificity": null,
-    "import-notation": "string"
-  }
-} 
+    "import-notation": "string",
+  },
+};
