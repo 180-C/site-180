@@ -7,7 +7,6 @@ image: "/images/recettes/recette-mois-03-2023.png"
 draft: false
 summary: "Carrot Cake (pour 4 personnes)"
 description: "Carrot Cake (pour 4 personnes)"
-type: "recette"
 ---
 
 ### Carrot Cake

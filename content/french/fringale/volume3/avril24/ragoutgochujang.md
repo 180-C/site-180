@@ -8,7 +8,6 @@ weight: 1
 hidden: false
 quantity: "2-3"
 duration: "35min"
-type: "recette"
 ---
 
 #### Ingrédients

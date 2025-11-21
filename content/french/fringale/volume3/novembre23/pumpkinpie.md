@@ -7,7 +7,6 @@ thumbnail: "images/fringale/volume3/novembre23/pumpkinpie.jpg"
 weight: 2
 hidden: false
 duration: "1h"
-type: "recette"
 ---
 
 #### Ingrédients

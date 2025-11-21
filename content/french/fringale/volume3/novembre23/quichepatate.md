@@ -7,7 +7,6 @@ thumbnail: "images/fringale/volume3/novembre23/quichepatate.jpg"
 weight: 3
 hidden: false
 duration: "1h"
-type: "recette"
 ---
 
 #### Ingrédients
