@@ -19,7 +19,7 @@
 
       <!-- blog posts -->
       <div class="row">
-        {{ $paginator:= .Paginate .RegularPages 3 }}
+        {{ $paginator:= .Paginate .RegularPages 6 }}
         {{ range $paginator.Pages }}
           <div class="md:col-6 lg:col-4 mb-14">
             {{ partial "components/blog-card" . }}
