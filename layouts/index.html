@@ -78,8 +78,7 @@
     {{ end }}
     <!-- /Sections -->
 
-    {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) 10 }}
-
+    {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
 
     <!-- Posts -->
     {{ with site.GetPage "sections/actualites" }}
