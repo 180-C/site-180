@@ -42,7 +42,9 @@
       </li>
     {{ end }}
   </ul>
-  <p class="mb-6">{{ .Summary }}</p>
+  {{ if .Params.Summary }}
+    <p class="mb-6">{{ .Summary }}</p>
+  {{ end }}
   <a class="btn btn-outline-secondary btn-sm" href="{{ .RelPermalink }}">
     {{ i18n "read_more" }}
   </a>
