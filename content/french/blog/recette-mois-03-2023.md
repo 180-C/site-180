@@ -3,8 +3,7 @@ title: "Recette du mois - Mars 2023"
 subtitle: ""
 date: 2023-03-04T17:26:00Z
 image: "/images/recettes/recette-mois-03-2023.png"
-"recettes/categories": ["Recette du mois"]
-"recettes/tags": ["vegetarien", "vegan"]
+"blog/tags": ["Recettes du mois"]
 draft: false
 summary: "Carrot Cake (pour 4 personnes)"
 description: "Carrot Cake (pour 4 personnes)"
