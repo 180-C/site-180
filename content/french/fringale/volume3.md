@@ -6,3 +6,5 @@ type: "fringale/volume3"
 image: "images/fringale/volume3/fringale3.png"
 thumbnail: "images/fringale/volume3/fringale3.png"
 ---
+
+TODO : description
