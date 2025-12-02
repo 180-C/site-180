@@ -60,7 +60,7 @@ jobs:
           go version
 
       - name: Setup Project
-        run: npm run project-setup
+        run: node ./scripts/projectSetup.js
 
       - name: Install npm dependencies
         run: npm install
