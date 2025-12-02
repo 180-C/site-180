@@ -87,9 +87,10 @@
                     bg-secondary dark:bg-body
                   {{ end }}">
                   <a href="{{ .link }}" target="_blank">
-                    {{ $image:= .image }}
-                    {{ if $image }}
-                      {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                    {{ if .image }}
+                      {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                    {{ else }}
+                      {{ partial "image" (dict "Src" "images/unknown.png" "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
                     {{ end }}
                   </a>
                   <div class="card-body text-center p-4">

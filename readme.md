@@ -57,6 +57,4 @@ Released under the [MIT License](LICENSE).
 ## Authors
 
 - [Antonin Faure](https://github.com/antoninfaure)
-
-
-
+- [Eliott Tornassat](eliott.tornassat@epfl.ch)
