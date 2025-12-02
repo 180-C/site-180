@@ -73,7 +73,7 @@ jobs:
             --templateMetrics \
             --templateMetricsHints \
             --forceSyncStatic \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "/${{ github.event.repository.name }}/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
