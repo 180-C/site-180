@@ -21,7 +21,7 @@ sections:
     button:
       enable: true
       label: "Découvrir"
-      link: "/crieur"
+      link: "./crieur"
 
   - title: "L'Association"
     image: "/images/association.png"
@@ -29,5 +29,5 @@ sections:
     button:
       enable: true
       label: "Voir plus"
-      link: "/association"
+      link: "./association"
 ---
