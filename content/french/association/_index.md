@@ -14,18 +14,66 @@ banner:
     label: "Nous rejoindre"
     link: "mailto:epfl180c@gmail.com"
 
+comity:
+  - name: "Jens Nordgren"
+    role: "Président & Responsable Création"
+    # Define the member hierarchy in the pole. There are two possible values : "chief" and "members". Defaults to "members"
+    # if not defined for a user.
+    # Chief members are placed atop the other members.
+    type: "chief"
+    # An image that represent the member. Optional.
+    # image: "/images/members/2024/julia.jpg"
+    link: "https://people.epfl.ch/jens.nordgren"
+
+  - name: "Maria Maqueo"
+    role: "Vice-Présidente & Responsable Event"
+    type: "chief"
+    # image: "/images/members/2024/alice.jpg"
+    link: "https://people.epfl.ch/maria.maquero"
+
+  - name: "Adèle Linette"
+    role: "Trésorière"
+    # image: "/images/members/2024/veronika.jpg"
+    link: "https://people.epfl.ch/adele.linette"
+
+  - name: "Valentin Sutyushev"
+    role: "Responsable Sponsoring"
+    # image: "/images/members/2024/benoît.jpg"
+    link: "https://people.epfl.ch/valentin.sutyushev"
+
+  - name: "N'Zian Koffi"
+    role: "Responsable Communication"
+    # image: "/images/members/2024/adèle.png"
+    link: "https://people.epfl.ch/nzian.koffi"
+
+  - name: "Eliott Tornassat"
+    role: "Responsable IT"
+    # image: "/images/members/2024/laura.jpg"
+    link: "https://people.epfl.ch/eliott.tornassat"
+
 # Poles
 poles:
   - name: "Comité"
     description: "C'est lui qui gère la partie administrative de l'Association."
+    # define the theme to apply to the member cards. Default to "default" if not set.
+    #  - "comity" : meant to be used only for the comity. Images are forced to show even if not set, 
+    #             in which case a placeholder is shown.
+    #  - "default" : meant to be used for the others category.
+    theme: "comity"
     members:
       - name: "Jens Nordgren"
         role: "Président & Responsable Création"
+        # Define the member hierarchy in the pole. There are two possible values : "chief" and "members". Defaults to "members"
+        # if not defined for a user.
+        # Chief members are placed atop the other members.
+        type: "chief"
+        # An image that represent the member. Optional.
         # image: "/images/members/2024/julia.jpg"
         link: "https://people.epfl.ch/jens.nordgren"
 
       - name: "Maria Maqueo"
         role: "Vice-Présidente & Responsable Event"
+        type: "chief"
         # image: "/images/members/2024/alice.jpg"
         link: "https://people.epfl.ch/maria.maquero"
 
@@ -53,12 +101,12 @@ poles:
     description: "C'est lui qui gère l'organisation des différents événements de 180°C ainsi que la partie catering de l'Association."
     members:
       - name: "N'Zian Koffi"
+        type: "chief"
         role: "Responsable Communication"
         # image: "/images/members/2024/adèle.png"
         link: "https://people.epfl.ch/nzian.koffi"
 
       - name: "Sarah Ihadadene"
-        role: "Evénementiel"
         # image: "/images/members/2024/veronika.jpg"
         link: "https://people.epfl.ch/sarah.ihadadene"
 
@@ -67,6 +115,7 @@ poles:
     members:
       - name: "Jens Nordgren"
         role: "Responsable Création"
+        type: "chief"
         # image: "/images/members/2024/julia.jpg"
         link: "https://people.epfl.ch/jens.nordgren"
 
@@ -111,6 +160,7 @@ poles:
     members:
       - name: "Valentin Sutyushev"
         role: "Responsable Sponsoring"
+        type: "chief"
         # image: "/images/members/2024/benoît.jpg"
         link: "https://people.epfl.ch/valentin.sutyushev"
         
@@ -123,6 +173,7 @@ poles:
     members:
       - name: "N'Zian Koffi"
         role: "Responsable Communication"
+        type: "chief"
         # image: "/images/members/2024/adèle.png"
         link: "https://people.epfl.ch/nzian.koffi"
 
