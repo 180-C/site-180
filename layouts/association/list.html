@@ -103,7 +103,7 @@
                       {{ end }}
                     </a>
 
-                    <div class="card-body text-center p-4">
+                    <div class="card-body">
                       <h4
                         class="font-secondary {{ if (modBool $i 2) }}
                           text-dark dark:text-dark
@@ -145,7 +145,7 @@
                       {{ end }}
                     </a>
 
-                    <div class="card-body text-center p-4">
+                    <div class="card-body">
                       <h4
                         class="font-secondary {{ if (modBool $i 2) }}
                           text-dark dark:text-dark
@@ -187,7 +187,7 @@
                         {{ partial "image" (dict "Src" "images/unknown.png" "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
                       {{ end }}
                     </a>
-                    <div class="card-body text-center p-4">
+                    <div class="card-body">
                       <h4
                         class="font-secondary {{ if (modBool $i 2) }}
                           text-dark dark:text-dark
@@ -214,7 +214,7 @@
             <div class="row justify-center m-0 p-0 pt-4">
               {{ range $other_members }}
                 <div class="p-4 w-fit">
-                  <div class="card-body text-center p-4">
+                  <div class="card-body">
                     <h4
                       class="font-secondary {{ if (modBool $i 2) }}
                       text-light dark:text-dark

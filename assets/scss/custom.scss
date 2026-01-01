@@ -2,6 +2,15 @@
 .member-card {
   border: 0px;
   border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  @apply md:flex-col;
+
+  .card-body {
+    @apply flex flex-col grow items-center justify-center p-4;
+  }
 
   a {
     text-decoration: none;
@@ -14,8 +23,11 @@
   }
 
   img {
-    border: 0px;
-    border-radius: 20px 20px 0 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 0;
+
+    @apply max-md:min-w-32 max-md:h-32;
   }
 
   h4 {
