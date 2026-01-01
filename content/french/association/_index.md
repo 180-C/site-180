@@ -56,7 +56,7 @@ poles:
   - name: "Comité"
     description: "C'est lui qui gère la partie administrative de l'Association."
     # define the theme to apply to the member cards. Default to "default" if not set.
-    #  - "comity" : meant to be used only for the comity. Images are forced to show even if not set, 
+    #  - "comity" : meant to be used only for the comity. Images are forced to show even if not set,
     #             in which case a placeholder is shown.
     #  - "default" : meant to be used for the others category.
     theme: "comity"
@@ -163,7 +163,7 @@ poles:
         type: "chief"
         # image: "/images/members/2024/benoît.jpg"
         link: "https://people.epfl.ch/valentin.sutyushev"
-        
+
       - name: "Joanne	Jegou"
         # image: "/images/members/2024/luca.png"
         link: "https://people.epfl.ch/joanne.jegou"

@@ -43,8 +43,7 @@
       <div
         class="section-sm {{ if (modBool $i 2) }}
           bg-primary text-light
-        {{ end }} pt-0"
-      >
+        {{ end }} pt-0">
         <!-- Separator -->
         {{ if (modBool $i 2) }}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 150">
@@ -70,6 +69,7 @@
           </svg>
         {{ end }}
 
+
         <div class="container col-12 px-6 text-center">
           <h1
             class="font-extrabold font-tertiary {{ if (modBool $i 2) }}
@@ -93,8 +93,7 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}"
-                  >
+                    {{ end }}">
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -135,8 +134,7 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}"
-                  >
+                    {{ end }}">
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -178,8 +176,7 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}"
-                  >
+                    {{ end }}">
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -217,9 +214,9 @@
                   <div class="card-body">
                     <h4
                       class="font-secondary {{ if (modBool $i 2) }}
-                      text-light dark:text-dark
+                        text-light dark:text-dark
                       {{ else }}
-                      text-dark dark:text-dark
+                        text-dark dark:text-dark
                       {{ end }}">
                       <a href="{{ .link }}" target="_blank">
                         {{ .name }}
@@ -227,9 +224,9 @@
                     </h4>
                     <h5
                       class="font-tertiary {{ if (modBool $i 2) }}
-                      text-light dark:text-dark
+                        text-light dark:text-dark
                       {{ else }}
-                      text-dark dark:text-dark
+                        text-dark dark:text-dark
                       {{ end }}">
                       {{ .role }}
                     </h5>
