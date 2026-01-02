@@ -77,41 +77,12 @@
       </section>
     {{ end }}
     <!-- /Sections -->
-
-    {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
-
-
+    
     <!-- Posts -->
     {{ with site.GetPage "sections/actualites" }}
-      {{ if .Params.enable }}
-        <section class="section bg-gradient">
-          <div class="container px-6">
-            <div class="row">
-              <div
-                class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
-                <h2 class="mb-4 font-tertiary font-extrabold">
-                  {{ .Title | markdownify }}
-                </h2>
-                <p>
-                  {{ .Params.description | markdownify }}
-                </p>
-              </div>
-              <div class="col-12">
-                <div class="swiper testimonial-slider">
-                  <div class="swiper-wrapper">
-                    {{ range $paginator.Pages }}
-                      <div class="swiper-slide">
-                        {{ partial "components/actu-card" . }}
-                      </div>
-                    {{ end }}
-                  </div>
-                  <div
-                    class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    {{ if .Params.enable }}
+      {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
+      {{ partial "components/posts-swipe" (dict "Title" .Title "Description" .Params.Description "Posts" $paginator.Pages) }}
       {{ end }}
     {{ end }}
     <!-- /Posts -->
