@@ -11,28 +11,19 @@
   <section class="section pt-7">
     <div class="container">
       <div class="row justify-center">
-        {{ $image:= .Params.image }}
-
-
-        <!-- prettier -->
-        {{ if $image }}
-          <div class="lg:col-6 mb-10 lg:mb-0">
-            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded ") }}
-          </div>
-        {{ end }}
-
-
-        <div
+        <div class="lg:col-6 p-5">
+          {{ $image:= .Params.image }}
           {{ if $image }}
-            class="lg:col-6"
-          {{ else }}
-            class="lg:col-12"
-          {{ end }}>
-          <h1 class="h2 mb-4">
+            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
+          {{ end }}
+        </div>
+        
+        <div class="lg:col-6 p-5">
+          <h1 class="h1 mt-10">
             {{ .Title }}
           </h1>
           <div class="content mb-10">
-            {{ .Content }}
+            {{ .Content | safeHTML }}
           </div>
         </div>
 
