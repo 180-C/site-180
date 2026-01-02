@@ -45,16 +45,20 @@
               {{ end }} md:col-5 mb-6">
               {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
             </div>
+            
             <div
               class="{{ if not (modBool $i 2) }}
                 md:order-1
-              {{ end }} md:col-7 lg:col-6">
+              {{ end }} md:col-7 lg:col-6"
+            >
               <h2 class="mb-4 font-tertiary font-extrabold">
                 {{ .title | markdownify }}
               </h2>
+              
               <p class="mb-8 text-lg">
                 {{ .content | markdownify }}
               </p>
+              
               <ul class="list-none">
                 {{ range .bulletpoints }}
                   <li class="relative mb-4 pl-6">

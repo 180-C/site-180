@@ -18,9 +18,11 @@
               {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
             </div>
           {{ end }}
+          
           <h1 class="h2 mb-4">
             {{ .Title }}
           </h1>
+          
           <ul class="flex gap-3 items-center">
             {{ if .Params.author }}
               <li class="mr-4 inline-block">
@@ -49,9 +51,11 @@
               {{ time.Format ":date_long" .PublishDate }}
             </li>
           </ul>
+          
           <div class="content mb-10">
             {{ .Content | safeHTML }}
           </div>
+          
           <div class="row items-start justify-between">
             <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
               <h5 class="mr-3">{{ i18n "tags" }} :</h5>
