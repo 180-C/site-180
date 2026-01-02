@@ -2,7 +2,8 @@
   <section>
     <div class="container text-center">
       <div
-        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8"
+      >
         {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
@@ -18,11 +19,12 @@
               {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
             </div>
           {{ end }}
-          
+
+
           <h1 class="h2 mb-4">
             {{ .Title }}
           </h1>
-          
+
           <ul class="flex gap-3 items-center">
             {{ if .Params.author }}
               <li class="mr-4 inline-block">
@@ -46,16 +48,17 @@
               </li>
             {{ end }}
             <li
-              class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
+              class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light"
+            >
               <i class="fa-regular fa-clock mr-2"></i>
               {{ time.Format ":date_long" .PublishDate }}
             </li>
           </ul>
-          
+
           <div class="content mb-10">
             {{ .Content | safeHTML }}
           </div>
-          
+
           <div class="row items-start justify-between">
             <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
               <h5 class="mr-3">{{ i18n "tags" }} :</h5>
@@ -65,7 +68,8 @@
                   <li class="inline-block">
                     <a
                       class="bg-theme-light hover:bg-primary dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                      href="{{ (printf  "%s/%s/" $.Section "tags" ) | relLangURL }}{{ . | urlize | lower }}/">
+                      href="{{ (printf  "%s/%s/" $.Section "tags" ) | relLangURL }}{{ . | urlize | lower }}/"
+                    >
                       {{ . | humanize }}
                     </a>
                   </li>

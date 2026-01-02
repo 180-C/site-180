@@ -5,7 +5,8 @@
     <script
       src="{{ .link | relURL }}"
       type="application/javascript"
-      {{ .attributes | safeHTMLAttr }}></script>
+      {{ .attributes | safeHTMLAttr }}
+    ></script>
   {{ else }}
     {{ $scripts = $scripts | append (resources.Get .link) }}
   {{ end }}
@@ -23,7 +24,8 @@
 <script
   crossorigin="anonymous"
   integrity="{{ $scripts.Data.Integrity }}"
-  src="{{ $scripts.RelPermalink }}"></script>
+  src="{{ $scripts.RelPermalink }}"
+></script>
 
 <!-- progressive web app -->
 {{ partialCached "pwa.html" . }}

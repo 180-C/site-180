@@ -2,7 +2,8 @@
   <section class="section-sm pb-0">
     <div class="container">
       <div
-        class="row border-border dark:border-darkmode-border justify-center border-b pb-14">
+        class="row border-border dark:border-darkmode-border justify-center border-b pb-14"
+      >
         <div class="lg:col-4 text-center">
           {{ $image:= .Params.image }}
           {{ if $image }}
@@ -13,7 +14,8 @@
               alt="{{ .Title }}"
               height="200"
               width="200"
-              src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon" />
+              src="https://www.gravatar.com/avatar/{{ md5 .Params.email }}?s=128&pg&d=identicon"
+            />
           {{ end }}
           <h1 class="h3 mt-10">{{ .Title }}</h1>
           <div class="content mt-6">
@@ -25,7 +27,8 @@
                 <a
                   href="{{ .link | safeURL }}"
                   target="_blank"
-                  rel="noopener nofollow">
+                  rel="noopener nofollow"
+                >
                   <span class="sr-only">{{ .title }}</span>
                   <i class="{{ .icon }}"></i>
                 </a>

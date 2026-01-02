@@ -16,11 +16,13 @@
                 <a href="#" id="map-popup-closer" class="ol-popup-closer"></a>
                 <div id="map-popup-content">
                   <div
-                    class="crieur-place-card flex flex-col gap-2 bg-light dark:bg-light text-dark dark:text-dark rounded-xl p-5 shadow">
+                    class="crieur-place-card flex flex-col gap-2 bg-light dark:bg-light text-dark dark:text-dark rounded-xl p-5 shadow"
+                  >
                     <div class="flex flex-col">
                       <h4
                         class="font-extrabold dark:text-dark"
-                        id="popup-card-title">
+                        id="popup-card-title"
+                      >
                         ${feature.values_.title}
                       </h4>
                       <h6 id="popup-card-style" class="dark:text-dark">
@@ -85,7 +87,8 @@
                 {{ end }}
               </div>
               <div
-                class="crieur-slider-pagination mt-9 flex items-center justify-center text-center"></div>
+                class="crieur-slider-pagination mt-9 flex items-center justify-center text-center"
+              ></div>
             </div>
           </div>
         </div>
@@ -100,19 +103,22 @@
             bg-gradient
           {{ else if (ne $i (sub (len $.Params.sections) 1) ) }}
             bg-gradient-reverse
-          {{ end }}">
+          {{ end }}"
+        >
           <div class="container px-10">
             <div class="row items-center justify-between">
               <div
                 class="mb:md-0 {{ if not (modBool $i 2) }}
                   md:order-2
-                {{ end }} md:col-5 mb-6">
+                {{ end }} md:col-5 mb-6"
+              >
                 {{ partial "image" (dict "Src" .image "Alt" .imagealt) }}
               </div>
               <div
                 class="content {{ if not (modBool $i 2) }}
                   md:order-1
-                {{ end }} md:col-7 lg:col-6">
+                {{ end }} md:col-7 lg:col-6"
+              >
                 <h2 class="mb-4 font-tertiary font-extrabold">
                   {{ .title | markdownify }}
                 </h2>

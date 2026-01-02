@@ -5,7 +5,8 @@
         <!-- navbar brand/logo -->
         <a
           class="navbar-brand inline-block"
-          href="{{ site.BaseURL | relLangURL }}">
+          href="{{ site.BaseURL | relLangURL }}"
+        >
           {{ partial "logo" }}
         </a>
       </div>
@@ -38,7 +39,8 @@
                 target="_blank"
                 aria-label="{{ .name }}"
                 rel="nofollow noopener"
-                href="{{ .link | safeURL }}">
+                href="{{ .link | safeURL }}"
+              >
                 <i class="{{ .icon }}"></i>
               </a>
             </li>

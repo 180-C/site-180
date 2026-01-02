@@ -2,7 +2,8 @@
   <section>
     <div class="container text-center">
       <div
-        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8 overflow-hidden">
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8 overflow-hidden"
+      >
         {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
@@ -25,22 +26,23 @@
           <ul class="flex gap-3 items-center">
             {{ $categories:= .Param (printf "%s/%s" .Section "categories") }}
             {{ if $categories }}
-            <li class="inline-block bg-primary rounded px-3 py-1 text-light">
-              <i class="fa-regular fa-folder mr-2"></i>
-              {{ range $i,$p:= $categories }}
-                <a
-                  href="{{ (printf " %s/%s/" $.Section "categories" ) | relLangURL }}{{ . | urlize | lower }}/"
-                  class="ms-1"
-                  >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
-                    {{ ", " }}
-                  {{ end }}
-                </a>
-              {{ end }}
-            </li>
+              <li class="inline-block bg-primary rounded px-3 py-1 text-light">
+                <i class="fa-regular fa-folder mr-2"></i>
+                {{ range $i,$p:= $categories }}
+                  <a
+                    href="{{ (printf " %s/%s/" $.Section "categories" ) | relLangURL }}{{ . | urlize | lower }}/"
+                    class="ms-1"
+                    >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
+                      {{ ", " }}
+                    {{ end }}
+                  </a>
+                {{ end }}
+              </li>
             {{ end }}
           </ul>
 
           {{ partial "components/fringale-info" . }}
+
 
           <div class="content mb-10">
             {{ .Content }}

@@ -22,7 +22,8 @@
         {{ range $i,$p:= $categories }}
           <a
             href="{{ (printf "%s/%s" $.Section "categories") | relLangURL }}/{{ . | urlize | lower }}"
-            class="bg-primary rounded px-3 py-1 text-light">
+            class="bg-primary rounded px-3 py-1 text-light"
+          >
             <i class="fa-regular fa-folder mr-2"></i>
             {{ . | humanize }}
           </a>
@@ -35,7 +36,8 @@
         {{ range $i,$p:= $categories }}
           <a
             href="{{ (printf "%s/%s" $.Section "categories") | relLangURL }}/{{ . | urlize | lower }}"
-            class="bg-primary rounded px-3 py-1 text-light">
+            class="bg-primary rounded px-3 py-1 text-light"
+          >
             <i class="fa-regular fa-folder mr-2"></i>
             {{ . | humanize }}
           </a>
@@ -46,14 +48,16 @@
       <div class="flex flex-row flex-nowrap gap-2 @container">
         {{ if .Params.duration }}
           <span
-            class="btn-sm btn-primary hover:bg-primary hover:text-white font-bold">
+            class="btn-sm btn-primary hover:bg-primary hover:text-white font-bold"
+          >
             <i class="fa fa-clock mr-2"></i>
             {{ .Params.duration }}
           </span>
         {{ end }}
         {{ if .Params.quantity }}
           <span
-            class="btn-sm btn-secondary hover:bg-secondary hover:text-white font-bold">
+            class="btn-sm btn-secondary hover:bg-secondary hover:text-white font-bold"
+          >
             <i class="fa fa-users mr-2"></i>
             {{ .Params.quantity }}
           </span>
@@ -61,7 +65,8 @@
       </div>
     {{ end }} -->
     <li
-      class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
+      class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light"
+    >
       <i class="fa-regular fa-clock mr-1"></i>
       {{ time.Format ":date_long" .PublishDate }}
     </li>

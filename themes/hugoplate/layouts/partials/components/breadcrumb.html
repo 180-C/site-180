@@ -3,10 +3,13 @@
 {{ $base := site.BaseURL }}
 
 
-<ul class="{{ $class }} inline-flex space-x-1 capitalize flex-nowrap text-nowrap">
+<ul
+  class="{{ $class }} inline-flex space-x-1 capitalize flex-nowrap text-nowrap"
+>
   <a
     class="text-primary dark:text-darkmode-primary"
-    href="{{ $base | relLangURL }}">
+    href="{{ $base | relLangURL }}"
+  >
     {{ i18n "home" | default "Home" }}
   </a>
   <span class="inlin-block mr-1">/</span>
@@ -14,7 +17,8 @@
     {{ if and (not .IsHome) (ne .Title "Pages") }}
       <a
         class="text-primary dark:text-darkmode-primary"
-        href="{{ .RelPermalink }}">
+        href="{{ .RelPermalink }}"
+      >
         {{ .Title }}
       </a>
       <span class="inlin-block mr-1">/</span>

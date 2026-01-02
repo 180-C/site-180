@@ -43,7 +43,8 @@
       <div
         class="section-sm {{ if (modBool $i 2) }}
           bg-primary text-light
-        {{ end }} pt-0">
+        {{ end }} pt-0"
+      >
         <!-- Separator -->
         {{ if (modBool $i 2) }}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 150">
@@ -54,7 +55,8 @@
                 fill-primary
               {{ end }}"
               fill-opacity="1"
-              d="M0,192L80,181.3C160,171,320,149,480,154.7C640,160,800,192,960,197.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+              d="M0,192L80,181.3C160,171,320,149,480,154.7C640,160,800,192,960,197.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+            ></path>
           </svg>
         {{ else }}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 1440 180">
@@ -65,7 +67,8 @@
                 fill-primary
               {{ end }}"
               fill-opacity="1"
-              d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+              d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+            ></path>
           </svg>
         {{ end }}
 
@@ -74,7 +77,8 @@
           <h1
             class="font-extrabold font-tertiary {{ if (modBool $i 2) }}
               text-light
-            {{ end }} ">
+            {{ end }} "
+          >
             {{ .name }}
           </h1>
           <p>{{ .description }}</p>
@@ -93,7 +97,8 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}">
+                    {{ end }}"
+                  >
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -108,7 +113,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         <a href="{{ .link }}" target="_blank">
                           {{ .name }}
                         </a>
@@ -118,7 +124,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         {{ .role }}
                       </h5>
                     </div>
@@ -134,7 +141,8 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}">
+                    {{ end }}"
+                  >
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -149,7 +157,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         <a href="{{ .link }}" target="_blank">
                           {{ .name }}
                         </a>
@@ -159,7 +168,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         {{ .role }}
                       </h5>
                     </div>
@@ -176,7 +186,8 @@
                       bg-body
                     {{ else }}
                       bg-secondary dark:bg-body
-                    {{ end }}">
+                    {{ end }}"
+                  >
                     <a href="{{ .link }}" target="_blank">
                       {{ if .image }}
                         {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
@@ -190,7 +201,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         <a href="{{ .link }}" target="_blank">
                           {{ .name }}
                         </a>
@@ -200,7 +212,8 @@
                           text-dark dark:text-dark
                         {{ else }}
                           text-light dark:text-dark
-                        {{ end }}">
+                        {{ end }}"
+                      >
                         {{ .role }}
                       </h5>
                     </div>
@@ -217,7 +230,8 @@
                         text-light dark:text-dark
                       {{ else }}
                         text-dark dark:text-dark
-                      {{ end }}">
+                      {{ end }}"
+                    >
                       <a href="{{ .link }}" target="_blank">
                         {{ .name }}
                       </a>
@@ -227,7 +241,8 @@
                         text-light dark:text-dark
                       {{ else }}
                         text-dark dark:text-dark
-                      {{ end }}">
+                      {{ end }}"
+                    >
                       {{ .role }}
                     </h5>
                   </div>

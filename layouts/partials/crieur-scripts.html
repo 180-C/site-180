@@ -7,11 +7,13 @@
   crossorigin="anonymous"
   integrity="{{ $crieur.Data.Integrity }}"
   src="{{ $crieur.RelPermalink }}"
-  defer></script>
+  defer
+></script>
 
 <link
   href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.min.css"
-  rel="stylesheet" />
+  rel="stylesheet"
+/>
 
 <script type="text/javascript">
   {{ $config := index $.Site.Data "config-crieur" | default (dict) }}

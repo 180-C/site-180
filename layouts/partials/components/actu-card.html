@@ -14,7 +14,8 @@
     <li class="inline-block flex gap-2">
       <a
         class=" bg-primary rounded px-3 py-1 text-light"
-        href="{{ (printf "%s/" $.Section ) | relLangURL }}">
+        href="{{ (printf "%s/" $.Section ) | relLangURL }}"
+      >
         {{ if eq .Section "blog" }}
           <i class="fa-solid fa-pen-clip mr-2"></i>
         {{ else if eq .Section "events" }}
@@ -27,7 +28,8 @@
     </li>
     {{ if or .Params.date .Params.end_date }}
       <li
-        class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light">
+        class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light"
+      >
         {{ if and .Params.date .Params.end_date }}
           <i class="fa-regular fa-calendar mr-1"></i>
           {{ time.Format ":date_long" .Params.date }}

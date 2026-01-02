@@ -2,7 +2,8 @@
   <section>
     <div class="container text-center">
       <div
-        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8"
+      >
         {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
@@ -18,15 +19,18 @@
         class="row banner flex flex-col m-0 p-0 items-center justify-end"
         {{ partial `bg-image.html` (dict `Src`
           .Params.banner ) | safeHTMLAttr
-        }}>
+        }}
+      >
         <svg
           class="m-0 p-0 flex"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 180 1440 120">
+          viewBox="0 180 1440 120"
+        >
           <path
             class="fill-light dark:fill-darkmode-body"
             fill-opacity="1"
-            d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+            d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+          ></path>
         </svg>
       </div>
     </section>
@@ -40,7 +44,8 @@
         <div
           class="sm:col-12 {{ if .Params.gallery }}
             lg:col-6
-          {{ end }} p-3 text-left my-2">
+          {{ end }} p-3 text-left my-2"
+        >
           <h1 class="d-inline title">
             {{ $site := "none" }}
             {{ range $link := .Params.links }}
@@ -56,7 +61,8 @@
           <!-- Types -->
           {{ if .Params.types }}
             <div
-              class="flex flex-row gap-2 align-center mb-2 items-center flex-wrap">
+              class="flex flex-row gap-2 align-center mb-2 items-center flex-wrap"
+            >
               {{ range $type_code := .Params.types }}
                 {{ $type := index $config.types $type_code }}
                 <span class="type flex flex-row gap-2 items-center">
@@ -81,7 +87,8 @@
               {{ range $tag_code := .Params.tags }}
                 {{ $tag := index $config.tags $tag_code }}
                 <div
-                  class="tag rounded-xl text-light bg-dark dark:bg-light dark:text-dark flex flex-row gap-2 items-center px-3 py-1">
+                  class="tag rounded-xl text-light bg-dark dark:bg-light dark:text-dark flex flex-row gap-2 items-center px-3 py-1"
+                >
                   <span>{{ $tag.icon | safeHTML }}</span>
                   <span>{{ $tag.name }}</span>
                 </div>
@@ -94,7 +101,8 @@
           {{ if .Params.tips }}
             <div
               class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4 rounded-r-lg"
-              role="alert">
+              role="alert"
+            >
               <p class="font-bold"><i class="fas fa-lightbulb"></i> Tips</p>
               <p>{{ .Params.tips }}</p>
             </div>
@@ -115,7 +123,8 @@
               {{ range $top := .Params.tops }}
                 <div class="sm:col-12 md:col-6 lg:col-4 m-0 p-4">
                   <div
-                    class="bg-dark text-light dark:bg-light dark:text-dark rounded-xl m-0 p-0">
+                    class="bg-dark text-light dark:bg-light dark:text-dark rounded-xl m-0 p-0"
+                  >
                     {{ if $top.photo }}
                       {{ partial "image" (dict "Src" $top.photo "Alt" "top image" "Class" "rounded-t-xl") }}
                     {{ end }}
@@ -148,13 +157,16 @@
                   style="border:0;"
                   allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
               <div
-                class="sm:col-12 lg:col-6 xl:col-4 p-0 flex items-center justify-center">
+                class="sm:col-12 lg:col-6 xl:col-4 p-0 flex items-center justify-center"
+              >
                 <div class="flex flex-col sm:flex-row gap-6 p-3">
                   <div
-                    class="rounded-xl bg-dark text-light dark:bg-light dark:text-dark shadow p-5 mt-0 flex flex-col justify-center items-center gap-3">
+                    class="rounded-xl bg-dark text-light dark:bg-light dark:text-dark shadow p-5 mt-0 flex flex-col justify-center items-center gap-3"
+                  >
                     <h5 class="text-center text-light underline dark:text-dark">
                       Horaires
                     </h5>
@@ -176,7 +188,8 @@
                                 <tr>
                                   <th
                                     class="align-top text-right"
-                                    rowspan="{{ len $schedule.creneaux }}">
+                                    rowspan="{{ len $schedule.creneaux }}"
+                                  >
                                     <span class="align-top text-right mr-3">
                                       {{ $schedule.name }}
                                     </span>
@@ -203,13 +216,15 @@
                   <div>
                     <ul
                       class="social-icons flex flex-row sm:flex-col gap-4 justify-center align-center rounded-xl shadow bg-dark dark:bg-light px-4 py-4
-                  space-x-0">
+                  space-x-0"
+                    >
                       {{ range $link := $.Params.links }}
                         <li>
                           <a
                             href="{{ $link.url }}"
                             data-code="{{ $link.social }}"
-                            target="_blank">
+                            target="_blank"
+                          >
                             {{ if $link.social }}
                               {{ index $config.socials $link.social | safeHTML }}
                             {{ end }}
