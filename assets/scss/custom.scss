@@ -27,18 +27,24 @@
     aspect-ratio: 1/1;
     border-radius: 0;
 
-    @apply max-md:min-w-32 max-md:h-32;
+    @apply max-sm:hidden max-md:h-32 max-md:min-w-32;
   }
 
+  // Name
   h4 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
+
+    @apply max-sm:text-2xl
   }
 
+  // Role
   h5 {
     font-size: 1.25rem;
     font-weight: 500;
+
+    @apply max-sm:text-lg
   }
 }
 
