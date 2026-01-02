@@ -31,8 +31,10 @@
     {{ partial "essentials/header.html" . }}
     {{ partial "search-modal.html" (dict "Context" . ) }}
 
-
+    <div class="header-dim"></div>
+    
     <main class="flex flex-col">
+      <div class="header-space"></div>
       {{ block "main" . }}{{ end }}
     </main>
 
