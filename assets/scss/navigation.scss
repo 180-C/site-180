@@ -23,11 +23,11 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .header-dim {
-  @apply fixed w-screen h-screen bg-black opacity-0;
+  @apply hidden w-screen h-screen bg-black opacity-0 lg:hidden;
 }
 body:has(#nav-toggle:checked) {
   .header-dim {
-    @apply max-lg:opacity-25;
+    @apply fixed opacity-25;
   }
 }
 
