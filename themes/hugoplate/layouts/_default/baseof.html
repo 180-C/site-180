@@ -13,7 +13,7 @@
     {{ partialCached "essentials/style.html" . }}
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
     <!-- cache partial only in production -->
     {{ if hugo.IsProduction }}
       {{ partialCached "preloader.html" . }}
@@ -33,7 +33,7 @@
 
     <div class="header-dim"></div>
     
-    <main class="flex flex-col">
+    <main class="flex flex-col grow">
       <div class="header-space"></div>
       {{ block "main" . }}{{ end }}
     </main>
