@@ -28,7 +28,7 @@
     slidesPerView: 1,
     centeredSlides: false,
     breakpoints: {
-      768: {
+      540: {
         slidesPerView: 2,
         slidesPerGroup: 2,
       },
@@ -76,7 +76,7 @@
       slidesPerView: 1,
       centeredSlides: false,
       breakpoints: {
-        768: {
+        540: {
           slidesPerView: 2,
           slidesPerGroup: 2,
         },
