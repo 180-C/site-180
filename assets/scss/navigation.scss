@@ -23,7 +23,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .header-dim {
-  @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none;
+  @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none z-10;
 }
 body:has(#nav-toggle:checked) {
   .header-dim {
