@@ -1,20 +1,19 @@
 {{ define "main" }}
-  {{ partial "page-header" . }}
+  <section class="section-sm">
+    <div class="container text-center section-pb">
+      <h1>{{ .Title | title }}</h1>
+      {{ if .Params.Summary }}
+        {{ .Params.Summary }}
+      {{ end }}
+    </div>
 
-
-  <section class="section">
     <div class="container">
       <!-- Tag selection -->
-      <div class="row">
+      <div class="flex mb-8 w-full">
         <!-- topbar -->
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "categories" "scope" . ) }}
-        </div>
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "tags" "scope" . ) }}
-        </div>
+        {{ partial ( print "components/tag-selector" ) ( dict "widget" "categories" "scope" . ) }}
+        <!-- widgets -->
+        {{ partial ( print "components/tag-selector" ) ( dict "widget" "tags" "scope" . ) }}
       </div>
 
       <!-- blog posts -->

@@ -2,11 +2,21 @@ main {
   min-height: 70vh;
 }
 
+
 // section style
 .section {
   @apply py-24 xl:py-28;
+
+  .section-pb {
+    @apply pb-24 xl:pb-28;
+  }
+
   &-sm {
     @apply py-16 xl:py-20;
+
+    .section-pb {
+      @apply pb-16 xl:pb-20;
+    }
   }
 }
 

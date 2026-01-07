@@ -2,7 +2,7 @@
   {{ with site.GetPage "homepage" }}
     <!-- Banner -->
     {{ with .Params.banner }}
-      <section class="section p-0 m-0">
+      <section class="p-0 m-0">
         <div
           class="row justify-center banner flex flex-col m-0 p-0"
           style="background-image: url({{ .image | relURL }})"
@@ -38,12 +38,10 @@
     <!-- /Banner -->
 
     <!-- Sections -->
-    {{ range $i, $e:= .Params.sections }}
-      <section
-        class="section-sm {{ if not (modBool $i 2) }}
-          bg-gradient-reverse
-        {{ end }}"
-      >
+    <section
+      class="section-sm bg-gradient-reverse *:py-2"
+    >
+      {{ range $i, $e:= .Params.sections }}
         <div class="container px-6">
           <div class="row items-center justify-between">
             <div
@@ -86,10 +84,10 @@
             </div>
           </div>
         </div>
-      </section>
-    {{ end }}
-    <!-- /Sections -->
-
+      {{ end }}
+    </section>
+        <!-- /Sections -->
+        
     <!-- Posts -->
     {{ with site.GetPage "sections/actualites" }}
       {{ if .Params.enable }}

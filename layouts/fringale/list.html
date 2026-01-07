@@ -1,8 +1,12 @@
 {{ define "main" }}
-  {{ partial "page-header" . }}
+  <section class="section-sm">
+    <div class="container text-center section-pb">
+      <h1>{{ .Title | title }}</h1>
+      {{ if .Params.Summary }}
+        {{ .Params.Summary }}
+      {{ end }}
+    </div>
 
-
-  <section class="section">
     <div class="container">
       {{ .Content }}
       {{ partial "components/fringal_list.html" . }}
