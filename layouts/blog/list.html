@@ -7,14 +7,9 @@
       {{ end }}
     </div>
 
-    <div class="container">
+    <div class="container relative">
       <!-- Tag selection -->
-      <div class="flex mb-8 w-full">
-        <!-- topbar -->
-        {{ partial ( print "components/tag-selector" ) ( dict "widget" "categories" "scope" . ) }}
-        <!-- widgets -->
-        {{ partial ( print "components/tag-selector" ) ( dict "widget" "tags" "scope" . ) }}
-      </div>
+      {{ partial ( print "components/tag-selector-in-header" ) ( dict "scope" . ) }}
 
       <!-- blog posts -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5">

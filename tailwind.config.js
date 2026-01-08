@@ -121,5 +121,10 @@ module.exports = {
         5: "3rem",
       },
     }),
+    require('tailwindcss/plugin')(( { matchVariant }) => {
+      matchVariant('group-has', (value) => {
+        return `.group:has(${value}) &`
+      })
+    })
   ],
 };
