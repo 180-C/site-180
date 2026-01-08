@@ -21,12 +21,14 @@
 //   @apply block;
 // }
 
-#nav-toggle:has(input[type="checkbox"]:checked) ~ #nav-menu {
-  @apply block lg:flex;
+.navbar:has(#nav-toggle input[type="checkbox"]:checked) {
+  #nav-menu {
+    @apply lg:flex max-lg:max-h-80 pb-6;
+  }
 }
 
 #nav-menu {
-  @apply order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8;
+  @apply order-3 block lg:flex w-full max-lg:max-h-0 pb-0 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 duration-100 overflow-hidden;
 }
 
 .header {
@@ -37,7 +39,7 @@
 }
 
 .header-dim {
-  @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none z-10;
+  @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none z-10 duration-100;
 }
 // when in a :has, we don't need to add chain :has again, we just need a space
 body:has(#nav-toggle input[type="checkbox"]:checked) .header-dim {
