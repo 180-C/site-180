@@ -1,13 +1,27 @@
 // navbar toggler
-input#nav-toggle:checked + label #show-button {
-  @apply hidden;
+.toggle {
+  & > label {
+    @apply cursor-pointer
+  }
+
+  & > input:checked + label #show-toggle {
+    @apply hidden;
+  }
+
+  & > input:checked + label #hide-toggle {
+    @apply block;
+  }
 }
 
-input#nav-toggle:checked + label #hide-button {
-  @apply block;
-}
+// input#nav-toggle:checked + label #show-button {
+//   @apply hidden;
+// }
 
-input#nav-toggle:checked ~ #nav-menu {
+// input#nav-toggle:checked + label #hide-button {
+//   @apply block;
+// }
+
+#nav-toggle:has(input[type="checkbox"]:checked) ~ #nav-menu {
   @apply block lg:flex;
 }
 
@@ -25,10 +39,9 @@ input#nav-toggle:checked ~ #nav-menu {
 .header-dim {
   @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none z-10;
 }
-body:has(#nav-toggle:checked) {
-  .header-dim {
-    @apply opacity-25;
-  }
+// when in a :has, we don't need to add chain :has again, we just need a space
+body:has(#nav-toggle input[type="checkbox"]:checked) .header-dim {
+  @apply opacity-25;
 }
 
 // navbar items
