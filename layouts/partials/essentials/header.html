@@ -4,34 +4,64 @@
   {{ end }} z-30 shadow"
 >
   <nav class="navbar container">
-    <!-- logo -->
-    <div class="order-0">
+    <!-- left side container -->
+    <div class="min-w-[100px] flex flex-row items-center justify-start lg:justify-center order-0">
       <!-- navbar brand/logo -->
       <a class="navbar-brand block" href="{{ site.BaseURL | relLangURL }}">
         {{ partial "logo" }}
       </a>
     </div>
-    <!-- navbar toggler -->
-    <div class="order-3 toggle lg:hidden lg:-order-1" id="nav-toggle">
-      <input id="nav-toggle-inner" type="checkbox" class="hidden" />
-      <label
-        for="nav-toggle-inner"
-        class="flex items-center text-dark dark:text-white lg:order-1"
-      >
-        <svg id="show-toggle" class="h-6 fill-current block" viewBox="0 0 20 20">
-          <title>Menu Open</title>
-          <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
-        </svg>
-        <svg id="hide-toggle" class="h-6 fill-current hidden" viewBox="0 0 20 20">
-          <title>Menu Close</title>
-          <polygon
-            points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-            transform="rotate(45 10 10)"
-          ></polygon>
-        </svg>
-      </label>
+    
+    <!-- right side container -->
+    <div class="min-w-[100px] order-1 ml-auto flex flex-row items-center justify-center  md:order-2 lg:ml-0">
+      <!-- navbar toggler -->
+      <div class="order-3 toggle lg:hidden lg:-order-1" id="nav-toggle">
+        <input id="nav-toggle-inner" type="checkbox" class="hidden" />
+        <label
+          for="nav-toggle-inner"
+          class="flex items-center text-dark dark:text-white lg:order-1"
+        >
+          <svg id="show-toggle" class="h-6 fill-current block" viewBox="0 0 20 20">
+            <title>Menu Open</title>
+            <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+          </svg>
+          <svg id="hide-toggle" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+            <title>Menu Close</title>
+            <polygon
+              points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+              transform="rotate(45 10 10)"
+            ></polygon>
+          </svg>
+        </label>
+      </div>
+      {{ with site.Params.search }}
+        {{ if .enable }}
+          <button
+            aria-label="search"
+            class="border-border text-dark hover:text-primary dark:border-darkmode-border inline-block text-xl dark:text-white"
+            data-target="search-modal"
+          >
+            <i class="fa-solid fa-search"></i>
+          </button>
+        {{ end }}
+      {{ end }}
+
+      <div class="flex items-center ml-5 pl-5 border-l lg:hidden">
+        {{ partial "components/language-switcher" (dict "Context" . "Class" "mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded") }}
+        {{ partial "components/theme-switcher" (dict "Class" "mr-5") }}
+      </div>
+
+
+      <!-- navigation btn -->
+      {{ if site.Params.navigation_button.enable }}
+        <a
+          href="{{ site.Params.navigation_button.link | relLangURL }}"
+          class="btn btn-outline-primary btn-sm hidden lg:inline-block"
+        >
+          {{ site.Params.navigation_button.label }}
+        </a>
+      {{ end }}
     </div>
-    <!-- /navbar toggler -->
 
     <!-- main navbar -->
     <ul
@@ -118,35 +148,5 @@
         </li>
       {{ end }}
     </ul>
-
-    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
-      {{ with site.Params.search }}
-        {{ if .enable }}
-          <button
-            aria-label="search"
-            class="border-border text-dark hover:text-primary dark:border-darkmode-border inline-block text-xl dark:text-white"
-            data-target="search-modal"
-          >
-            <i class="fa-solid fa-search"></i>
-          </button>
-        {{ end }}
-      {{ end }}
-
-      <div class="flex items-center ml-5 pl-5 border-l lg:hidden">
-        {{ partial "components/language-switcher" (dict "Context" . "Class" "mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded") }}
-        {{ partial "components/theme-switcher" (dict "Class" "mr-5") }}
-      </div>
-
-
-      <!-- navigation btn -->
-      {{ if site.Params.navigation_button.enable }}
-        <a
-          href="{{ site.Params.navigation_button.link | relLangURL }}"
-          class="btn btn-outline-primary btn-sm hidden lg:inline-block"
-        >
-          {{ site.Params.navigation_button.label }}
-        </a>
-      {{ end }}
-    </div>
   </nav>
 </header>
