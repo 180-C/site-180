@@ -5,17 +5,17 @@ main {
 
 // section style
 .section {
-  @apply py-24 xl:py-28;
+  @apply py-20 max-sm:py-16;
 
   .section-pb {
-    @apply pb-24 xl:pb-28;
+    @apply pb-20 max-sm:pb-16;
   }
 
   &-sm {
-    @apply py-16 xl:py-20;
+    @apply py-12 max-sm:py-10;
 
     .section-pb {
-      @apply pb-16 xl:pb-20;
+      @apply pb-12 max-sm:pb-10;
     }
   }
 }
