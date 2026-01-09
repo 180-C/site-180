@@ -7,8 +7,10 @@
     <!-- left side container -->
     <div class="min-w-[100px] flex flex-row items-center justify-start lg:justify-center order-0">
       <!-- navbar brand/logo -->
-      <a class="navbar-brand block" href="{{ site.BaseURL | relLangURL }}">
-        {{ partial "logo" }}
+      <a class="navbar-brand block scale-none hover:scale-110 duration-75 logo-container" href="{{ site.BaseURL | relLangURL }}">
+        <div class="logo">
+          {{ partial "logo" }}
+        </div>
       </a>
     </div>
     
