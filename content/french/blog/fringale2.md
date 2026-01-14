@@ -1,7 +1,7 @@
 ---
 title: "Fringale²"
 meta_title: ""
-image: "/images/blog/fringale2.png"
+image: "images/blog/fringale2.png"
 description: "Deuxième édition du livre de recettes 180°C"
 "blog/tags": ["fringale"]
 summary: "La deuxième édition du livre de recettes 180°C est maintenant disponible !"
