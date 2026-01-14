@@ -139,6 +139,9 @@ div.splitbox div.right {
   --logo-blur: 5px;
 
   background-repeat: no-repeat;
+
+  // FIXME: the background image path is absolute, so that will not work if we're hosting
+  // the site on a subdomain path (eg 180c.ch/something/)
   background-image: url("/images/logo.png");
   background-size: calc(100% - 4 * var(--logo-blur));
   background-position: top calc(2 * var(--logo-blur)) left calc(2 * var(--logo-blur));
