@@ -125,6 +125,13 @@ module.exports = {
       matchVariant('group-has', (value) => {
         return `.group:has(${value}) &`
       })
+    }),
+    require('tailwindcss/plugin')(( { matchUtilities }) => {
+      matchUtilities({
+        'bg-size': (value) => ({
+          'background-size': value
+        })
+      })
     })
   ],
 };

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <section>
+  <!-- <section>
     <div class="container text-center">
       <div
         class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8"
@@ -7,91 +7,71 @@
         {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <section class="section pt-7">
-    <div class="container">
-      <div class="row justify-center">
-        <article class="lg:col-10">
-          {{ $image:= .Params.image }}
-          {{ if $image }}
-            <div class="mb-10">
-              {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
-            </div>
-          {{ end }}
-
-
-          <h1 class="h2 mb-4">
-            {{ .Title }}
-          </h1>
-
-          <ul class="flex gap-3 items-center">
-            {{ if .Params.author }}
-              <li class="mr-4 inline-block">
-                <i class="fa-regular fa-circle-user mr-2"></i
-                >{{ .Params.author }}
-              </li>
-            {{ end }}
-            {{ if .Param (printf "%s/%s" .Section "categories") }}
-              <li class="inline-block bg-primary rounded px-3 py-1 text-light">
-                <i class="fa-regular fa-folder mr-2"></i>
-                {{ $categories:= .Param (printf "%s/%s" .Section "categories") }}
-                {{ range $i,$p:= $categories }}
-                  <a
-                    href="{{ (printf " %s/%s/" $.Section "categories" ) | relLangURL }}{{ . | urlize | lower }}/"
-                    class="ms-1"
-                    >{{ . | humanize }}{{ if ne $i (sub (len $categories) 1) }}
-                      {{ ", " }}
-                    {{ end }}
-                  </a>
-                {{ end }}
-              </li>
-            {{ end }}
-            <li
-              class="inline-block rounded px-3 py-1 text-light bg-secondary dark:text-dark dark:bg-theme-light"
-            >
-              <i class="fa-regular fa-clock mr-2"></i>
-              {{ time.Format ":date_long" .PublishDate }}
-            </li>
-          </ul>
-
-          <div class="content mb-10">
-            {{ .Content | safeHTML }}
-          </div>
-
-          <div class="row items-start justify-between">
-            <div class="lg:col-5 mb-10 flex items-center lg:mb-0">
-              <h5 class="mr-3">{{ i18n "tags" }} :</h5>
-              <ul>
-                {{ $tags:= .Param (printf "%s/%s" .Section "tags") }}
-                {{ range $i,$p:= $tags }}
-                  <li class="inline-block">
-                    <a
-                      class="bg-theme-light hover:bg-primary dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                      href="{{ (printf  "%s/%s/" $.Section "tags" ) | relLangURL }}{{ . | urlize | lower }}/"
-                    >
-                      {{ . | humanize }}
-                    </a>
-                  </li>
-                {{ end }}
-              </ul>
-            </div>
-            <!-- TODO : Remplement -->
-            <!-- <div class="lg:col-4 flex items-center">
-              {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false) }}
-            </div> -->
-          </div>
-        </article>
+  <section class="relative bg-gray-100">
+    <div class="section-sm relative z-10 flex max-md:flex-col items-center justify-center">
+      <!-- Tiled background -->
+      <div class="absolute w-full h-full overflow-hidden z-0">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[url({{.Params.image}})] bg-size-[80px] bg-center bg-repeat-space bg-blend-overlay saturate-0 opacity-5 w-[120%] h-[700px] rotate-6"></div>
+        <div class="relative bg-gradient-to-b to-80% to-white/25 from-transparent w-full h-full z-10"></div>
       </div>
 
-      <!-- Related posts -->
-      {{ $related := (where site.RegularPages "Section" .Section) | intersect (where site.RegularPages ".Title" "!="
-        .Title)
-      }}
-      {{ $related = $related | shuffle | first 3 }}
-      {{ with $related }}
-        {{ partial "components/posts-swipe" (dict "Title" (i18n "related_posts") "Posts" $related) }}
-      {{ end }}
+      <!-- Header -->
+      <div class="container flex max-md:flex-col items-center justify-center">
+        <div class="flex items-center grow-0 shrink-0">
+          {{ $image:= .Params.image }}
+          <div class="max-w-96 w-full border-2 border-white rounded-xl overflow-hidden shadow-xl z-30">
+            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full aspect-square object-cover") }}
+          </div>
+        </div>
+  
+        <div class="flex flex-col items-start max-md:items-center max-md:mt-7 md:ml-7 ">
+          <h1 class="h2 pb-2 max-md:text-center">
+            {{ .Title }}
+          </h1>
+        
+          <div class="flex items-center text-lg">
+            <i class="fa-regular fa-circle-user mr-1"></i>
+            {{ if .Params.author }}
+              {{ .Params.author }}
+            {{ else }}
+              180°C
+            {{ end }}
+      
+            ,
+      
+            {{ time.Format ":date_short" .PublishDate }}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="section-sm justify-center bg-gradient-reverse relative z-10">
+    <div class="container flex items-center justify-center">
+      <!-- Sticky header gradient -->
+      <!-- <div class="sticky top-0 bg-gradient-to-b from-white section-sm pb-0 z-10"></div> -->
+
+      <article class="lg:col-10 z-0">
+        <div class="content mb-10">
+          {{ .Content | safeHTML }}
+        </div>
+        
+        <!-- TODO : Remplement -->
+        <!-- <div class="lg:col-4 flex items-center">
+          {{ partial "social-share" (dict "Class" "share-icons" "Title" (i18n "share") "Reddit" false "Twitter" false) }}
+        </div> -->
+      </article>
+    </div>
+  </section>
+
+  <!-- Related posts -->
+  {{ $related := (where site.RegularPages "Section" .Section) | intersect (where site.RegularPages ".Title" "!="
+    .Title)
+  }}
+  {{ $related = $related | shuffle | first 3 }}
+  {{ with $related }}
+    {{ partial "components/posts-swipe" (dict "Title" (i18n "related_posts") "Posts" $related) }}
+  {{ end }}
 {{ end }}
