@@ -3,7 +3,7 @@
   {{ if $image }}
     <a href="{{ .RelPermalink }}" class="">
       <div class="w-full aspect-square mb-6 rounded-xl overflow-hidden">
-        {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "aspect-square object-cover") }}
+        {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full aspect-square object-cover") }}
       </div>
     </a>
   {{ end }}
