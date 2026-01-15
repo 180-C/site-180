@@ -9,11 +9,14 @@
 {{ end }}
 
 {{ $allWidgets := slice "tags" "category" }}
-{{ $widgetNonEmpty := false }}
+{{ $nonEmptyWidgetCount := 0 }}
 {{ range $widget := $allWidgets }}
   {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
-  {{ $widgetNonEmpty = or $widgetNonEmpty (and $taxonomy (not (eq (len $taxonomy) 0) )) }}
+  {{ if and $taxonomy (not (eq (len $taxonomy) 0) ) }}
+    {{ $nonEmptyWidgetCount = add $nonEmptyWidgetCount 1 }}
+  {{ end }}
 {{ end }}
+{{ $nonEmptyWidgetPresent := ne $nonEmptyWidgetCount 0 }}
 
 <!-- 
 Note : We're using a generic has-[input:checked] selector here.
@@ -21,7 +24,7 @@ That's fine for our case for the time being, but if we need another
 checker input for another reason, that would break.  
 -->
 
-{{ if $widgetNonEmpty }}
+{{ if $nonEmptyWidgetPresent }}
   <div class="border  rounded-3xl bg-gray-100 group">
     <!-- Header -->
     <div class="flex flex-row bg-gray-100 items-center rounded-3xl has-[input:checked]:bg-gray-200 duration-50">
@@ -67,9 +70,11 @@ checker input for another reason, that would break.
           {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
           {{ if $taxonomy }}
             {{ if not (eq (len $taxonomy) 0) }}
-              <div class="border-b border-secondary border-opacity-70">
-                <h4 class="leading-loose"> {{ $widget | humanize }} </h4>
-              </div>
+              {{ if ne $nonEmptyWidgetCount 1 }}
+                <div class="border-b border-secondary border-opacity-70">
+                  <h4 class="leading-loose"> {{ $widget | humanize }} </h4>
+                </div>
+              {{ end }}
               <div class="flex flex-row flex-wrap pt-2">
                 {{ range $name, $items := $taxonomy }}
                   {{ $tagName := .Page.Title | humanize }}
