@@ -15,3 +15,5 @@
   - [ ] Create an ingredient widget
 
 - [ ] Redesign Crieur page
+
+- [ ] Redesign Search
