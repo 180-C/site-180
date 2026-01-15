@@ -5,8 +5,7 @@
 
 This repository contains the source code of the 180°C website v1.5.
 
-Currently, that version is still on beta. If you w
-want to check the released versions, see the `release` branch.
+Currently, that version is still on beta. If you want to check the released versions, see the `release` branch.
 
 If you want to check the roadmap, check [ROADMAP.md](./ROADMAP.md)
 
