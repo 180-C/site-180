@@ -17,3 +17,9 @@
 - [ ] Redesign Crieur page
 
 - [ ] Redesign Search
+
+- [ ] Redesign Fringale page
+
+  - [ ] Add a page to indicate how the user should buy the book
+
+  - [ ] Integrate it into the fringale page
