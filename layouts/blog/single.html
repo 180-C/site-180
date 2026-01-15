@@ -11,10 +11,10 @@
 
   {{ $imagePath := .Params.image | absURL }}
 
-  <section class="relative bg-gray-100">
+  <section class="relative">
     <div class="section-sm relative z-10 flex max-md:flex-col items-center justify-center">
       <!-- Tiled background -->
-      <div class="absolute w-full h-full overflow-hidden z-0">
+      <div class="absolute w-full h-full overflow-hidden z-0 bg-gray-100">
         <div class="
           absolute 
           translate-center 
@@ -27,10 +27,10 @@
       </div>
 
       <!-- Header -->
-      <div class="container flex max-md:flex-col items-center justify-center">
+      <div class="container flex max-md:flex-col items-center justify-center z-10">
         <div class="flex items-center grow-0 shrink-0">
           {{ $image:= .Params.image }}
-          <div class="max-w-96 w-full border-2 border-white rounded-xl overflow-hidden shadow-xl z-30">
+          <div class="max-w-96 w-full border-2 border-white rounded-xl overflow-hidden shadow-xl">
             {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full aspect-square object-cover") }}
           </div>
         </div>
