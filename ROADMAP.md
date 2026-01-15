@@ -1,17 +1,17 @@
 # Roadmap v1.5
 
-[ ] Redesign Blog
+- [ ] Redesign Blog
 
-  [X] Redesign Tag Selector
+  - [X] Redesign Tag Selector
 
-  [ ] Redesign Blog card
+  - [ ] Redesign Blog card
 
-  [X] Redesign Blog page
+  - [X] Redesign Blog page
 
-  [ ] Make the post-swipe widget adapt to the height of the screen
+  - [ ] Make the post-swipe widget adapt to the height of the screen
 
-[ ] Redesign Recipee page
+- [ ] Redesign Recipee page
 
-  [ ] Create an ingredient widget
+  - [ ] Create an ingredient widget
 
-[ ] Redesign Crieur page
+- [ ] Redesign Crieur page
