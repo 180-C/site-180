@@ -72,7 +72,7 @@ checker input for another reason, that would break.
             {{ if not (eq (len $taxonomy) 0) }}
               {{ if ne $nonEmptyWidgetCount 1 }}
                 <div class="border-b border-secondary border-opacity-70">
-                  <h4 class="leading-loose"> {{ $widget | humanize }} </h4>
+                  <h4 class="leading-loose"> {{ i18n $widget | humanize }} </h4>
                 </div>
               {{ end }}
               <div class="flex flex-row flex-wrap pt-2">
