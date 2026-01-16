@@ -2,7 +2,7 @@
 title: "Recrutement 2023"
 meta_title: ""
 description: "Recrutement 180°C 2023"
-image: "/images/blog/recrutement-2023/recrutement0.jpg"
+image: "images/blog/recrutement-2023/recrutement0.jpg"
 "blog/tags": ["association"]
 summary: "Rejoint l'association 180°C !"
 draft: false
