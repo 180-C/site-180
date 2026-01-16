@@ -9,15 +9,13 @@
 
     <div class="container relative">
       <!-- Tag selection -->
-      {{ partial ( print "components/tag-selector-in-header" ) ( dict "scope" . ) }}
+      {{ partial "components/tag-selector-in-header" ( dict "scope" . "class" "z-10") }}
 
       <!-- blog posts -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5">
+      <div class="relative grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5 z-0">
         {{ $paginator:= .Paginate .RegularPages 6 }}
         {{ range $paginator.Pages }}
-          <div class="">
-            {{ partial "components/blog-card" . }}
-          </div>
+          {{ partial "components/blog-card" . }}
         {{ end }}
       </div>
       {{ partial "components/pagination.html" . }}

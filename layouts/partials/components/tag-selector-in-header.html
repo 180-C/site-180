@@ -1,4 +1,5 @@
 {{ $scope := .scope }}
+{{ $class := .class }}
 
 {{ $allWidgets := slice "tags" "categories" }}
 {{ $widgetNonEmpty := false }}
@@ -8,7 +9,7 @@
 {{ end }}
 
 {{ if $widgetNonEmpty }}
-<div class="top-0 sticky flex flex-col items-center">
+<div class="top-0 sticky flex flex-col items-center {{ $class }}">
   <div class="absolute w-full h-20 bg-gradient-to-b from-white z-0"></div>
   
   <div class="relative px-3 pt-4 z-10 max-w-screen-md w-full">
