@@ -22,8 +22,6 @@ defaultContentLanguage = "fr"
 [taxonomies]
     blog_categories = "blog/categories"
     blog_tags = "blog/tags"
-    events_categories = "events/categories"
-    events_tags = "events/tags"
     recettes_categories = "recettes/categories"
     recettes_tags = "recettes/tags"
 
