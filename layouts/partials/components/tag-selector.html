@@ -8,7 +8,7 @@
   {{ $hasCurrentTag = true }}
 {{ end }}
 
-{{ $allWidgets := slice "tags" "category" }}
+{{ $allWidgets := slice "tags" "categories" }}
 {{ $nonEmptyWidgetCount := 0 }}
 {{ range $widget := $allWidgets }}
   {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}

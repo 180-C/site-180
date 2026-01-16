@@ -1,6 +1,6 @@
 {{ $scope := .scope }}
 
-{{ $allWidgets := slice "tags" "category" }}
+{{ $allWidgets := slice "tags" "categories" }}
 {{ $widgetNonEmpty := false }}
 {{ range $widget := $allWidgets }}
   {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
