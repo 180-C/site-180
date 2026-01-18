@@ -32,10 +32,10 @@
 }
 
 .header {
-  @apply bg-body dark:bg-darkmode-body py-6 z-50;
+  @apply bg-body dark:bg-darkmode-body py-3 z-50;
 }
 .header-space {
-  min-height: calc(3rem + 80px);
+  min-height: calc(1.5rem + 70px);
 }
 
 .header-dim {
