@@ -22,11 +22,7 @@
         {{ time.Format ":date_long" .PublishDate }}
       </div>
 
-      <div class="opacity-50">
-        <i class="fa-regular fa-clock"></i>
-        {{ .Params.lectureTimeMin }}
-        m
-      </div>
+      {{ partial "components/time-indicator" (dict "timeMin" .Params.lectureTimeMin "class" "opacity-50") }}
     </div>
 
     <!-- TODO : make it expand into the card, so the description can be only shown when hovered -->

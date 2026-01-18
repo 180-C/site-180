@@ -43,16 +43,25 @@
           </h1>
         
           <div class="flex items-center text-lg">
-            <i class="fa-regular fa-circle-user mr-1"></i>
-            {{ if .Params.author }}
-              {{ .Params.author }}
-            {{ else }}
-              180°C
-            {{ end }}
+            <div class="mr-1">
+              <i class="fa-regular fa-circle-user mr-1"></i>
+              {{ if .Params.author }}
+                {{ .Params.author }}
+              {{ else }}
+                180°C
+              {{ end }}
+            </div>
       
             ,
       
-            {{ time.Format ":date_short" .PublishDate }}
+            <div class="mx-1">
+              <i class="fa-regular fa-calendar mr-1"></i>
+              {{ time.Format ":date_short" .PublishDate }}
+            </div>
+
+            ,
+
+            {{ partial "components/time-indicator" (dict "timeMin" .Params.lectureTimeMin "class" "ml-1") }}
           </div>
         </div>
       </div>
