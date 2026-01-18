@@ -37,6 +37,10 @@
 .header-space {
   min-height: calc(1.5rem + 70px);
 }
+.max-h-screen-with-pad {
+  max-height: calc(100vh - 1.5rem - 70px);
+}
+
 
 .header-dim {
   @apply fixed w-screen h-screen bg-black opacity-0 lg:hidden pointer-events-none z-10 duration-100;

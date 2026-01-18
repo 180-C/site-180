@@ -8,7 +8,7 @@
 
   - [X] Redesign Blog page
 
-  - [ ] Make the post-swipe widget adapt to the height of the screen
+  - [X] Make the post-swipe widget adapt to the height of the screen
 
 - [ ] Redesign Recipee page
 

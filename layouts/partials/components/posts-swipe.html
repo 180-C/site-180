@@ -1,28 +1,20 @@
-<section class="section">
-  <div class="container px-6">
-    <div class="row">
-      <div class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
-        <h2 class="mb-4 font-tertiary font-extrabold">
-          {{ .Title | markdownify }}
-        </h2>
-        <p>
-          {{ .Description | markdownify }}
-        </p>
-      </div>
-      <div class="col-12">
-        <div class="swiper testimonial-slider">
-          <div class="swiper-wrapper">
-            {{ range .Posts }}
-              <div class="swiper-slide">
-                {{ partial "components/actu-card" . }}
-              </div>
-            {{ end }}
+<div class="section-sm max-h-screen-with-pad">
+  <div class="container px-6 flex flex-col h-full">
+    <h2 class="font-tertiary font-extrabold md:col-10 lg:col-8 xl:col-6 mx-auto mb-10 text-center">
+      {{ .Title | markdownify }}
+    </h2>
+    <!-- FIXME: the blog cards are too crunched for Iphone SE displays -->
+    <div class="w-full swiper testimonial-slider flex flex-col grow">
+      <div class="swiper-wrapper shrink">
+        {{ range .Posts }}
+          <div class="swiper-slide">
+            {{ partial "components/blog-card" . }}
           </div>
-          <div
-            class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center"
-          ></div>
-        </div>
+        {{ end }}
       </div>
     </div>
+    <div
+      class="testimonial-slider-pagination flex mt-6 items-center justify-center text-center shrink-0 grow-0"
+    ></div>
   </div>
 </section>
