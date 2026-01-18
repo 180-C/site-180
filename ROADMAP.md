@@ -1,10 +1,10 @@
 # Roadmap v1.5
 
-- [ ] Redesign Blog
+- [X] Redesign Blog
 
   - [X] Redesign Tag Selector
 
-  - [ ] Redesign Blog card
+  - [X] Redesign Blog card
 
   - [X] Redesign Blog page
 
