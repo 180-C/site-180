@@ -7,6 +7,7 @@ image: "images/blog/recrutement-2023/recrutement0.jpg"
 summary: "Rejoint l'association 180°C !"
 draft: false
 date: 2023-09-08T00:00:00Z
+lectureTimeMin: 5
 ---
 
 Ca y est, 180°C 🧑‍🍳 recrute !!

@@ -17,8 +17,16 @@
   </div>
   
   <div class="flex flex-col p-4 border-t shrink-0 grow">
-    <div class="opacity-50">
-      {{ time.Format ":date_long" .PublishDate }}
+    <div class="flex flex-row justify-between">
+      <div class="opacity-50">
+        {{ time.Format ":date_long" .PublishDate }}
+      </div>
+
+      <div class="opacity-50">
+        <i class="fa-regular fa-clock"></i>
+        {{ .Params.lectureTimeMin }}
+        m
+      </div>
     </div>
 
     <!-- TODO : make it expand into the card, so the description can be only shown when hovered -->

@@ -7,6 +7,7 @@ description: "Deuxième édition du livre de recettes 180°C"
 summary: "La deuxième édition du livre de recettes 180°C est maintenant disponible !"
 draft: false
 date: 2023-10-03T00:00:00Z
+lectureTimeMin: 5
 ---
 
 {{< imgsection image="images/blog/fringale2.png" imgclass="w-full rounded-xl" side="left">}}
