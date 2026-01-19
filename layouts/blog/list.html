@@ -1,16 +1,19 @@
+{{ define "rootHeader" }}
+  <div class="section-sm container text-center">
+    <h1>{{ .Title | title }}</h1>
+    {{ if .Params.Summary }}
+      {{ .Params.Summary }}
+    {{ end }}
+  </div>
+
+  <!-- Tag selection -->
+  <!-- Note : That needs to be at the root of the "header" block to work. -->
+  {{ partial "components/tag-selector-in-header" ( dict "scope" . "class" "z-10 container") }}
+{{ end }}
+
 {{ define "main" }}
-  <section class="section-sm">
-    <div class="container text-center section-pb">
-      <h1>{{ .Title | title }}</h1>
-      {{ if .Params.Summary }}
-        {{ .Params.Summary }}
-      {{ end }}
-    </div>
-
+  <section class="section-sm pt-0">
     <div class="container relative">
-      <!-- Tag selection -->
-      {{ partial "components/tag-selector-in-header" ( dict "scope" . "class" "z-10") }}
-
       <!-- blog posts -->
       <div class="relative grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5 z-0">
         {{ $paginator:= .Paginate .RegularPages 6 }}

@@ -34,8 +34,10 @@
     
     <div class="header-space"></div>
     <div class="flex flex-col grow overflow-auto z-0">
+      {{ block "rootHeader" . }} {{ end }}
+
       <main class="flex flex-col grow shrink-0 section-container">
-        {{ block "main" . }}{{ end }}
+        {{ block "main" . }} {{ end }}
       </main>
   
       <!-- cache partial only in production -->
