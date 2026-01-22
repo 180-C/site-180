@@ -1,0 +1,70 @@
+<!-- DNS preconnect -->
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="preconnect" href="https://use.fontawesome.com" crossorigin />
+<link rel="preconnect" href="//cdnjs.cloudflare.com" />
+<link rel="preconnect" href="//www.googletagmanager.com" />
+<link rel="preconnect" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://use.fontawesome.com" />
+<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="dns-prefetch" href="//platform.linkedin.com" />
+<link rel="dns-prefetch" href="//platform.twitter.com" />
+
+<!-- google fonts -->
+{{ $fontFamilies:= site.Data.theme.fonts.font_family }}
+{{ $sf:= site.Data.theme.fonts.font_family.secondary }}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script>
+  (function () {
+    const fontLinks = document.createElement("div");
+    fontLinks.style.display = "none";
+
+    const fontFamilies = {{ $fontFamilies }};
+
+    const googleFont = document.createElement("link");
+    googleFont.type = "text/css";
+    googleFont.rel = "stylesheet";
+
+    let url = `https://fonts.googleapis.com/css2?display=swap`
+    for (const family in fontFamilies) {
+      if (fontFamilies.hasOwnProperty(family)) {
+        url += `&family=${fontFamilies[family].base.replace(/\s+/g, '+')}`
+      }
+    }
+    googleFont.href = url;
+    document.head.appendChild(googleFont);
+  })();
+</script>
+
+<!-- plugins + stylesheet -->
+{{ $styles := slice }}
+{{ range site.Params.plugins.css }}
+  {{ if findRE "^http" .link }}
+    <link
+      crossorigin="anonymous"
+      media="all"
+      rel="stylesheet"
+      href="{{ .link | relURL }}"
+      {{ .attributes | safeHTMLAttr }}
+    />
+  {{ else }}
+    {{ $styles = $styles | append (resources.Get .link) }}
+  {{ end }}
+{{ end }}
+{{ $styles := $styles | append (resources.Get "scss/main.scss" | toCSS) }}
+{{ $styles := $styles | resources.Concat "css/style.css" }}
+{{ $styles = $styles | css.PostCSS }}
+{{ if hugo.IsProduction }}
+  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint | resources.PostProcess }}
+{{ else }}
+  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . }}
+{{ end }}
+
+<style>
+  {{ $styles.Content | safeCSS }}
+</style>
