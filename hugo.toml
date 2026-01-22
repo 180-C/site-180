@@ -155,7 +155,7 @@ link = "plugins/cookie.js"
 [[params.plugins.js]]
 link = "plugins/youtube-lite.js"
 [[params.plugins.js]]
-link = "https://code.jquery.com/jquery-3.6.0.min.js"
+link = "plugins/jquery/jquery-3.6.0.min.js"
 [[params.plugins.js]]
 link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
 [[params.plugins.js]]
