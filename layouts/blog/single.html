@@ -1,3 +1,10 @@
+{{ define "headAttrs" }}
+  {{ $imagePath := .Params.image | absURL }}
+
+  <!-- Add here images that should be loaded as soon as possible -->
+  <link rel="preload" as="image" href="{{ $imagePath }}" fetchpriority="high">
+{{ end }}
+
 {{ define "main" }}
   <!-- FIXME : That page has white chunks appearing when scrolling on iOS -->
 
@@ -10,7 +17,6 @@
       </div>
     </div>
   </section> -->
-
   {{ $imagePath := .Params.image | absURL }}
 
   <section class="relative">
@@ -33,7 +39,7 @@
         <div class="flex items-center grow-0 shrink-0">
           {{ $image:= .Params.image }}
           <div class="max-w-96 w-full border-2 border-white rounded-xl overflow-hidden shadow-xl">
-            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full aspect-square object-cover") }}
+            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full aspect-square object-cover" "Loading" "eager" "FetchPriority" "high") }}
           </div>
         </div>
   
