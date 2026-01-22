@@ -138,29 +138,30 @@ link = "plugins/font-awesome/v6/icons.css"
 # JS Plugins
 [[params.plugins.js]]
 link = "js/search.js"
+# Swiper - always loaded (needed for testimonials on homepage)
 [[params.plugins.js]]
 link = "plugins/swiper/swiper-bundle.js"
-[[params.plugins.js]]
-link = "plugins/glightbox/glightbox.js"
-[[params.plugins.js]]
-link = "js/gallery-slider.js"
-[[params.plugins.js]]
-link = "js/accordion.js"
-[[params.plugins.js]]
-link = "js/tab.js"
-[[params.plugins.js]]
-link = "js/modal.js"
-[[params.plugins.js]]
-link = "plugins/cookie.js"
-[[params.plugins.js]]
-link = "plugins/youtube-lite.js"
-[[params.plugins.js]]
-link = "plugins/jquery/jquery-3.6.0.min.js"
-[[params.plugins.js]]
-link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
-[[params.plugins.js]]
-link = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js"
-[[params.plugins.js]]
-link = "https://epsg.io/21781.js"
-[[params.plugins.js]]
-link = "https://epsg.io/2056.js"
+
+# Glightbox - loaded conditionally for image galleries
+# link = "plugins/glightbox/glightbox.js"
+
+# Gallery and UI components - remove if not used
+# link = "js/gallery-slider.js"
+# link = "js/accordion.js"
+# link = "js/tab.js"
+# link = "js/modal.js"
+
+# Cookie consent - disabled
+# link = "plugins/cookie.js"
+
+# YouTube lazy load - disabled
+# link = "plugins/youtube-lite.js"
+
+# jQuery - REMOVED (35KB) - replaced with vanilla JS
+# link = "plugins/jquery/jquery-3.6.0.min.js"
+
+# Map libraries - loaded only on map pages
+# link = "https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"
+# link = "https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.12/proj4.js"
+# link = "https://epsg.io/21781.js"
+# link = "https://epsg.io/2056.js"
