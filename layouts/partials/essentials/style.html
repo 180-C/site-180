@@ -45,22 +45,16 @@
 {{ $styles := slice }}
 {{ range site.Params.plugins.css }}
   {{ if findRE "^http" .link }}
-    <link
-      crossorigin="anonymous"
-      media="all"
-      rel="stylesheet"
-      href="{{ .link | relURL }}"
-      {{ .attributes | safeHTMLAttr }}
-    />
+    {{ $styles = $styles | append (resources.GetRemote .link | relURL) }}
   {{ else }}
     {{ $styles = $styles | append (resources.Get .link) }}
   {{ end }}
 {{ end }}
 {{ $styles := $styles | append (resources.Get "scss/main.scss" | toCSS) }}
 {{ $styles := $styles | resources.Concat "css/style.css" }}
-{{ $styles = $styles | css.PostCSS }}
+{{ $styles = $styles | css.PostCSS | minify | fingerprint }}
 {{ if hugo.IsProduction }}
-  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint | resources.PostProcess }}
+  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . | resources.PostProcess }}
 {{ else }}
   {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . }}
 {{ end }}

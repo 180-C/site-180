@@ -8,9 +8,7 @@
     <!-- head (don't cache it) -->
     {{ partial "essentials/head.html" . }}
 
-
-    <!-- style (always cache it) -->
-    {{ partialCached "essentials/style.html" . }}
+    {{ partial "essentials/style.html" . }}
   </head>
 
   <body class="flex flex-col min-h-screen">
@@ -39,12 +37,7 @@
     </main>
 
     <!-- cache partial only in production -->
-    {{ if hugo.IsProduction }}
-      {{ partialCached "essentials/footer.html" . }}
-      {{ partialCached "essentials/script.html" . }}
-    {{ else }}
-      {{ partial "essentials/footer.html" . }}
-      {{ partial "essentials/script.html" . }}
-    {{ end }}
+    {{ partial "essentials/footer.html" . }}
+    {{ partial "essentials/script.html" . }}
   </body>
 </html>
