@@ -10,6 +10,8 @@
 
     <!-- style (always cache it) -->
     {{ partialCached "essentials/style.html" . }}
+
+    {{ block "headAttrs" . }} {{ end }}
   </head>
 
   <body class="flex flex-col h-screen overflow-hidden">

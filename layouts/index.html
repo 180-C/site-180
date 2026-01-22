@@ -1,3 +1,10 @@
+{{ define "headAttrs" }}
+  {{ with site.GetPage "homepage" }}
+    <!-- Add here images that should be loaded as soon as possible -->
+    <link rel="preload" as="image" href="{{ .Params.banner.image | relURL }}" fetchpriority="high">
+  {{ end }}
+{{ end }}
+
 {{ define "main" }}
   {{ with site.GetPage "homepage" }}
     <!-- Banner -->
