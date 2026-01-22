@@ -9,7 +9,7 @@
     {{ partial "essentials/head.html" . }}
 
     <!-- style (always cache it) -->
-    {{ partialCached "essentials/style.html" . }}
+    {{ partial "essentials/style.html" . }}
 
     {{ block "headAttrs" . }} {{ end }}
   </head>
@@ -43,13 +43,8 @@
       </main>
   
       <!-- cache partial only in production -->
-      {{ if hugo.IsProduction }}
-        {{ partialCached "essentials/footer.html" . }}
-        {{ partialCached "essentials/script.html" . }}
-      {{ else }}
-        {{ partial "essentials/footer.html" . }}
-        {{ partial "essentials/script.html" . }}
-      {{ end }}
+      {{ partial "essentials/footer.html" . }}
+      {{ partial "essentials/script.html" . }}
     </div>
   </body>
 </html>
