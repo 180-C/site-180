@@ -41,24 +41,30 @@
   })();
 </script>
 
-<!-- plugins + stylesheet -->
-{{ $styles := slice }}
+<!-- Main stylesheet - inlined for critical CSS -->
+{{ $mainCSS := resources.Get "scss/main.scss" | toCSS }}
+{{ $mainCSS := $mainCSS | css.PostCSS | minify }}
+
+<!-- Inline critical CSS for faster first paint -->
+<style>
+  {{ $mainCSS.Content | safeCSS }}
+</style>
+
+<!-- Load plugins CSS asynchronously -->
+{{ $pluginsCSS := slice }}
 {{ range site.Params.plugins.css }}
   {{ if findRE "^http" .link }}
-    {{ $styles = $styles | append (resources.GetRemote .link | relURL) }}
+    {{ $pluginsCSS = $pluginsCSS | append (resources.GetRemote .link) }}
   {{ else }}
-    {{ $styles = $styles | append (resources.Get .link) }}
+    {{ $pluginsCSS = $pluginsCSS | append (resources.Get .link) }}
   {{ end }}
 {{ end }}
-{{ $styles := $styles | append (resources.Get "scss/main.scss" | toCSS) }}
-{{ $styles := $styles | resources.Concat "css/style.css" }}
-{{ $styles = $styles | css.PostCSS | minify | fingerprint }}
-{{ if hugo.IsProduction }}
-  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . | resources.PostProcess }}
-{{ else }}
-  {{ $styles = $styles | resources.ExecuteAsTemplate "css/style.css" . }}
+{{ with $pluginsCSS | resources.Concat "css/plugins.css" | css.PostCSS | minify | fingerprint }}
+  <link rel="preload" as="style" href="{{ .RelPermalink }}" />
+  <link rel="stylesheet" href="{{ .RelPermalink }}" />
 {{ end }}
 
-<style>
-  {{ $styles.Content | safeCSS }}
-</style>
+<!-- Font Awesome solid icons -->
+{{ with resources.Get "plugins/font-awesome/v6/solid.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" />
+{{ end }}

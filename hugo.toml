@@ -126,10 +126,9 @@ notAlternative = true
 # CSS Plugins
 [[params.plugins.css]]
 link = "plugins/swiper/swiper-bundle.css"
-[[params.plugins.css]]
-link = "plugins/glightbox/glightbox.css"
-[[params.plugins.css]]
-link = "plugins/font-awesome/v6/brands.css"
+# Glightbox loaded conditionally on gallery pages
+# link = "plugins/glightbox/glightbox.css"
+# Font Awesome - only solid.css needed (brands and icons unused)
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/solid.css"
 [[params.plugins.css]]
