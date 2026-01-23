@@ -44,6 +44,15 @@
     {{ end }}
     <!-- /Banner -->
 
+    <!-- Posts -->
+    {{ with site.GetPage "sections/actualites" }}
+      {{ if .Params.enable }}
+        {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
+        {{ partial "components/posts-swipe" (dict "Title" .Title "Description" .Params.Description "Posts" $paginator.Pages) }}
+      {{ end }}
+    {{ end }}
+    <!-- /Posts -->
+
     <!-- Sections -->
     <section
       class="section-sm bg-gradient-reverse *:py-2"
@@ -93,15 +102,6 @@
         </div>
       {{ end }}
     </section>
-        <!-- /Sections -->
-        
-    <!-- Posts -->
-    {{ with site.GetPage "sections/actualites" }}
-      {{ if .Params.enable }}
-        {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
-        {{ partial "components/posts-swipe" (dict "Title" .Title "Description" .Params.Description "Posts" $paginator.Pages) }}
-      {{ end }}
-    {{ end }}
-    <!-- /Posts -->
+    <!-- /Sections -->
   {{ end }}
 {{ end }}
