@@ -36,6 +36,10 @@
 
       <!-- Header -->
       <div class="container flex max-md:flex-col items-center justify-center z-10">
+        <!-- 
+          FIXME : find a way for the image to have it full size before the image loads
+          because chrome lighthouse complaint about it
+        -->
         <div class="flex items-center grow-0 shrink-0">
           {{ $image:= .Params.image }}
           <div class="max-w-96 w-full border-2 border-white rounded-xl overflow-hidden shadow-xl">
