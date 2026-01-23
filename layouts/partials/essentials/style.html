@@ -43,7 +43,9 @@
 
 <!-- Main stylesheet - inlined for critical CSS -->
 {{ $mainCSS := resources.Get "scss/main.scss" | toCSS }}
-{{ $mainCSS := $mainCSS | css.PostCSS | minify }}
+
+<!-- FIXME : css.PostCSS doesn't work on github actions for some reason -->
+{{ $mainCSS := $mainCSS | minify }}
 
 <!-- Inline critical CSS for faster first paint -->
 <style>
