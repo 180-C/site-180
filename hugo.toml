@@ -131,6 +131,8 @@ link = "plugins/swiper/swiper-bundle.css"
 link = "plugins/font-awesome/v6/solid.css"
 [[params.plugins.css]]
 link = "plugins/font-awesome/v6/icons.css"
+[[params.plugins.css]]
+link = "plugins/font-awesome/v6/brands.css"
 
 # JS Plugins
 [[params.plugins.js]]
