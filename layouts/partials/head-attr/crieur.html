@@ -1,3 +1,11 @@
+<!-- Help the browser prioritize those resources -->
+<link rel="preload" as="image" href="{{ "images/map_marker.png" | absURL }}"></link>
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/ol@10.7.0/dist/ol.min.js"></link>
+<link rel="preload" as="script" href="https://code.jquery.com/jquery-3.6.0.min.js"></link>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@10.7.0/dist/ol.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- crieur map -->
 {{ $crieur := resources.Get "js/map.js" }}
 {{ if hugo.IsProduction }}
@@ -9,11 +17,6 @@
   src="{{ $crieur.RelPermalink }}"
   defer
 ></script>
-
-<link
-  href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.min.css"
-  rel="stylesheet"
-/>
 
 <script type="text/javascript">
   {{ $config := index $.Site.Data "config-crieur" | default (dict) }}
