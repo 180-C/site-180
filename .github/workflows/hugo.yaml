@@ -72,8 +72,7 @@ jobs:
             --minify \
             --templateMetrics \
             --templateMetricsHints \
-            --forceSyncStatic \
-            --baseURL "/${{ github.event.repository.name }}/"
+            --forceSyncStatic
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
