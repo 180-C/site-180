@@ -1,20 +1,15 @@
 {{ define "main" }}
-  {{ partial "page-header" . }}
+  <section class="section-sm">
+    <div class="container text-center section-pb">
+      <h1>{{ .Title | title }}</h1>
+      {{ if .Params.Summary }}
+        {{ .Params.Summary }}
+      {{ end }}
+    </div>
 
-  <section class="section">
     <div class="container">
       <!-- Tag selection -->
-      <div class="row">
-        <!-- topbar -->
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "categories" "scope" . ) }}
-        </div>
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "tags" "scope" . ) }}
-        </div>
-      </div>
+      {{ partial ( print "components/tag-selector-in-header" ) ( dict "scope" . ) }}
 
       <!-- blog posts -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5">

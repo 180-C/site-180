@@ -1,14 +1,17 @@
 <footer class="bg-theme-light dark:bg-darkmode-theme-light">
   <div class="container">
     <div class="row items-center py-10">
+      <!-- navbar brand/logo -->
       <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:text-left">
-        <!-- navbar brand/logo -->
         <a
           class="navbar-brand inline-block"
-          href="{{ site.BaseURL | relLangURL }}">
+          href="{{ site.BaseURL | relLangURL }}"
+        >
           {{ partial "logo" }}
         </a>
       </div>
+
+      <!-- Links -->
       <div class="lg:col-6 mb-8 text-center lg:mb-0">
         <ul>
           {{ range site.Menus.footer }}
@@ -30,6 +33,8 @@
           {{ end }}
         </ul>
       </div>
+
+      <!-- Social medias -->
       <div class="lg:col-3 mb-8 text-center lg:mb-0 lg:mt-0 lg:text-right">
         <ul class="social-icons">
           {{ range site.Data.social.main }}
@@ -38,7 +43,8 @@
                 target="_blank"
                 aria-label="{{ .name }}"
                 rel="nofollow noopener"
-                href="{{ .link | safeURL }}">
+                href="{{ .link | safeURL }}"
+              >
                 <i class="{{ .icon }}"></i>
               </a>
             </li>

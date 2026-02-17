@@ -45,3 +45,9 @@
 
 - id: blog
   translation: "Articles"
+
+- id: tag_select_empty
+  translation: "Selectionne un filtre..."
+
+- id: categories
+  translation: "Catégories"

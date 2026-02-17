@@ -2,14 +2,15 @@
 title: "Spice League 2023"
 meta_title: ""
 description: "Concours de cuisine Spice League"
-image: "/images/events/spice-league.jpg"
-"events/categories": ["Spice League"]
-"events/tags": ["cuisine", "evenement"]
+image: "images/events/spice-league.jpg"
+"blog/categories": ["Spice League"]
+"blog/tags": ["cuisine", "evenement"]
 author: "Pôle Event"
 summary: "Spice League : le concours de cuisine étudiant !"
 draft: false
 date: 2023-03-25T00:00:00Z
 end_date: 2023-03-26T00:00:00Z
+lectureTimeMin: 5
 ---
 
 Avez-vous remarqué des affiches similaires à ce post sur le campus ? Vous ont-elles interpellées ? On l'espère car on est fièr.e.s de lancer la première édition de notre concours de cuisine: la **Spice League** 🏆👨‍🍳 !!!

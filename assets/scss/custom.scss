@@ -2,6 +2,15 @@
 .member-card {
   border: 0px;
   border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  @apply md:flex-col;
+
+  .card-body {
+    @apply flex flex-col grow items-center justify-center p-4;
+  }
 
   a {
     text-decoration: none;
@@ -14,19 +23,28 @@
   }
 
   img {
-    border: 0px;
-    border-radius: 20px 20px 0 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 0;
+
+    @apply max-sm:hidden max-md:h-32 max-md:min-w-32;
   }
 
+  // Name
   h4 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.2rem;
+
+    @apply max-sm:text-2xl
   }
 
+  // Role
   h5 {
     font-size: 1.25rem;
     font-weight: 500;
+
+    @apply max-sm:text-lg
   }
 }
 
@@ -114,5 +132,35 @@ div.splitbox div.right {
   div.splitbox div.right {
     width: 100%;
     float: left;
+  }
+}
+
+.logo-container {
+  --logo-blur: 3px;
+
+  background-repeat: no-repeat;
+
+  // FIXME: the background image path is absolute, so that will not work if we're hosting
+  // the site on a subdomain path (eg 180c.ch/something/)
+  background-image: url("/images/logo.png");
+  background-size: calc(100% - 4 * var(--logo-blur));
+  background-position: top calc(2 * var(--logo-blur)) left calc(2 * var(--logo-blur));
+  // background-size: contain;
+
+  &:hover {
+    .logo {
+      backdrop-filter: blur(var(--logo-blur));
+    }
+  }
+
+  margin: calc(-2 * var(--logo-blur));
+  
+  .logo {
+    backdrop-filter: blur(0px);
+
+    width: 100%;
+    height: 100%;
+    
+    padding: calc(2 * var(--logo-blur));
   }
 }

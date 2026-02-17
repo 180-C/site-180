@@ -45,7 +45,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     screens: {
-      sm: "540px",
+      sm: "520px",
       md: "768px",
       lg: "1024px",
       xl: "1280px",
@@ -121,5 +121,17 @@ module.exports = {
         5: "3rem",
       },
     }),
+    require('tailwindcss/plugin')(( { matchVariant }) => {
+      matchVariant('group-has', (value) => {
+        return `.group:has(${value}) &`
+      })
+    }),
+    require('tailwindcss/plugin')(( { matchUtilities }) => {
+      matchUtilities({
+        'bg-size': (value) => ({
+          'background-size': value
+        })
+      })
+    })
   ],
 };

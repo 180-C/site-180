@@ -52,3 +52,9 @@ weight = 1
 weight = 2
 name = "Contact"
 url = "mailto:epfl180c@gmail.com"
+
+# FIXME:set it to the 180c repo when merged
+[[footer]]
+weight = 3
+name = "Github"
+url = "https://github.com/eliott8942/site-180"

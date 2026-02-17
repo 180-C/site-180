@@ -16,7 +16,8 @@
                 name="name"
                 class="form-input"
                 placeholder="John Doe"
-                type="text" />
+                type="text"
+              />
             </div>
             <div class="mb-6">
               <label for="email" class="form-label">
@@ -27,7 +28,8 @@
                 name="email"
                 class="form-input"
                 placeholder="john.doe@email.com"
-                type="email" />
+                type="email"
+              />
             </div>
             <div class="mb-6">
               <label for="message" class="form-label">
@@ -38,7 +40,8 @@
                 name="message"
                 class="form-input"
                 placeholder="Message goes here..."
-                rows="8"></textarea>
+                rows="8"
+              ></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
@@ -56,7 +59,8 @@
         data-latitude="{{ .map_latitude }}"
         data-longitude="{{ .map_longitude }}"
         data-marker="{{ .map_marker | relURL }}"
-        data-marker-name="{{ site.Title }}"></div>
+        data-marker-name="{{ site.Title }}"
+      ></div>
     {{ end }}
   {{ end }}
 
@@ -67,7 +71,8 @@
         action="{{ .mailchimp_form_action | safeURL }}"
         method="post"
         id="mc-embedded-subscribe-form"
-        novalidate="novalidate">
+        novalidate="novalidate"
+      >
         <div class="input-group w-75 mx-auto mb-3">
           <input
             type="email"
@@ -77,11 +82,13 @@
             id="mce-EMAIL"
             aria-required="true"
             autocomplete="off"
-            required />
+            required
+          />
           <button
             class="input-group-text"
             name="subscribe"
-            id="mc-embedded-subscribe">
+            id="mc-embedded-subscribe"
+          >
             {{ .button_label }}
           </button>
         </div>
@@ -89,7 +96,8 @@
           type="hidden"
           name="EMAILTYPE"
           id="mce-EMAILTYPE-0"
-          value="html" />
+          value="html"
+        />
         <div style="position:absolute;left:-5000px" aria-hidden="true">
           <input type="text" name="{{ .name }}" tabindex="-1" />
         </div>
@@ -98,15 +106,18 @@
         <div
           class="response text-white"
           id="mce-error-response"
-          style="display:none"></div>
+          style="display:none"
+        ></div>
         <div
           class="response text-white"
           id="mce-success-response"
-          style="display:none"></div>
+          style="display:none"
+        ></div>
       </div>
       <script
         type="text/javascript"
-        src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+        src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+      ></script>
       <!-- /subscription form -->
     {{ end }}
   {{ end }}

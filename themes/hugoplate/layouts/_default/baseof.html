@@ -2,17 +2,16 @@
 <html
   itemscope
   lang="{{ site.LanguageCode | default `en-US` }}"
-  itemtype="http://schema.org/WebPage">
+  itemtype="http://schema.org/WebPage"
+>
   <head>
     <!-- head (don't cache it) -->
     {{ partial "essentials/head.html" . }}
 
-
-    <!-- style (always cache it) -->
-    {{ partialCached "essentials/style.html" . }}
+    {{ partial "essentials/style.html" . }}
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
     <!-- cache partial only in production -->
     {{ if hugo.IsProduction }}
       {{ partialCached "preloader.html" . }}
@@ -30,18 +29,15 @@
     {{ partial "essentials/header.html" . }}
     {{ partial "search-modal.html" (dict "Context" . ) }}
 
-
-    <main class="flex flex-col">
+    <div class="header-dim"></div>
+    
+    <div class="header-space"></div>
+    <main class="flex flex-col grow section-container">
       {{ block "main" . }}{{ end }}
     </main>
 
     <!-- cache partial only in production -->
-    {{ if hugo.IsProduction }}
-      {{ partialCached "essentials/footer.html" . }}
-      {{ partialCached "essentials/script.html" . }}
-    {{ else }}
-      {{ partial "essentials/footer.html" . }}
-      {{ partial "essentials/script.html" . }}
-    {{ end }}
+    {{ partial "essentials/footer.html" . }}
+    {{ partial "essentials/script.html" . }}
   </body>
 </html>

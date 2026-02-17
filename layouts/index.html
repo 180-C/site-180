@@ -1,60 +1,86 @@
+{{ define "headAttrs" }}
+  {{ with site.GetPage "homepage" }}
+    <!-- Add here images that should be loaded as soon as possible -->
+    <link rel="preload" as="image" href="{{ .Params.banner.image | relURL }}" fetchpriority="high">
+  {{ end }}
+{{ end }}
+
 {{ define "main" }}
   {{ with site.GetPage "homepage" }}
     <!-- Banner -->
     {{ with .Params.banner }}
-      <section class="section p-0 m-0">
+      <section class="p-0 m-0">
         <div
           class="row justify-center banner flex flex-col m-0 p-0"
-          style="background-image: url({{ .image | relURL }})">
+          style="background-image: url({{ .image | relURL }})"
+        >
           <div
-            class="grow flex flex-col items-center text-center justify-center m-0 p-0 px-4">
+            class="grow flex flex-col items-center text-center justify-center m-0 p-0 px-4"
+          >
             <h1
-              class="font-tertiary font-extrabold lg:text-8xl sm:text-6xl text-light mb-3 sm:mt-14 lg:mt-28">
+              class="font-tertiary font-extrabold lg:text-8xl sm:text-6xl text-light mb-3 sm:mt-14 lg:mt-28"
+            >
               {{ .title | markdownify }}
             </h1>
             <p
-              class="font-tertiary font-normal text-theme-light lg:text-3xl sm:text-xl m-0">
+              class="font-tertiary font-normal text-theme-light lg:text-3xl sm:text-xl m-0"
+            >
               {{ .content | markdownify }}
             </p>
           </div>
           <svg
             class="grow-0 m-0 p-0"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 180 1440 120">
+            viewBox="0 180 1440 120"
+          >
             <path
               class="fill-light dark:fill-darkmode-body"
               fill-opacity="1"
-              d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+              d="M0,224L120,234.7C240,245,480,267,720,272C960,277,1200,267,1320,261.3L1440,256L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
           </svg>
         </div>
       </section>
     {{ end }}
     <!-- /Banner -->
 
+    <!-- Posts -->
+    {{ with site.GetPage "sections/actualites" }}
+      {{ if .Params.enable }}
+        {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
+        {{ partial "components/posts-swipe" (dict "Title" .Title "Description" .Params.Description "Posts" $paginator.Pages) }}
+      {{ end }}
+    {{ end }}
+    <!-- /Posts -->
+
     <!-- Sections -->
-    {{ range $i, $e:= .Params.sections }}
-      <section
-        class="section-sm {{ if not (modBool $i 2) }}
-          bg-gradient-reverse
-        {{ end }}">
+    <section
+      class="section-sm bg-gradient-reverse *:py-2"
+    >
+      {{ range $i, $e:= .Params.sections }}
         <div class="container px-6">
           <div class="row items-center justify-between">
             <div
               class="mb:md-0 {{ if not (modBool $i 2) }}
                 md:order-2
-              {{ end }} md:col-5 mb-6">
+              {{ end }} md:col-5 mb-6"
+            >
               {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
             </div>
+
             <div
               class="{{ if not (modBool $i 2) }}
                 md:order-1
-              {{ end }} md:col-7 lg:col-6">
+              {{ end }} md:col-7 lg:col-6"
+            >
               <h2 class="mb-4 font-tertiary font-extrabold">
                 {{ .title | markdownify }}
               </h2>
+
               <p class="mb-8 text-lg">
                 {{ .content | markdownify }}
               </p>
+
               <ul class="list-none">
                 {{ range .bulletpoints }}
                   <li class="relative mb-4 pl-6">
@@ -74,45 +100,8 @@
             </div>
           </div>
         </div>
-      </section>
-    {{ end }}
-    <!-- /Sections -->
-
-    {{ $paginator := $.Paginate (where .Site.RegularPages "Type" "in" "blog") 10 }}
-
-    <!-- Posts -->
-    {{ with site.GetPage "sections/actualites" }}
-      {{ if .Params.enable }}
-        <section class="section bg-gradient">
-          <div class="container px-6">
-            <div class="row">
-              <div
-                class="md:col-10 lg:col-8 xl:col-6 mx-auto mb-12 text-center">
-                <h2 class="mb-4 font-tertiary font-extrabold">
-                  {{ .Title | markdownify }}
-                </h2>
-                <p>
-                  {{ .Params.description | markdownify }}
-                </p>
-              </div>
-              <div class="col-12">
-                <div class="swiper testimonial-slider">
-                  <div class="swiper-wrapper">
-                    {{ range $paginator.Pages }}
-                      <div class="swiper-slide">
-                        {{ partial "components/actu-card" . }}
-                      </div>
-                    {{ end }}
-                  </div>
-                  <div
-                    class="testimonial-slider-pagination mt-9 flex items-center justify-center text-center"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       {{ end }}
-    {{ end }}
-    <!-- /Posts -->
+    </section>
+    <!-- /Sections -->
   {{ end }}
 {{ end }}

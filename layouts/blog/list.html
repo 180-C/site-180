@@ -1,29 +1,24 @@
+{{ define "rootHeader" }}
+  <div class="section-sm container text-center">
+    <h1>{{ .Title | title }}</h1>
+    {{ if .Params.Summary }}
+      {{ .Params.Summary }}
+    {{ end }}
+  </div>
+
+  <!-- Tag selection -->
+  <!-- Note : That needs to be at the root of the "header" block to work. -->
+  {{ partial "components/tag-selector-in-header" ( dict "scope" . "class" "z-10 container") }}
+{{ end }}
+
 {{ define "main" }}
-  {{ partial "page-header" . }}
-
-
-  <section class="section">
-    <div class="container">
-      <!-- Tag selection -->
-      <div class="row">
-        <!-- topbar -->
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "categories" "scope" . ) }}
-        </div>
-        <div class="lg:col-6">
-          <!-- widgets -->
-          {{ partial ( print "components/widget" ) ( dict "widget" "tags" "scope" . ) }}
-        </div>
-      </div>
-
+  <section class="section-sm pt-0">
+    <div class="container relative">
       <!-- blog posts -->
-      <div class="row">
+      <div class="relative grid sm:grid-cols-2 lg:grid-cols-3 gx-5 py-3 gap-5 z-0">
         {{ $paginator:= .Paginate .RegularPages 6 }}
         {{ range $paginator.Pages }}
-          <div class="md:col-6 lg:col-4 mb-14">
-            {{ partial "components/blog-card" . }}
-          </div>
+          {{ partial "components/blog-card" . }}
         {{ end }}
       </div>
       {{ partial "components/pagination.html" . }}

@@ -5,7 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - release
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,8 +26,8 @@ concurrency:
 env:
   HUGO_ENV: production
   HUGO_ENVIRONMENT: production
-  HUGO_VERSION: "0.142.0"
-  GO_VERSION: "1.24.7"
+  HUGO_VERSION: "0.152.2"
+  GO_VERSION: "1.25.6"
   NODE_VERSION: "18.15.0"
   TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
   TINA_TOKEN: ${{ vars.TINA_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
           go version
 
       - name: Setup Project
-        run: npm run project-setup
+        run: node ./scripts/projectSetup.js
 
       - name: Install npm dependencies
         run: npm install
@@ -73,10 +73,10 @@ jobs:
             --templateMetrics \
             --templateMetricsHints \
             --forceSyncStatic \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "/${{ github.event.repository.name }}/"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -90,4 +90,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

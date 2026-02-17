@@ -11,7 +11,8 @@
                 class="hover:bg-primary dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark {{ if (and (eq $.Page.Kind `term`) (eq $.Page.Type `tags`) (eq $.Page.Title .Page.Title)) }}
                   active
                 {{ end }} m-1 block rounded bg-white px-3 py-1 hover:text-white"
-                href="{{ .Page.RelPermalink }}">
+                href="{{ .Page.RelPermalink }}"
+              >
                 {{ .Page.Title }}
               </a>
             </li>

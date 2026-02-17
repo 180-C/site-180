@@ -13,13 +13,15 @@
         <option
           id="{{ .Language }}"
           value="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"
-          selected>
+          selected
+        >
           {{ .Language.LanguageName }}
         </option>
       {{ else }}
         <option
           id="{{ .Language }}"
-          value="{{ replace (add .RelPermalink $pageLink) `//` `/` }}">
+          value="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"
+        >
           {{ .Language.LanguageName }}
         </option>
       {{ end }}

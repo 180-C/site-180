@@ -3,7 +3,7 @@
 banner:
   title: "Savourez la vie étudiante !"
   content: "180°C - Association de cuisine EPFL-UNIL"
-  image: "/images/banner.webp"
+  image: "./images/banner.webp"
   button:
     enable: false
     label: "Get Started For Free"
@@ -21,7 +21,7 @@ sections:
     button:
       enable: true
       label: "Découvrir"
-      link: "/crieur"
+      link: "./crieur"
 
   - title: "L'Association"
     image: "/images/association.png"
@@ -29,5 +29,5 @@ sections:
     button:
       enable: true
       label: "Voir plus"
-      link: "/association"
+      link: "./association"
 ---

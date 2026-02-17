@@ -1,0 +1,22 @@
+{{ $scope := .scope }}
+{{ $group := .group }}
+{{ $icon := .icon }}
+
+{{ $categories := $scope.Param (printf "%s/%s" $scope.Section $group) }}
+{{ if and $categories (ne (len $categories) 0) }}
+<span class="[&:not(:first-child)]:border-l [&:not(:first-child)]:ml-1 [&:not(:first-child)]:pl-2">
+  <i class="fa-regular {{ $icon }} opacity-75"></i>
+  {{ range $i,$p := $categories }}
+    {{ if $i }}
+      ,
+    {{ end }}
+
+    <a
+      href="{{ (printf "%s/%s" $scope.Section $group) | relLangURL }}/{{ . | urlize | lower }}"
+      class="ml-1 opacity-75 hover:opacity-100 hover:text-black duration-75"
+    >
+      {{ . | humanize }}
+    </a>
+  {{ end }}
+</span>
+{{ end }}

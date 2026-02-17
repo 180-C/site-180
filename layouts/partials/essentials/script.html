@@ -1,0 +1,38 @@
+<!-- JS Plugins + Main script -->
+{{ $scripts := slice }}
+{{ range site.Params.plugins.js }}
+  {{ if findRE "^http" .link }}
+    {{ $scripts = $scripts | append (resources.GetRemote .link) }}
+  {{ else }}
+    {{ $scripts = $scripts | append (resources.Get .link) }}
+  {{ end }}
+{{ end }}
+
+<!-- Load core plugins (minified) -->
+{{ with $scripts | resources.Concat "js/plugins-concat.js" | resources.Minify | fingerprint }}
+  <script src="{{ .RelPermalink }}"></script>
+{{ end }}
+
+<!-- main script - minified with esbuild -->
+{{ with resources.Get "js/main.js" | js.Build (dict "minify" true) | fingerprint }}
+  <script
+    crossorigin="anonymous"
+    integrity="{{ .Data.Integrity }}"
+    src="{{ .RelPermalink }}"
+  ></script>
+{{ end }}
+
+<!-- Load Glightbox only if page contains galleries -->
+<!-- <script>
+  if (document.querySelector('[data-gallery], .gallery-item, a[href*="images"][data-lightbox]')) {
+    const script = document.createElement('script');
+    script.src = '{{ (resources.Get "plugins/glightbox/glightbox.js" | resources.Minify | fingerprint).RelPermalink }}';
+    script.async = true;
+    script.onload = function() {
+      if (window.GLightbox) {
+        GLightbox();
+      }
+    };
+    document.head.appendChild(script);
+  }
+</script> -->

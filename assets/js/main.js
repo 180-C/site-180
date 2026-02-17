@@ -28,7 +28,7 @@
     slidesPerView: 1,
     centeredSlides: false,
     breakpoints: {
-      768: {
+      520: {
         slidesPerView: 2,
         slidesPerGroup: 2,
       },
@@ -39,32 +39,10 @@
     },
   });
 
-  $.fn.shuffle = function () {
-    var allElems = this.get(),
-      getRandom = function (max) {
-        return Math.floor(Math.random() * max);
-      },
-      shuffled = $.map(allElems, function () {
-        var random = getRandom(allElems.length),
-          randEl = $(allElems[random]).clone(true)[0];
-        allElems.splice(random, 1);
-        return randEl;
-      });
-
-    this.each(function (i) {
-      $(this).replaceWith($(shuffled[i]));
-    });
-
-    return $(shuffled);
-  };
-
   // Crieur Slider
   // ----------------------------------------
-  $(".crieur-slider").each(function (index, elm) {
-    var slides = $(elm).find(".swiper-slide");
-    slides.shuffle();
-
-    new Swiper(".crieur-slider", {
+  document.querySelectorAll(".crieur-slider").forEach((elm) => {
+    new Swiper(elm, {
       spaceBetween: 24,
       loop: false,
       pagination: {
@@ -76,7 +54,7 @@
       slidesPerView: 1,
       centeredSlides: false,
       breakpoints: {
-        768: {
+        520: {
           slidesPerView: 2,
           slidesPerGroup: 2,
         },

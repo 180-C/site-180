@@ -2,7 +2,8 @@
   <section>
     <div class="container text-center">
       <div
-        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8">
+        class="from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light rounded-2xl bg-gradient-to-b px-8"
+      >
         {{ partial "components/breadcrumb" (dict "Context" . "Class" "mt-6 mb-6") }}
       </div>
     </div>
@@ -11,29 +12,19 @@
   <section class="section pt-7">
     <div class="container">
       <div class="row justify-center">
-        {{ $image:= .Params.image }}
-
-
-        <!-- prettier -->
-        {{ if $image }}
-          <div class="lg:col-6 mb-10 lg:mb-0">
-            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded ") }}
-          </div>
-        {{ end }}
-
-
-        <div
+        <div class="lg:col-6 p-5">
+          {{ $image:= .Params.image }}
           {{ if $image }}
-            class="lg:col-6"
-          {{ else }}
-            class="lg:col-12"
+            {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "w-full rounded") }}
           {{ end }}
-          >
-          <h1 class="h2 mb-4">
+        </div>
+
+        <div class="lg:col-6 p-5">
+          <h1 class="h1 mt-10">
             {{ .Title }}
           </h1>
           <div class="content mb-10">
-            {{ .Content }}
+            {{ .Content | safeHTML }}
           </div>
         </div>
 

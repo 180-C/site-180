@@ -9,36 +9,15 @@ const purgecss = {
     ];
   },
   safelist: [
+    // Swiper classes are removed for some reasons
     /^swiper-/,
-    /^lb-/,
-    /^gl/,
-    /^go/,
-    /^gc/,
-    /^gs/,
-    /^gi/,
-    /^gz/,
-    /^gprev/,
-    /^gnext/,
-    /^desc/,
-    /^zoom/,
-    /^search/,
-    /^:is/,
-    /dark/,
-    /show/,
-    /dragging/,
-    /fullscreen/,
-    /loaded/,
-    /visible/,
-    /current/,
-    /active/,
   ],
 };
 
 module.exports = {
   plugins: {
     tailwindcss: {},
-    "@fullhuman/postcss-purgecss":
-      process.env.HUGO_ENVIRONMENT === "production" ? purgecss : false,
-    autoprefixer: process.env.HUGO_ENVIRONMENT === "production" ? {} : false,
+    "@fullhuman/postcss-purgecss": purgecss,
+    autoprefixer: {},
   },
 };

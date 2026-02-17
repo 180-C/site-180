@@ -1,0 +1,93 @@
+{{ $scope := .scope }}
+
+{{ $currentTag := "" }}
+{{ $hasCurrentTag := false }}
+{{ if eq $scope.Kind "term" }}
+  {{ $currentTag = lower $scope.Title | strings.FirstUpper }}
+  {{ $hasCurrentTag = true }}
+{{ end }}
+
+{{ $allWidgets := slice "tags" "categories" }}
+{{ $nonEmptyWidgetCount := 0 }}
+{{ range $widget := $allWidgets }}
+  {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
+  {{ if and $taxonomy (not (eq (len $taxonomy) 0) ) }}
+    {{ $nonEmptyWidgetCount = add $nonEmptyWidgetCount 1 }}
+  {{ end }}
+{{ end }}
+{{ $nonEmptyWidgetPresent := ne $nonEmptyWidgetCount 0 }}
+
+<!-- 
+Note : We're using a generic has-[input:checked] selector here.
+That's fine for our case for the time being, but if we need another
+checker input for another reason, that would break.  
+-->
+
+{{ if $nonEmptyWidgetPresent }}
+  <div class="border rounded-3xl bg-gray-100 group has-[input:checked]:shadow-lg duration-75">
+    <!-- Header -->
+    <div class="flex flex-row bg-gray-100 items-center rounded-3xl has-[input:checked]:bg-gray-200 duration-50">
+      {{ if $hasCurrentTag }}
+        <div class="flex flex-row items-center tracking-wide leading-8 bg-white py-1 pl-5 pr-2 rounded-full shrink-0 m-1 box-border outline outline-secondary/50 outline-1 hover:outline-2 duration-75">
+          <div class="text-secondary">
+            {{ $currentTag }}
+          </div>
+        
+          <a
+            href={{ absURL $scope.Section}}
+            class="ml-2 p-1 rounded-full hover:text-primary duration-75 cursor-pointer text-pri"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </a>
+        </div>
+      {{ else }}
+        <div class="flex flex-row py-3">
+          <div class="pl-5"></div>
+          <h5> {{ i18n "tag_select_empty" }} </h5>
+        </div>
+      {{ end }}
+
+      <!-- Space -->
+      <div class="grow"></div>
+
+      <div class="order-3 toggle bg-white rounded-full mr-1 border" id="selector-toggle">
+        <input id="selector-toggle-inner" type="checkbox" class="hidden" />
+        <label
+          for="selector-toggle-inner"
+          class="flex items-center text-dark dark:text-white lg:order-1 w-full h-full p-2"
+        >
+          <svg id="show-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down block"><path d="m6 9 6 6 6-6"/></svg>
+          <svg id="hide-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-up-icon lucide-chevron-up hidden"><path d="m18 15-6-6-6 6"/></svg>
+        </label>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative overflow-auto max-h-0 group-has-[input:checked]:max-h-64 duration-75">
+      <div class="px-5 py-3 overflow-auto">
+        {{ range $widget := $allWidgets }}
+          {{ $taxonomy := index site.Taxonomies (printf "%s/%s" $scope.Section $widget) }}
+          {{ if $taxonomy }}
+            {{ if not (eq (len $taxonomy) 0) }}
+              {{ if ne $nonEmptyWidgetCount 1 }}
+                <div class="border-b border-secondary border-opacity-70">
+                  <h4 class="leading-loose"> {{ i18n $widget | humanize }} </h4>
+                </div>
+              {{ end }}
+              <div class="flex flex-row flex-wrap pt-2">
+                {{ range $name, $items := $taxonomy }}
+                  {{ $tagName := .Page.Title | humanize }}
+                  {{ if or (not $hasCurrentTag) (ne $currentTag (lower $tagName | strings.FirstUpper)) }}
+                    <a href="{{ .Page.RelPermalink }}" class="tracking-wide leading-8 bg-white py-1 px-5 rounded-full outline outline-border outline-1 shrink-0 m-1 hover:outline-primary hover:outline-2 hover:text-primary box-border duration-75">
+                      {{ $tagName }}
+                    </a>
+                  {{ end }}
+                {{ end }}
+                </div>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}

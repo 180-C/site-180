@@ -43,7 +43,9 @@
       <div
         class="section-sm {{ if (modBool $i 2) }}
           bg-primary text-light
-        {{ end }} pt-0">
+        {{ end }} pt-0"
+      >
+        <!-- Separator -->
         {{ if (modBool $i 2) }}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 100 1440 150">
             <path
@@ -53,7 +55,8 @@
                 fill-primary
               {{ end }}"
               fill-opacity="1"
-              d="M0,192L80,181.3C160,171,320,149,480,154.7C640,160,800,192,960,197.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+              d="M0,192L80,181.3C160,171,320,149,480,154.7C640,160,800,192,960,197.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+            ></path>
           </svg>
         {{ else }}
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 1440 180">
@@ -64,7 +67,8 @@
                 fill-primary
               {{ end }}"
               fill-opacity="1"
-              d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+              d="M0,96L80,106.7C160,117,320,139,480,133.3C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+            ></path>
           </svg>
         {{ end }}
 
@@ -73,49 +77,179 @@
           <h1
             class="font-extrabold font-tertiary {{ if (modBool $i 2) }}
               text-light
-            {{ end }} ">
+            {{ end }} "
+          >
             {{ .name }}
           </h1>
           <p>{{ .description }}</p>
-          <div class="row justify-center m-0 p-0 pt-4">
-            {{ range .members }}
-              <div class="col-12 md:col-6 lg:col-3 my-2">
-                <div
-                  class="member-card {{ if (modBool $i 2) }}
-                    bg-body
-                  {{ else }}
-                    bg-secondary dark:bg-body
-                  {{ end }}">
-                  <a href="{{ .link }}" target="_blank">
-                    {{ $image:= .image }}
-                    {{ if $image }}
-                      {{ partial "image" (dict "Src" $image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
-                    {{ end }}
-                  </a>
-                  <div class="card-body text-center p-4">
+
+          <!-- Members -->
+          {{ $theme := .theme }}
+          {{ $chief_members := where .members "type" "eq" "chief" }}
+          {{ $other_members := where .members "type" "ne" "chief" }}
+
+          {{ if eq $theme "comity" }}
+            <div class="row justify-center m-0 p-0 pt-4">
+              {{ range $chief_members }}
+                <div class="col-12 md:col-6 lg:col-3 my-2">
+                  <div
+                    class="member-card {{ if (modBool $i 2) }}
+                      bg-body
+                    {{ else }}
+                      bg-secondary dark:bg-body
+                    {{ end }}"
+                  >
+                    <a href="{{ .link }}" target="_blank">
+                      {{ if .image }}
+                        {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ else }}
+                        {{ partial "image" (dict "Src" "images/unknown.png" "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ end }}
+                    </a>
+
+                    <div class="card-body">
+                      <h4
+                        class="font-secondary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        <a href="{{ .link }}" target="_blank">
+                          {{ .name }}
+                        </a>
+                      </h4>
+                      <h5
+                        class="font-tertiary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        {{ .role }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+            <div class="row justify-center m-0 p-0 pt-4">
+              {{ range $other_members }}
+                <div class="col-12 md:col-6 lg:col-3 my-2">
+                  <div
+                    class="member-card {{ if (modBool $i 2) }}
+                      bg-body
+                    {{ else }}
+                      bg-secondary dark:bg-body
+                    {{ end }}"
+                  >
+                    <a href="{{ .link }}" target="_blank">
+                      {{ if .image }}
+                        {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ else }}
+                        {{ partial "image" (dict "Src" "images/unknown.png" "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ end }}
+                    </a>
+
+                    <div class="card-body">
+                      <h4
+                        class="font-secondary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        <a href="{{ .link }}" target="_blank">
+                          {{ .name }}
+                        </a>
+                      </h4>
+                      <h5
+                        class="font-tertiary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        {{ .role }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+          {{ else }}
+            <div class="row justify-center m-0 p-0 pt-4">
+              {{ range $chief_members }}
+                <div class="col-12 md:col-6 lg:col-3 my-2">
+                  <div
+                    class="member-card {{ if (modBool $i 2) }}
+                      bg-body
+                    {{ else }}
+                      bg-secondary dark:bg-body
+                    {{ end }}"
+                  >
+                    <a href="{{ .link }}" target="_blank">
+                      {{ if .image }}
+                        {{ partial "image" (dict "Src" .image "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ else }}
+                        {{ partial "image" (dict "Src" "images/unknown.png" "Alt" .Title "Class" "rounded img-fluid" "size" "120x120") }}
+                      {{ end }}
+                    </a>
+                    <div class="card-body">
+                      <h4
+                        class="font-secondary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        <a href="{{ .link }}" target="_blank">
+                          {{ .name }}
+                        </a>
+                      </h4>
+                      <h5
+                        class="font-tertiary {{ if (modBool $i 2) }}
+                          text-dark dark:text-dark
+                        {{ else }}
+                          text-light dark:text-dark
+                        {{ end }}"
+                      >
+                        {{ .role }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+            <div class="row justify-center m-0 p-0 pt-4">
+              {{ range $other_members }}
+                <div class="p-4 w-fit">
+                  <div class="card-body">
                     <h4
                       class="font-secondary {{ if (modBool $i 2) }}
-                        text-dark dark:text-dark
-                      {{ else }}
                         text-light dark:text-dark
-                      {{ end }}">
+                      {{ else }}
+                        text-dark dark:text-dark
+                      {{ end }}"
+                    >
                       <a href="{{ .link }}" target="_blank">
                         {{ .name }}
                       </a>
                     </h4>
                     <h5
                       class="font-tertiary {{ if (modBool $i 2) }}
-                        text-dark dark:text-dark
-                      {{ else }}
                         text-light dark:text-dark
-                      {{ end }}">
+                      {{ else }}
+                        text-dark dark:text-dark
+                      {{ end }}"
+                    >
                       {{ .role }}
                     </h5>
                   </div>
                 </div>
-              </div>
-            {{ end }}
-          </div>
+              {{ end }}
+            </div>
+          {{ end }}
         </div>
       </div>
     {{ end }}

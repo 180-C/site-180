@@ -15,7 +15,8 @@
           <ul class="mb-4">
             <li class="mr-4 inline-block">
               <a
-                href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/">
+                href="{{ `authors/` | relLangURL }}{{ .Params.Author | urlize }}/"
+              >
                 <i class="fa-regular fa-circle-user mr-2"></i
                 >{{ .Params.author }}
               </a>
@@ -50,7 +51,8 @@
                   <li class="inline-block">
                     <a
                       class="bg-theme-light hover:bg-primary dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                      href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/">
+                      href="{{ `tags/` | relLangURL }}{{ . | urlize | lower }}/"
+                    >
                       {{ . | humanize }}
                     </a>
                   </li>
