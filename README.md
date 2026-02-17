@@ -24,5 +24,5 @@ Released under the [MIT License](LICENSE).
 
 ## Authors
 
-- [Antonin Faure](https://github.com/antoninfaure) (v1.0)
+- [Antonin Faure](https://github.com/antoninfaure), [@mrdcq](https://github.com/mrdcq) and [@Gutogmaia](https://github.com/Gutogmaia) (v1.0)
 - [Eliott Tornassat](eliott.tornassat@epfl.ch) (v1.5)
